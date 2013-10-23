@@ -1,0 +1,43 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "partials/variables";
+@import "partials/mixins";
+
+/* sprite generation */
+@import "sprites/general/*.png";
+@include all-general-sprites;
+
+@import "compass/css3/images";
+@import "compass/css3/transform";
+@import "compass/css3/box-shadow";
+
+
+body, p, span, div {
+  color: $body-copy;
+}
+li {
+  float: left;
+}
+
+.container-wrapper {
+  height: 100%;
+  min-height: 800px;
+  @include background-image(radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%));
+}
+
+.content-wrapper {
+  overflow: hidden;
+}
+
+.test-listitem {
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+
+@import "partials/animations";
+ 

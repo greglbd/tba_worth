@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <title>My HTML File</title>
+    <link rel="stylesheet" href="assets/stylesheets/screen.css">
+    <link rel="stylesheet" href="assets/stylesheets/bootstrap.min.css"> 
+    <link rel="stylesheet" href="assets/stylesheets/bootstrap-responsive.min.css">   
+
+    
+  </head>
+  <body ng-app="app" >
+    <div class="container-wrapper" ng-cloak>
+      <div class="content-wrapper" ng-controller="PageCtrl">
+        <div class="page" ng-model="currentPage" ng-click="change(2)" ng-show="currentPage==1"  ng-animate="'fade'">
+          <h1>Selective Attention
+
+Participate in a visual version of a dichotic listening experiment to explore the factors involved in selective attention.
+Click anywhere to begin.
+</h1>
+        </div>
+        <div class="page" ng-model="currentPage"  ng-show="currentPage==2 || currentPage==3" ng-animate="'fade'">
+          <h1>You are a participant in an experiment on selective attention. Click play to see three rapid streams of words in the box below. Your task is:
+ 
+BE SURE THAT YOU ATTEND TO THE MIDDLE STREAM ONLY, SO YOU DON'T MISS ANY OF THE WORDS IN IT.
+ 
+To ensure that you attend to every word in the middle stream, you should shadow the words silently in your mind as they go by. You can replay the streams as many times as you like. When you feel confident that you have carried out this task successfully, click finished.
+
+          </h1>
+          <div class="container">
+            <div class="row test" ng-controller="TestCtrl" >
+              <div class="span8 offset4">
+                <div class="row">
+                  <div class="span4">
+                    <ul class="unstyled test-listitems">
+                      <li class="test-listitem" ng-model="list1">{{list1}}</li>
+                      <li class="test-listitem" ng-model="list2">{{list2}}</li>
+                      <li class="test-listitem" ng-model="list3">{{list3}}</li>
+                    </ul>
+                  </div>
+                  <div class="span4" ng-model="stimuli" ng-hide="stimuli==false">
+                    <div class="list1" ng-model="stimuliList" data-list="{{stimuliList}}">
+                      <div>
+                        <h2>list 1</h2>
+                        <span ng-repeat="stimuliList in stimuliList.list1">
+                          {{stimuliList.word}},
+                        </span>
+                      </div>
+                      <div>
+                        <h2>list 2</h2>
+                        <span ng-repeat="stimuliList in stimuliList.list2">
+                          {{stimuliList.word}},
+                        </span>
+                      </div>
+                      <div>
+                        <h2>list 3</h2>
+                        <span ng-repeat="stimuliList in stimuliList.list3">
+                          {{stimuliList.word}},
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="span4">
+                    
+                      <button ng-click="startTest(1)" ng-show="replay==false" type="button" class="btn btn-primary" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+                          Play
+                      </button>
+                      <button ng-click="startTest(2);replay=false;" ng-show="replay==true" type="button" class="btn btn-primary" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+                          REPLAY
+                      </button>
+                      <button type="button" ng-show="replay==false" ng-click="replay=true;" class="btn btn-primary" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+                        Finished
+                      </button>
+                      <button type="button" ng-show="replay==true && stimuli==false" ng-click="stimuli=true;" class="btn btn-primary" ng-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+                        Show Stimuli
+                      </button>
+                      <button type="button" ng-show="stimuli==true" ng-click="stimuli=false;" class="btn btn-primary"  btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+                        Hide Stimuli
+                      </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div> 
+    
+    <script src="assets/js/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="assets/js/ui-bootstrap-0.6.0.min.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
