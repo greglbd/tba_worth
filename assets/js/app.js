@@ -20,7 +20,6 @@ app.controller('PageCtrl', function($scope){
     else if (!$window)
     {
       $scope.currentPage = $targetPage;
-      console.log('not window');
     }
   }
 });
@@ -61,12 +60,12 @@ app.controller('TestCtrl', function($scope) {
       $scope.list2 = $scope.stimuliList.list2[$i]['word'];
       $scope.list3 = $scope.stimuliList.list3[$i]['word'];
       $i++;
-      if($i == $scope.stimuliList.length-1)
+      if($i == $scope.stimuliList.list1.length)
       {
         $scope.stopTest();
       }
       $scope.$apply();
-    },1000);
+    },200);
     
     $scope.not_started=false;
     return false;
