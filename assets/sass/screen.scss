@@ -23,14 +23,30 @@ li {
   float: left;
 }
 
+.page-title {
+  @include font-large(bold);
+}
+
+.page-copy {
+  @include font-regular(normal);
+}
+
+.page-copy_margin {
+  margin: 10px 10px;
+}
+
 .container-wrapper {
   height: 100%;
   min-height: 800px;
-  @include background-image(radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%));
+  @include background-image(url(../images/bg.png),radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%));
+  background-repeat: repeat;
 }
-
 .content-wrapper {
   overflow: hidden;
+}
+
+.page {
+  margin: 20px;
 }
 
 .test-listitem {
@@ -39,5 +55,38 @@ li {
   text-align: center;
 }
 
+.centeredtext {
+  text-align: center;
+}
+
+.fullscreen {
+  width: 100%;
+  height: 100%;
+}
+
+.whitebox {
+  background-color: #fff;
+}
+
+.stimulibox {
+  border: 2px solid #000;
+  width: 225px;
+  margin: 10px 0 0;
+  float: left;
+  
+  & > h2 {
+    background-color: #000;
+    color: $body-copy-inverse;
+    @include font-regular(bold);
+    margin: 0;
+    line-height: 26px;
+  }
+  
+  & > .stimulibox-list {
+    background-color: white;
+    padding: 5px;
+    @include font-small(normal);
+  }
+}
 @import "partials/animations";
  

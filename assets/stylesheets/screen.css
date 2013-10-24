@@ -95,7 +95,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* line 19, ../sass/screen.scss */
 body, p, span, div {
-  color: #8e8e8e;
+  color: #4b4b4b;
 }
 
 /* line 22, ../sass/screen.scss */
@@ -104,26 +104,85 @@ li {
 }
 
 /* line 26, ../sass/screen.scss */
+.page-title {
+  font: normal bold 14px Arial, "sans-serif";
+}
+
+/* line 30, ../sass/screen.scss */
+.page-copy {
+  font: normal normal 12px Arial, "sans-serif";
+}
+
+/* line 34, ../sass/screen.scss */
+.page-copy_margin {
+  margin: 10px 10px;
+}
+
+/* line 38, ../sass/screen.scss */
 .container-wrapper {
   height: 100%;
   min-height: 800px;
-  background-image: -webkit-gradient(radial, 50%, 0, 50%, 100, color-stop(16%, #ffffff), color-stop(100%, #cccccc));
-  background-image: -webkit-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
-  background-image: -moz-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
-  background-image: -o-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
-  background-image: radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+  background-image: url(../images/bg.png), -webkit-gradient(radial, 50%, 0, 50%, 100, color-stop(16%, #ffffff), color-stop(100%, #cccccc));
+  background-image: url(../images/bg.png), -webkit-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+  background-image: url(../images/bg.png), -moz-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+  background-image: url(../images/bg.png), -o-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+  background-image: url(../images/bg.png), radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+  background-repeat: repeat;
 }
 
-/* line 32, ../sass/screen.scss */
+/* line 44, ../sass/screen.scss */
 .content-wrapper {
   overflow: hidden;
 }
 
-/* line 36, ../sass/screen.scss */
+/* line 48, ../sass/screen.scss */
+.page {
+  margin: 20px;
+}
+
+/* line 52, ../sass/screen.scss */
 .test-listitem {
   float: left;
   width: 100%;
   text-align: center;
+}
+
+/* line 58, ../sass/screen.scss */
+.centeredtext {
+  text-align: center;
+}
+
+/* line 62, ../sass/screen.scss */
+.fullscreen {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 67, ../sass/screen.scss */
+.whitebox {
+  background-color: #fff;
+}
+
+/* line 71, ../sass/screen.scss */
+.stimulibox {
+  border: 2px solid #000;
+  width: 225px;
+  margin: 10px 0 0;
+  float: left;
+}
+/* line 77, ../sass/screen.scss */
+.stimulibox > h2 {
+  background-color: #000;
+  color: white;
+  font: normal bold 12px Arial, "sans-serif";
+  margin: 0;
+  line-height: 26px;
+}
+/* line 85, ../sass/screen.scss */
+.stimulibox > .stimulibox-list {
+  background-color: white;
+  padding: 5px;
+  font: normal normal 10px Arial, "sans-serif";
 }
 
 /* line 1, ../sass/partials/_animations.scss */

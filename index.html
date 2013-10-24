@@ -13,23 +13,32 @@
     
   </head>
   <body ng-app="app" >
-    <div class="container-wrapper" ng-cloak>
-      <div class="content-wrapper" ng-controller="PageCtrl">
-        <div class="page" ng-model="currentPage" ng-click="change(2)" ng-show="currentPage==1"  ng-animate="'fade'">
-          <h1>Selective Attention
-
-Participate in a visual version of a dichotic listening experiment to explore the factors involved in selective attention.
-Click anywhere to begin.
-</h1>
+    <div class="container-wrapper" ng-controller="PageCtrl" ng-click="change(1, 'home')" ng-cloak>
+      <div class="content-wrapper">
+        <div class="page" ng-model="currentPage" ng-click="change(1)" ng-show="currentPage==0"  ng-animate="'fade'">
+          <div class="container">
+            <div class="row">
+              <div class="span12 whitebox">
+                <h1 class="page-title page-copy_margin centeredtext">Selective Attention</h1>
+                <p class="page-copy page-copy_margin centeredtext"> Participate in a visual version of a dichotic listening experiment to explore the factors involved in selective attention.</p>
+                <p class="page-copy page-copy_margin centeredtext">Click anywhere to begin.</p>
+              </div>
+            </div>
+          </div>
+          
         </div>
-        <div class="page" ng-model="currentPage"  ng-show="currentPage==2 || currentPage==3" ng-animate="'fade'">
-          <h1>You are a participant in an experiment on selective attention. Click play to see three rapid streams of words in the box below. Your task is:
- 
-BE SURE THAT YOU ATTEND TO THE MIDDLE STREAM ONLY, SO YOU DON'T MISS ANY OF THE WORDS IN IT.
- 
-To ensure that you attend to every word in the middle stream, you should shadow the words silently in your mind as they go by. You can replay the streams as many times as you like. When you feel confident that you have carried out this task successfully, click finished.
-
-          </h1>
+        <div class="page" ng-model="currentPage"  ng-show="currentPage==1" ng-animate="'fade'">
+           <div class="container">
+            <div class="row">
+              <div class="span12 whitebox">
+                <p class="page-copy page-copy_margin centeredtext">You are a participant in an experiment on selective attention. Click play to see three rapid streams of words in the box below. Your task is:</p>
+                <p class="page-copy page-copy_margin centeredtext">BE SURE THAT YOU ATTEND TO THE MIDDLE STREAM ONLY, SO YOU DON'T MISS ANY OF THE WORDS IN IT.</p>
+                <p class="page-copy page-copy_margin centeredtext"> 
+    To ensure that you attend to every word in the middle stream, you should shadow the words silently in your mind as they go by. You can replay the streams as many times as you like. When you feel confident that you have carried out this task successfully, click finished</p>
+              </div>
+            </div>
+          </div>
+         
           <div class="container">
             <div class="row test" ng-controller="TestCtrl" >
               <div class="span8 offset4">
@@ -43,37 +52,43 @@ To ensure that you attend to every word in the middle stream, you should shadow 
                   </div>
                   <div class="span4" ng-model="stimuli" ng-hide="stimuli==false">
                     <div class="list1" ng-model="stimuliList" data-list="{{stimuliList}}">
-                      <div>
-                        <h2>list 1</h2>
-                        <span ng-repeat="stimuliList in stimuliList.list1">
-                          {{stimuliList.word}},
-                        </span>
+                      <div class="stimulibox">
+                        <h2 class="centeredtext">Top Stream</h2>
+                        <div class="pull-left stimulibox-list">
+                          <span ng-repeat="stimuliList in stimuliList.list1">
+                            {{stimuliList.word}},
+                          </span>
+                        </div>
                       </div>
-                      <div>
-                        <h2>list 2</h2>
-                        <span ng-repeat="stimuliList in stimuliList.list2">
-                          {{stimuliList.word}},
-                        </span>
+                      <div class="stimulibox">
+                        <h2 class="centeredtext">Middle Stream</h2>
+                        <div class="pull-left stimulibox-list">
+                          <span ng-repeat="stimuliList in stimuliList.list2">
+                            {{stimuliList.word}},
+                          </span>
+                        </div>
                       </div>
-                      <div>
-                        <h2>list 3</h2>
-                        <span ng-repeat="stimuliList in stimuliList.list3">
-                          {{stimuliList.word}},
-                        </span>
+                      <div class="stimulibox">
+                        <h2 class="centeredtext">Bottom Stream</h2>
+                        <div class="pull-left stimulibox-list">
+                          <span ng-repeat="stimuliList in stimuliList.list3">
+                            {{stimuliList.word}},
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="span4">
+                  <div class="span4" ng-model="not_started">
                     
                       <button ng-click="startTest(1)" ng-show="replay==false" type="button" class="btn btn-primary" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
                           Play
                       </button>
-                      <button ng-click="startTest(2);replay=false;" ng-show="replay==true" type="button" class="btn btn-primary" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+                      <button ng-click="reinitTest(2);replay=false;" ng-show="replay==true" type="button" class="btn btn-primary" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
                           REPLAY
                       </button>
-                      <button type="button" ng-show="replay==false" ng-click="replay=true;" class="btn btn-primary" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+                      <button type="button" ng-show="replay==false" ng-click="replay=true;" ng-disabled="not_started" class="btn btn-primary" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
                         Finished
                       </button>
                       <button type="button" ng-show="replay==true && stimuli==false" ng-click="stimuli=true;" class="btn btn-primary" ng-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
