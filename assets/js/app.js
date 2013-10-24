@@ -2,14 +2,33 @@
 var app = angular.module('app',  []);
 
 app.controller('PageCtrl', function($scope){
-  $scope.pageArray = [0,1,2,3,4];
   $scope.currentPage = 0;
   
+  $scope.pageCopy = [
+    {
+      copy: [
+        { line: "You are a participant in an experiment on selective attention. Click play to see three rapid streams of words in the box below. Your task is:" },
+        { line: "BE SURE THAT YOU ATTEND TO THE MIDDLE STREAM ONLY, SO YOU DON'T MISS ANY OF THE WORDS IN IT."  },
+        { line: "To ensure that you attend to every word in the middle stream, you should shadow the words silently in your mind as they go by. You can replay the streams as many times as you like. When you feel confident that you have carried out this task successfully, click finished"  }
+      ]
+    },
+    {
+      copy: [
+        { line: "Did you notice anything in the top and bottom streams?" },
+        { line: "Experiments like this are typically carried out with auditory stimuli (streams of spoken words), not visual stimuli. And typically, participants notice very little in the unattended streams."  },
+        { line: "In this case, some of the words in the unattended streams were words from a foreign language, words from a nursery rhyme, or not even words at all. Click REPLAY to see how easy it is to notice these features if you aren't attending elsewhere and how difficult it is if you're attending to the middle stream. Click SHOW THE STIMULI to see the streams in full."  }
+      ]
+    }
+  ];
+  $scope.currentPageCopy = $scope.pageCopy[0];
+
   $scope.change= function($targetPage, $window) {
+    console.log('test');
     if($window)
     {
       if($scope.currentPage == 0)
       {
+        $scope.updateHeader($scope.currentPage);
         $scope.currentPage = $targetPage;
       }
       else
@@ -21,6 +40,11 @@ app.controller('PageCtrl', function($scope){
     {
       $scope.currentPage = $targetPage;
     }
+    
+  }
+  
+  $scope.updateHeader = function($index) {
+    $scope.currentPageCopy = $scope.pageCopy[$index];
   }
 });
 
@@ -36,16 +60,12 @@ app.controller('TestCtrl', function($scope) {
     list3: [{word:"feeble"}, {word:"red"}, {word:"love"}, {word:"thud"}, {word:"grass"}, {word:"kill"}, {word:"face"}, {word:"grave"}, {word:"funny"}, {word:"museum"}, {word:"iron"}, {word:"help"}, {word:"quiet"}, {word:"file"}, {word:"pain"}, {word:"shoe"}, {word:"away"}, {word:"scream"}, {word:"fire"}]
   };
 
-  $scope.list1='(ignore)';
-  $scope.list2='(attend)';
-  $scope.list3='(ignore)';  
-  $scope.stimuli = false;
-  $scope.replay = false;
-  $scope.not_started = true;
   $scope.test = 1;
   $scope.myInterval;
   
   $scope.startTest= function() {
+    $scope.isplaying = true;
+    $scope.notcomplete = true;
     if($scope.test == 1)
     {
       $scope.stimuliList = $scope.test1; 
@@ -55,32 +75,37 @@ app.controller('TestCtrl', function($scope) {
     }     
     
     $i = 0;
-    $scope.myInterval=setInterval(function(){
-      $scope.list1 = $scope.stimuliList.list1[$i]['word'];
-      $scope.list2 = $scope.stimuliList.list2[$i]['word'];
-      $scope.list3 = $scope.stimuliList.list3[$i]['word'];
-      $i++;
-      if($i == $scope.stimuliList.list1.length)
-      {
-        $scope.stopTest();
-      }
-      $scope.$apply();
-    },200);
-    
+    $scope.list1 = '+';
+    $scope.list2 = '+';
+    $scope.list3 = '+';
+    setTimeout(function(){
+      $scope.myInterval=setInterval(function(){
+        $scope.list1 = $scope.stimuliList.list1[$i]['word'];
+        $scope.list2 = $scope.stimuliList.list2[$i]['word'];
+        $scope.list3 = $scope.stimuliList.list3[$i]['word'];
+        $i++;
+        if($i == $scope.stimuliList.list1.length)
+        {
+          $scope.stopTest();
+          $scope.notcomplete = false;
+        }
+        $scope.$apply();
+      },200);
+    }, 1000);
+        
     $scope.not_started=false;
     return false;
   }
   
-  $scope.pauseTest = function(){
-  
-  }
-  
   $scope.stopTest = function() {
     clearInterval($scope.myInterval);
+    $scope.isplaying = false;
   }
   
-  $scope.reinitTest= function(test) {
-    $scope.test = test;
+  $scope.initTest= function(test) {
+    if(test)
+      $scope.test = test;
+    
     $scope.stimuli = false;
     $scope.replay = false;
     $scope.not_started = true;
