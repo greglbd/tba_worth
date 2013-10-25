@@ -68,9 +68,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* sprite generation */
-/* line 66, sprites/general/*.png */
-.general-sprite, .general-nav-left, .general-nav-right, .general-page-bottom-corner, .general-page-gutter-top {
-  background: url('/worth/assets/images/sprites/general-s11a649fb0c.png') no-repeat;
+/* line 42, sprites/general/*.png */
+.general-sprite, .general-nav-left {
+  background: url('/worth/assets/images/sprites/general-s23241c4630.png') no-repeat;
 }
 
 /* line 60, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
@@ -78,47 +78,37 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background-position: 0 0;
 }
 
-/* line 60, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
-.general-nav-right {
-  background-position: 0 -99px;
-}
-
-/* line 60, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
-.general-page-bottom-corner {
-  background-position: 0 -198px;
-}
-
-/* line 60, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
-.general-page-gutter-top {
-  background-position: 0 -222px;
-}
-
-/* line 19, ../sass/screen.scss */
+/* line 20, ../sass/screen.scss */
 body, p, span, div {
   color: #4b4b4b;
 }
 
-/* line 22, ../sass/screen.scss */
+/* line 23, ../sass/screen.scss */
 li {
   float: left;
 }
 
-/* line 26, ../sass/screen.scss */
+/* line 27, ../sass/screen.scss */
 .page-title {
   font: normal bold 14px Arial, "sans-serif";
 }
 
-/* line 30, ../sass/screen.scss */
+/* line 31, ../sass/screen.scss */
 .page-copy {
   font: normal normal 12px Arial, "sans-serif";
 }
 
-/* line 34, ../sass/screen.scss */
+/* line 35, ../sass/screen.scss */
 .page-copy_margin {
   margin: 10px 10px;
 }
 
-/* line 38, ../sass/screen.scss */
+/* line 39, ../sass/screen.scss */
+.container {
+  margin-bottom: 20px;
+}
+
+/* line 43, ../sass/screen.scss */
 .container-wrapper {
   height: 100%;
   min-height: 800px;
@@ -130,47 +120,55 @@ li {
   background-repeat: repeat;
 }
 
-/* line 44, ../sass/screen.scss */
+/* line 49, ../sass/screen.scss */
 .content-wrapper {
   overflow: hidden;
 }
 
-/* line 48, ../sass/screen.scss */
+/* line 53, ../sass/screen.scss */
 .page {
   margin: 20px;
 }
 
-/* line 52, ../sass/screen.scss */
+/* line 57, ../sass/screen.scss */
+.test-wrapper {
+  height: 249px;
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* line 64, ../sass/screen.scss */
 .test-listitem {
   float: left;
   width: 100%;
   text-align: center;
 }
 
-/* line 58, ../sass/screen.scss */
+/* line 70, ../sass/screen.scss */
 .centeredtext {
   text-align: center;
 }
 
-/* line 62, ../sass/screen.scss */
+/* line 74, ../sass/screen.scss */
 .fullscreen {
   width: 100%;
   height: 100%;
 }
 
-/* line 67, ../sass/screen.scss */
+/* line 79, ../sass/screen.scss */
 .whitebox {
   background-color: #fff;
 }
 
-/* line 71, ../sass/screen.scss */
+/* line 83, ../sass/screen.scss */
 .stimulibox {
   border: 2px solid #000;
   width: 225px;
-  margin: 10px 0 0;
+  margin: 0px 0 10px;
   float: left;
 }
-/* line 77, ../sass/screen.scss */
+/* line 89, ../sass/screen.scss */
 .stimulibox > h2 {
   background-color: #000;
   color: white;
@@ -178,11 +176,34 @@ li {
   margin: 0;
   line-height: 26px;
 }
-/* line 85, ../sass/screen.scss */
+/* line 97, ../sass/screen.scss */
 .stimulibox > .stimulibox-list {
   background-color: white;
   padding: 5px;
   font: normal normal 10px Arial, "sans-serif";
+}
+
+/* Bootstrap overrides */
+/* line 106, ../sass/screen.scss */
+.bootstrap-overrides.btn-primary, .bootstrap-overrides.btn-primary[disabled=disabled], .bootstrap-overrides.btn-primary[disabled=disabled]:hover {
+  background: #fff;
+  color: #4b4b4b;
+  text-transform: uppercase;
+  font-size: 11pt;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: rgba(75, 75, 75, 0.7) 0px 2px 0px;
+  -moz-box-shadow: rgba(75, 75, 75, 0.7) 0px 2px 0px;
+  box-shadow: rgba(75, 75, 75, 0.7) 0px 2px 0px;
+  min-width: 100px;
+}
+/* line 117, ../sass/screen.scss */
+.bootstrap-overrides.btn-primary:hover {
+  background: #CCC;
+  color: #4b4b4b;
 }
 
 /* line 1, ../sass/partials/_animations.scss */

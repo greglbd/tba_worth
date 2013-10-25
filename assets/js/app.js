@@ -18,6 +18,20 @@ app.controller('PageCtrl', function($scope){
         { line: "Experiments like this are typically carried out with auditory stimuli (streams of spoken words), not visual stimuli. And typically, participants notice very little in the unattended streams."  },
         { line: "In this case, some of the words in the unattended streams were words from a foreign language, words from a nursery rhyme, or not even words at all. Click REPLAY to see how easy it is to notice these features if you aren't attending elsewhere and how difficult it is if you're attending to the middle stream. Click SHOW THE STIMULI to see the streams in full."  }
       ]
+    },
+    {
+      copy: [
+        { line: "Now try another trial. Click PLAY to present the stimuli. Remember:" },
+        { line: "BE SURE THAT YOU ATTEND TO THE MIDDLE STREAM ONLY, SO YOU DON'T MISS ANY OF THE WORDS IN IT."  },
+        { line: "When you feel confident that you have carried out this task successfully, click FINISHED."  }
+      ]
+    },
+    {
+      copy: [
+        { line: "In this trial, the top and bottom streams contained some emotionally charged words. Did you notice any of them?" },
+        { line: "Click REPLAY to try again—still attending to the middle stream—and see if you notice these words."  },
+        { line: "Click SHOW THE STIMULI to see the streams in full."  }
+      ]
     }
   ];
   $scope.currentPageCopy = $scope.pageCopy[0];
@@ -65,7 +79,7 @@ app.controller('TestCtrl', function($scope) {
   
   $scope.startTest= function() {
     $scope.isplaying = true;
-    $scope.notcomplete = true;
+    $scope.complete = false;
     if($scope.test == 1)
     {
       $scope.stimuliList = $scope.test1; 
@@ -87,7 +101,7 @@ app.controller('TestCtrl', function($scope) {
         if($i == $scope.stimuliList.list1.length)
         {
           $scope.stopTest();
-          $scope.notcomplete = false;
+          $scope.complete = true;
         }
         $scope.$apply();
       },200);
@@ -99,16 +113,29 @@ app.controller('TestCtrl', function($scope) {
   
   $scope.stopTest = function() {
     clearInterval($scope.myInterval);
+    if($scope.test==1)
+    {
+      $scope.updateHeader(1);
+    }else if($scope.test==2)
+    {
+      $scope.updateHeader(3);
+    }
     $scope.isplaying = false;
   }
   
   $scope.initTest= function(test) {
     if(test)
+    {
       $scope.test = test;
-    
+      if(test==2)
+      {
+        $scope.updateHeader(2);
+      }
+    }
     $scope.stimuli = false;
     $scope.replay = false;
-    $scope.not_started = true;
+    $scope.isplaying = false;
+    $scope.complete = false;
     $scope.list1='(ignore)';
     $scope.list2='(attend)';
     $scope.list3='(ignore)';  

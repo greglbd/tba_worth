@@ -42,7 +42,7 @@
             <div class="row test" ng-controller="TestCtrl" data-ng-init="initTest()">
               <div class="span8 offset4">
                 <div class="row">
-                  <div class="span4">
+                  <div class="span4 test-wrapper">
                     <ul class="unstyled test-listitems">
                       <li class="test-listitem" ng-model="list1">{{list1}}</li>
                       <li class="test-listitem" ng-model="list2">{{list2}}</li>
@@ -79,23 +79,42 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="span4" >
-                    
-                      <button ng-click="startTest(1)" ng-model="isplaying" ng-disabled="isplaying" ng-show="replay==false" type="button" class="btn btn-primary" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
-                          Play
-                      </button>
-                      <button ng-click="startTest(1);replay=false;" ng-disabled="isplaying" ng-show="replay==true" type="button" class="btn btn-primary" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
-                          REPLAY
-                      </button>
-                      <button type="button" ng-show="replay==false" ng-click="replay=true; stopTest();" ng-model="notcomplete" ng-disabled="notcomplete" class="btn btn-primary" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
-                        Finished
-                      </button>
-                      <button type="button" ng-show="replay==true && stimuli==false" ng-click="stimuli=true;" class="btn btn-primary" ng-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
-                        Show Stimuli
-                      </button>
-                      <button type="button" ng-show="stimuli==true" ng-click="stimuli=false;" class="btn btn-primary"  btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
-                        Hide Stimuli
-                      </button>
+                  <div class="span4" >                    
+                    <div class="control-group" ng-show="replay==false" ng-hide="complete || replay">
+                      <div class="control centeredtext">                         
+                        <button ng-click="startTest(1)" ng-model="isplaying" ng-disabled="isplaying"  type="button" class="bootstrap-overrides btn btn-primary">
+                            Play
+                        </button>
+                      </div>
+                    </div>    
+                    <div class="control-group" ng-show="complete || replay" >
+                      <div class="control centeredtext">  
+                        <button ng-click="startTest(1);replay=true;isplaying=true;" ng-disabled="isplaying" type="button" class="bootstrap-overrides btn btn-primary">
+                            REPLAY
+                        </button>
+                      </div>
+                    </div>
+                    <div class="control-group" ng-show="(replay || complete) && stimuli==false">
+                      <div class="control centeredtext">  
+                        <button type="button"  ng-click="stimuli = true" class="bootstrap-overrides btn btn-primary">
+                          Show The Stimuli
+                        </button>
+                      </div>
+                    </div>
+                    <div class="control-group" ng-show="stimuli">
+                      <div class="control centeredtext"> 
+                        <button type="button" ng-click="stimuli=false;" class="bootstrap-overrides btn btn-primary">
+                          Hide The Stimuli
+                        </button>
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <div class="control centeredtext"> 
+                        <button type="button" ng-click="stopTest(); initTest(2);" ng-model="complete" ng-disabled="complete == false || isplaying" class="bootstrap-overrides btn btn-primary">
+                          Finished
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
