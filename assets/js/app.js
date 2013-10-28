@@ -2,7 +2,7 @@
 var app = angular.module('app',  []);
 
 app.controller('PageCtrl', function($scope){
-  $scope.currentPage = 2;
+  $scope.currentPage = 0;
   
   $scope.pageCopy = [
     {

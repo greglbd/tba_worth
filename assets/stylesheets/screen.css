@@ -88,27 +88,37 @@ li {
   float: left;
 }
 
-/* line 27, ../sass/screen.scss */
+/* 
+  Allow angular.js to be loaded in body, hiding cloaked elements until 
+  templates compile.  The !important is important given that there may be 
+  other selectors that are more specific or come later and might alter display.  
+ */
+/* line 32, ../sass/screen.scss */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+/* line 36, ../sass/screen.scss */
 .page-title {
   font: normal bold 16px Arial, "sans-serif";
 }
 
-/* line 31, ../sass/screen.scss */
+/* line 40, ../sass/screen.scss */
 .page-copy {
   font: normal normal 14px Arial, "sans-serif";
 }
 
-/* line 35, ../sass/screen.scss */
+/* line 44, ../sass/screen.scss */
 .page-copy_margin {
   margin: 10px 10px;
 }
 
-/* line 39, ../sass/screen.scss */
+/* line 48, ../sass/screen.scss */
 .container {
   margin-bottom: 20px;
 }
 
-/* line 43, ../sass/screen.scss */
+/* line 52, ../sass/screen.scss */
 .container-wrapper {
   height: 100%;
   min-height: 800px;
@@ -120,17 +130,17 @@ li {
   background-repeat: repeat;
 }
 
-/* line 49, ../sass/screen.scss */
+/* line 58, ../sass/screen.scss */
 .content-wrapper {
   overflow: hidden;
 }
 
-/* line 53, ../sass/screen.scss */
+/* line 62, ../sass/screen.scss */
 .page {
   margin: 20px;
 }
 
-/* line 57, ../sass/screen.scss */
+/* line 66, ../sass/screen.scss */
 .test-wrapper {
   height: 90px;
   position: relative;
@@ -142,7 +152,7 @@ li {
   margin-bottom: 12px;
 }
 
-/* line 68, ../sass/screen.scss */
+/* line 77, ../sass/screen.scss */
 .test-listitem {
   float: left;
   width: 100%;
@@ -151,30 +161,30 @@ li {
   line-height: 26px;
 }
 
-/* line 76, ../sass/screen.scss */
+/* line 85, ../sass/screen.scss */
 .centeredtext {
   text-align: center;
 }
 
-/* line 80, ../sass/screen.scss */
+/* line 89, ../sass/screen.scss */
 .fullscreen {
   width: 100%;
   height: 100%;
 }
 
-/* line 85, ../sass/screen.scss */
+/* line 94, ../sass/screen.scss */
 .whitebox {
   background-color: #fff;
 }
 
-/* line 89, ../sass/screen.scss */
+/* line 98, ../sass/screen.scss */
 .stimulibox {
   border: 2px solid #000;
   width: 225px;
   margin: 0px 0 10px;
   float: left;
 }
-/* line 95, ../sass/screen.scss */
+/* line 104, ../sass/screen.scss */
 .stimulibox > h2 {
   background-color: #000;
   color: white;
@@ -182,32 +192,32 @@ li {
   margin: 0;
   line-height: 26px;
 }
-/* line 103, ../sass/screen.scss */
+/* line 112, ../sass/screen.scss */
 .stimulibox > .stimulibox-list {
   background-color: white;
   padding: 5px;
   font: normal normal 12px Arial, "sans-serif";
 }
 
-/* line 110, ../sass/screen.scss */
+/* line 119, ../sass/screen.scss */
 .explanation-title {
   line-height: 46px;
   margin: 0px !important;
 }
 
-/* line 115, ../sass/screen.scss */
+/* line 124, ../sass/screen.scss */
 .explanation-image {
   padding: 16px;
   background-color: #fff;
 }
 
-/* line 120, ../sass/screen.scss */
+/* line 129, ../sass/screen.scss */
 .btn-margintop {
   margin-top: 20px;
 }
 
 /* Bootstrap overrides */
-/* line 126, ../sass/screen.scss */
+/* line 135, ../sass/screen.scss */
 .bootstrap-overrides.btn-primary, .bootstrap-overrides.btn-primary[disabled=disabled], .bootstrap-overrides.btn-primary[disabled=disabled]:hover {
   background: #fff;
   color: #4b4b4b;
@@ -223,12 +233,12 @@ li {
   box-shadow: rgba(75, 75, 75, 0.7) 0px 2px 0px;
   min-width: 100px;
 }
-/* line 137, ../sass/screen.scss */
+/* line 146, ../sass/screen.scss */
 .bootstrap-overrides.btn-primary:hover {
   background: #CCC;
   color: #4b4b4b;
 }
-/* line 142, ../sass/screen.scss */
+/* line 151, ../sass/screen.scss */
 .bootstrap-overrides.media {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -238,7 +248,7 @@ li {
   background-color: rgba(255, 255, 255, 0.7);
   margin-bottom: 25px;
 }
-/* line 147, ../sass/screen.scss */
+/* line 156, ../sass/screen.scss */
 .bootstrap-overrides.media > .media-object {
   -moz-border-radius-topleft: 6px;
   -webkit-border-top-left-radius: 6px;
@@ -257,7 +267,7 @@ li {
   text-align: center;
   color: white;
 }
-/* line 156, ../sass/screen.scss */
+/* line 165, ../sass/screen.scss */
 .bootstrap-overrides.media > .media-object > img {
   margin-top: -3px;
   margin-right: 5px;
