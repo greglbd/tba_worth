@@ -90,12 +90,12 @@ li {
 
 /* line 27, ../sass/screen.scss */
 .page-title {
-  font: normal bold 14px Arial, "sans-serif";
+  font: normal bold 16px Arial, "sans-serif";
 }
 
 /* line 31, ../sass/screen.scss */
 .page-copy {
-  font: normal normal 12px Arial, "sans-serif";
+  font: normal normal 14px Arial, "sans-serif";
 }
 
 /* line 35, ../sass/screen.scss */
@@ -132,59 +132,82 @@ li {
 
 /* line 57, ../sass/screen.scss */
 .test-wrapper {
-  height: 249px;
+  height: 90px;
   position: relative;
   display: table-cell;
   vertical-align: middle;
+  padding: 100px 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid #000;
+  margin-bottom: 12px;
 }
 
-/* line 64, ../sass/screen.scss */
+/* line 68, ../sass/screen.scss */
 .test-listitem {
   float: left;
   width: 100%;
   text-align: center;
+  font: normal bold 16px Arial, "sans-serif";
+  line-height: 26px;
 }
 
-/* line 70, ../sass/screen.scss */
+/* line 76, ../sass/screen.scss */
 .centeredtext {
   text-align: center;
 }
 
-/* line 74, ../sass/screen.scss */
+/* line 80, ../sass/screen.scss */
 .fullscreen {
   width: 100%;
   height: 100%;
 }
 
-/* line 79, ../sass/screen.scss */
+/* line 85, ../sass/screen.scss */
 .whitebox {
   background-color: #fff;
 }
 
-/* line 83, ../sass/screen.scss */
+/* line 89, ../sass/screen.scss */
 .stimulibox {
   border: 2px solid #000;
   width: 225px;
   margin: 0px 0 10px;
   float: left;
 }
-/* line 89, ../sass/screen.scss */
+/* line 95, ../sass/screen.scss */
 .stimulibox > h2 {
   background-color: #000;
   color: white;
-  font: normal bold 12px Arial, "sans-serif";
+  font: normal bold 14px Arial, "sans-serif";
   margin: 0;
   line-height: 26px;
 }
-/* line 97, ../sass/screen.scss */
+/* line 103, ../sass/screen.scss */
 .stimulibox > .stimulibox-list {
   background-color: white;
   padding: 5px;
-  font: normal normal 10px Arial, "sans-serif";
+  font: normal normal 12px Arial, "sans-serif";
+}
+
+/* line 110, ../sass/screen.scss */
+.explanation-title {
+  line-height: 46px;
+  margin: 0px !important;
+}
+
+/* line 115, ../sass/screen.scss */
+.explanation-image {
+  padding: 16px;
+  background-color: #fff;
+}
+
+/* line 120, ../sass/screen.scss */
+.btn-margintop {
+  margin-top: 20px;
 }
 
 /* Bootstrap overrides */
-/* line 106, ../sass/screen.scss */
+/* line 126, ../sass/screen.scss */
 .bootstrap-overrides.btn-primary, .bootstrap-overrides.btn-primary[disabled=disabled], .bootstrap-overrides.btn-primary[disabled=disabled]:hover {
   background: #fff;
   color: #4b4b4b;
@@ -200,10 +223,44 @@ li {
   box-shadow: rgba(75, 75, 75, 0.7) 0px 2px 0px;
   min-width: 100px;
 }
-/* line 117, ../sass/screen.scss */
+/* line 137, ../sass/screen.scss */
 .bootstrap-overrides.btn-primary:hover {
   background: #CCC;
   color: #4b4b4b;
+}
+/* line 142, ../sass/screen.scss */
+.bootstrap-overrides.media {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 25px;
+}
+/* line 147, ../sass/screen.scss */
+.bootstrap-overrides.media > .media-object {
+  -moz-border-radius-topleft: 6px;
+  -webkit-border-top-left-radius: 6px;
+  border-top-left-radius: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #c775b0), color-stop(100%, #8e5ba6));
+  background-image: -webkit-linear-gradient(#c775b0, #8e5ba6);
+  background-image: -moz-linear-gradient(#c775b0, #8e5ba6);
+  background-image: -o-linear-gradient(#c775b0, #8e5ba6);
+  background-image: linear-gradient(#c775b0, #8e5ba6);
+  width: 120px;
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
+  color: white;
+}
+/* line 156, ../sass/screen.scss */
+.bootstrap-overrides.media > .media-object > img {
+  margin-top: -3px;
+  margin-right: 5px;
 }
 
 /* line 1, ../sass/partials/_animations.scss */

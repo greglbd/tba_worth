@@ -55,16 +55,22 @@ li {
 }
 
 .test-wrapper {
-  height: 249px;
+  height: 90px;
   position: relative;
   display: table-cell;
   vertical-align: middle;
+  padding: 100px 0;
+  background-color: rgba(#ffffff, 0.5);
+  border: 2px solid #000;
+  margin-bottom: 12px;
 }
 
 .test-listitem {
   float: left;
   width: 100%;
   text-align: center;
+  @include font-large(bold);
+  line-height: $font-large + 10;
 }
 
 .centeredtext {
@@ -101,6 +107,20 @@ li {
   }
 }
 
+.explanation-title {
+  line-height: 46px;
+  margin: 0px !important;
+}
+
+.explanation-image {
+  padding: 16px;
+  background-color: #fff;
+}
+
+.btn-margintop {
+  margin-top: 20px;
+}
+
 /* Bootstrap overrides */
 .bootstrap-overrides {
   &.btn-primary, &.btn-primary[disabled=disabled],&.btn-primary[disabled=disabled]:hover {
@@ -118,6 +138,28 @@ li {
     background: #CCC;
     color: $body-copy;
   }
+  
+  &.media { 
+    @include border-radius(6px);
+    background-color: rgba(#ffffff, 0.7);
+    margin-bottom: 25px;
+    
+    & > .media-object {
+      @include border-top-left-radius(6px);
+      @include border-bottom-left-radius(6px);
+      @include background-image(linear-gradient(#C775B0, #8E5BA6));
+      width: 120px;
+      height: 46px;
+      line-height: 46px;
+      text-align: center;
+      color: $body-copy-inverse;
+      & > img {
+        margin-top: -3px;
+        margin-right: 5px;
+      }
+    }
+  }
+  
 }
 
 @import "partials/animations";

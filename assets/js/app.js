@@ -2,7 +2,7 @@
 var app = angular.module('app',  []);
 
 app.controller('PageCtrl', function($scope){
-  $scope.currentPage = 0;
+  $scope.currentPage = 2;
   
   $scope.pageCopy = [
     {
@@ -37,7 +37,6 @@ app.controller('PageCtrl', function($scope){
   $scope.currentPageCopy = $scope.pageCopy[0];
 
   $scope.change= function($targetPage, $window) {
-    console.log('test');
     if($window)
     {
       if($scope.currentPage == 0)
@@ -53,8 +52,14 @@ app.controller('PageCtrl', function($scope){
     else if (!$window)
     {
       $scope.currentPage = $targetPage;
+      console.log('page : ' + $scope.currentPage)
     }
     
+  }
+  
+  $scope.nextPage= function(){
+    $scope.currentPage++;
+    $scope.change($scope.currentPage);
   }
   
   $scope.updateHeader = function($index) {
@@ -126,10 +131,9 @@ app.controller('TestCtrl', function($scope) {
   $scope.initTest= function(test) {
     if(test)
     {
-      $scope.test = test;
       if(test==2)
       {
-        $scope.updateHeader(2);
+        $scope.updateHeader(test);
       }
     }
     $scope.stimuli = false;
@@ -139,6 +143,16 @@ app.controller('TestCtrl', function($scope) {
     $scope.list1='(ignore)';
     $scope.list2='(attend)';
     $scope.list3='(ignore)';  
+  }
+  
+  $scope.finishTest=function(){
+    $scope.test++;
+    if($scope.test>2)
+    {    
+      $scope.nextPage();
+    }
+    else
+      $scope.initTest($scope.test);
   }
   
 });
