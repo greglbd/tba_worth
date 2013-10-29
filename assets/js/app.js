@@ -292,10 +292,10 @@ app.controller('QuestionCtrl', function($scope, $modal){
   $scope.questionsControl = function(target) {
     if($scope.currentQuestion >= $scope.questions.length )
     {
-      $scope.setFinish(true);
-      console.log('set q: ' + $scope.question);
       if(target == "prev")
       {
+        
+        $scope.setFinish(true);
         $scope.prevPage();
       }else
       {
