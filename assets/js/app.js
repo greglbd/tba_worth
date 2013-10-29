@@ -14,7 +14,8 @@ app.controller('PageCtrl', function($scope){
     }
   };
 
-  $scope.currentPage = 2;
+  $scope.currentPage = 0;
+  $scope.finished = false;
   
   $scope.pageCopy = [
     {
@@ -66,9 +67,14 @@ app.controller('PageCtrl', function($scope){
       $scope.currentPage = $targetPage;
     }
   }
-  
+  $scope.setFinish = function(b){
+    $scope.finished = b;
+  }
   $scope.nextPage= function(){
-    $scope.currentPage++;
+    if(!$scope.finished)
+      $scope.currentPage++;
+    else
+      $scope.currentPage+=2;
     $scope.change($scope.currentPage);
   }
   $scope.prevPage= function(){
@@ -171,7 +177,6 @@ app.controller('TestCtrl', function($scope) {
 });
 
 app.controller('QuestionCtrl', function($scope, $modal){
-  console.log('CURRENT : ' + $scope.currentQuestion);
   $scope.currentQuestion = 1;
   $scope.currentAnswer;
   $scope.userFeedback= 'jello';
@@ -287,6 +292,8 @@ app.controller('QuestionCtrl', function($scope, $modal){
   $scope.questionsControl = function(target) {
     if($scope.currentQuestion >= $scope.questions.length )
     {
+      $scope.setFinish(true);
+      console.log('set q: ' + $scope.question);
       if(target == "prev")
       {
         $scope.prevPage();
