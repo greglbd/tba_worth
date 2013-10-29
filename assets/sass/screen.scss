@@ -130,9 +130,25 @@ li {
   margin-top: 20px;
 }
 
+.complete {
+  width: 100%;
+  height: 102px;
+  margin-top: 180px;
+  background-position: center;
+}
+
+.complete-title {
+  @include font-xlarge(bold);
+}
+.complete-copy {
+  @include font-large(bold);
+  width: 80%;
+  padding: 2% 10%;
+  line-height: 22px;
+}
 /* Bootstrap overrides */
 .bootstrap-overrides {
-  &.btn-primary, &.btn-primary[disabled=disabled],&.btn-primary[disabled=disabled]:hover {
+  &.btn-primary, &.btn-primary:focus, &.btn-primary[disabled=disabled],&.btn-primary[disabled=disabled]:hover,&.btn-primary[disabled=disabled]:focus {
     background: #fff;
     color: $body-copy;
     text-transform: uppercase;
@@ -140,6 +156,7 @@ li {
     @include border-radius(20px);
     @include box-shadow(rgba($body-copy, 0.7) 0px 2px 0px);
     min-width: 100px;
+    outline: none;
     
   }
   
@@ -157,7 +174,7 @@ li {
       @include border-top-left-radius(6px);
       @include border-bottom-left-radius(6px);
       @include background-image(linear-gradient(#C775B0, #8E5BA6));
-      width: 120px;
+      padding: 0 20px;
       height: 46px;
       line-height: 46px;
       text-align: center;
@@ -166,7 +183,15 @@ li {
         margin-top: -3px;
         margin-right: 5px;
       }
+      
+      &.media-object_questionnaire {
+        @include background-image(linear-gradient(#50B847,#02A200));
+      }
     }
+  }
+  
+  &.radio {
+    line-height: 24px;
   }
   
 }

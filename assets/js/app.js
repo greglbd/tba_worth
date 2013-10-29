@@ -1,8 +1,20 @@
 
-var app = angular.module('app',  []);
+var app = angular.module('app',  ['ui.bootstrap']);
 
 app.controller('PageCtrl', function($scope){
-  $scope.currentPage = 0;
+
+  $scope.safeApply = function(fn) {
+    var phase = this.$root.$$phase;
+    if(phase == '$apply' || phase == '$digest') {
+      if(fn && (typeof(fn) === 'function')) {
+        fn();
+      }
+    } else {
+      this.$apply(fn);
+    }
+  };
+
+  $scope.currentPage = 2;
   
   $scope.pageCopy = [
     {
@@ -52,16 +64,17 @@ app.controller('PageCtrl', function($scope){
     else if (!$window)
     {
       $scope.currentPage = $targetPage;
-      console.log('page : ' + $scope.currentPage)
     }
-    
   }
   
   $scope.nextPage= function(){
     $scope.currentPage++;
     $scope.change($scope.currentPage);
   }
-  
+  $scope.prevPage= function(){
+    $scope.currentPage--;
+    $scope.change($scope.currentPage);
+  }
   $scope.updateHeader = function($index) {
     $scope.currentPageCopy = $scope.pageCopy[$index];
   }
@@ -108,7 +121,7 @@ app.controller('TestCtrl', function($scope) {
           $scope.stopTest();
           $scope.complete = true;
         }
-        $scope.$apply();
+        $scope.safeApply();
       },200);
     }, 1000);
         
@@ -157,8 +170,169 @@ app.controller('TestCtrl', function($scope) {
   
 });
 
+app.controller('QuestionCtrl', function($scope, $modal){
+  console.log('CURRENT : ' + $scope.currentQuestion);
+  $scope.currentQuestion = 1;
+  $scope.currentAnswer;
+  $scope.userFeedback= 'jello';
+  $scope.questions = [
+    {
+      id: '1',
+      question: 'Which of the following questions expresses the cocktail party problem?',
+      options: 
+      [
+        { 
+          option:  "A. How can you pay attention to what the actors in a play are saying if the people seated next to you in the audience are talking?",
+          id: 'A'
+        },  
+        { 
+          option:  "B. How can you hear what your friend is saying during a noisy fireworks display?",
+          id: 'B'
+        },
+        { 
+          option:  "C. Can you figure out what the TV newsperson is saying if the sound keeps going off and on?",
+          id: 'C'
+        },
+        { 
+          option:  "D. Did you hear something, or are you just imagining things?",
+          id: 'D'
+        }  
+      ],
+      answer: 'A',
+      answers:
+      {
+        A: 'Correct!',
+        B: 'Sorry. The correct answer is A. Click EXPLAIN if you want to review this topic.',
+        C: 'Sorry. Often we do notice salient stimuli, like our name, in unattended converstions. The correct answer is A. Click EXPLAIN if you want to review this topic.',
+        D: 'Sorry. Typically we can recall very little about what occurred in the unattended stream.  The correct answer is A. Click EXPLAIN if you want to review this topic.'
+      }
+      
+    },
+    {
+      id: 2,
+      question: 'Which of these scenarios shows that we process unattended speech to some degree?',
+      options:
+      [
+        {
+          option: "A. As a low-flying plane passes overhead, you focus on your friend’s lip movements to perceive what she’s saying.",
+          id: 'A'
+        },
+        {
+          option: "B. While soothing a crying baby, you carry on a conversation with your neighbor.",
+          id: 'B'
+        },
+        {
+          option: "C. During a very interesting movie, you hear the person sitting behind you say “Ouch!” in a low voice.",
+          id: 'C'
+        },
+        {
+          option: "D. A door slams, distracting you for a moment, and you miss hearing the final score of the game.",
+          id: 'D'
+        },
+      ],
+      answer: 'C',
+      answers:
+      {
+        A: 'Sorry. That result could occur even if the unattended stream was not processed at all.  The correct answer is C. Click EXPLAIN if you want to review this topic.',
+        B: 'Sorry. That result could occur even if the unattended stream was not processed at all.  The correct answer is C. Click EXPLAIN if you want to review this topic.',
+        C: 'Correct!',
+        D: 'Sorry. Typically only salient stimuli are noticed in the unattended stream.  The correct answer is C. Click EXPLAIN if you want to review this topic.'
+      }
+    },
+    {
+      id: 3,
+      question: 'In the dichotic listening scenario illustrated, why is the participant likely to recall parts of the unattended message?',
+      options:
+      [
+        {
+          option: "A. It’s impossible to really ignore what you’re hearing.",
+          id: 'A'
+        },
+        {
+          option: "B. The unattended message is very different from the attended message.",
+          id: 'B'
+        },
+        {
+          option: "C. The attended message is too dull to claim the participant’s full attention.",
+          id: 'C'
+        },
+        {
+          option: "D. The unattended message describes terrifying events.",
+          id: 'D'
+        },
+      ],
+      answer: 'D',
+      answers:
+      {
+        A: 'Sorry. Processing of unattended streams is inconsistent with this.  The correct answer is D. Click EXPLAIN if you want to review this topic.',
+        B: 'Sorry. Such an effect, if it did occur, would not be advantageous. The correct answer is D. Click EXPLAIN if you want to review this topic.',
+        C: 'Sorry. Processing unattended areas to some extent would have the opposite effect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
+        D: 'Correct!'
+      }
+    }
+  ];
+  
+  $scope.update= function(id){
+    $scope.currentAnswer = id;
+  }
+  
+  $scope.submitAnswer= function() {
+    $scope.userFeedback = $scope.questions[$scope.currentQuestion - 1].answers[$scope.currentAnswer];
+    if($scope.questions[$scope.currentQuestion - 1].answer == $scope.currentAnswer){
+      $scope.currentAnswer = -1;
+    }
+    $scope.open();
+  }
+  
+  $scope.questionsControl = function(target) {
+    if($scope.currentQuestion >= $scope.questions.length )
+    {
+      if(target == "prev")
+      {
+        $scope.prevPage();
+      }else
+      {
+        $scope.nextPage();
+      }
+    }
+    else
+    {
+      if(target == "prev")
+      {
+        $scope.prevPage();
+      }
+      $scope.currentQuestion++;
+    }
+    $scope.safeApply();
+  }
+  
+  $scope.open = function () {
+    var modalInstance = $modal.open({
+      templateUrl: 'myModalContent.html',
+      controller: ModalInstanceCtrl,
+      resolve: {
+        userFeedback: function () {
+          return $scope.userFeedback;
+        }
+      }
+    });
 
-
-app.controller('ButtonsCtrl', function($scope){
-  $scope.singleModel = 1;
+    modalInstance.result.then(function () {
+      $scope.questionsControl('next');
+    }, function () {
+      $scope.questionsControl('prev');
+    });
+  };
+  
 });
+
+var ModalInstanceCtrl = function ($scope, $modalInstance, userFeedback) {
+  $scope.copy = userFeedback;
+  $scope.ok = function () {
+    $modalInstance.close();
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+};

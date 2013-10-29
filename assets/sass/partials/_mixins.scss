@@ -6,6 +6,10 @@
   font: $style $weight $font-large $font-family-regular;
 }
 
+@mixin font-xlarge($weight, $style: $default_font_style) {
+  font: $style $weight $font-xlarge $font-family-regular;
+}
+
 @mixin font-regular($weight, $style: $default_font_style) {
   font: $style $weight $font-regular $font-family-regular;
 }

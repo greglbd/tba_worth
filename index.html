@@ -134,7 +134,7 @@
                     Explain
                   </div>
                   <div class="media-body">
-                    <h2 class="page-title explanation-title centeredtext media-heading">Media heading
+                    <h2 class="page-title explanation-title centeredtext media-heading">
                       What Is the Cocktail Party Problem, and What Does It Tells Us About Selective Attention?
                     </h2>
                   </div>
@@ -156,6 +156,9 @@
             </div>
             <div class="control-group">
               <div class="control centeredtext"> 
+                <button type="button" ng-click="prevPage();" class="btn-margintop bootstrap-overrides btn btn-primary">
+                  Back
+                </button>
                 <button type="button" ng-click="nextPage();" class="btn-margintop bootstrap-overrides btn btn-primary">
                   Next
                 </button>
@@ -164,15 +167,69 @@
           </div>
         </div>
         <div class="page" ng-model="currentPage"  ng-show="currentPage==3" ng-animate="'fade'">
-        
+          <div class="container">
+            <div class="row">
+              <div class="span12">
+                <div class="media bootstrap-overrides">
+                  <div class="pull-left media-object media-object_questionnaire">
+                    <img class="" src="assets/images/icon2.png"/>
+                    Test Yourself
+                  </div>
+                  <div class="media-body">
+                    <h2 class="page-title explanation-title centeredtext media-heading">
+                      Select your answer to the question below. Click SUBMIT when you have your final answer.
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <form class="form-horizontal" ng-controller="QuestionCtrl" ng-model="currentQuestion">
+              <div  ng-repeat="question in questions">
+                <div ng-show="currentQuestion==question.id">                
+                  <h2 class="page-title">{{question.question}}</h2>
+                  <label ng-repeat="option in question.options" class="bootstrap-overrides radio">
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="{{option.id}}" ng-click="update(option.id)">
+                    {{option.option}}
+                  </label>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="control"> 
+                  <button type="button" ng-disabled="!currentAnswer || currentAnswer==-1" ng-click="submitAnswer();" class="btn-margintop bootstrap-overrides btn btn-primary">
+                    Submit
+                  </button>
+                </div>
+              </div>
+              <script type="text/ng-template" id="myModalContent.html">
+                <div class="modal-body">
+                  <h2 class="page-title">{{copy}}</h2>
+                </div>
+                <div class="modal-footer">
+                  <button class="bootstrap-overrides btn btn-primary" ng-click="ok()">Next</button>
+                  <button class="bootstrap-overrides btn btn-primary" ng-click="cancel()">Explain</button>
+                </div>
+              </script>
+            </form>
+          </div>
         </div>
+         <div class="page" ng-model="currentPage"  ng-show="currentPage==4" ng-animate="'fade'">
+          <div class="container">
+            <div class="row">
+              <div class="span4 offset4">
+                <div class="complete general-tick"></div>
+                <h2 class="complete-title centeredtext">Activity Complete!</h2>
+                <p class="complete-copy centeredtext">You have completed the activity set for Neurons and Neural Communication.</p>
+              </div>
+            </div>
+          </div>
+         </div>
       
       </div> 
     </div> 
     
     <script src="assets/js/angular.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="assets/js/ui-bootstrap-0.6.0.min.js"></script>
+    <script src="assets/js/ui-bootstrap-tpls-0.6.0.min.js"></script>
     <script src="assets/js/app.js"></script>
   </body>
 </html>

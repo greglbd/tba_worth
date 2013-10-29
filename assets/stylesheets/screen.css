@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 17, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,57 +24,57 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
 /* sprite generation */
 /* line 42, sprites/general/*.png */
-.general-sprite, .general-nav-left {
-  background: url('/worth/assets/images/sprites/general-s23241c4630.png') no-repeat;
+.general-sprite, .general-tick {
+  background: url('/worth/assets/images/sprites/general-s6d60dcfbe8.png') no-repeat;
 }
 
-/* line 60, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
-.general-nav-left {
+/* line 60, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.general-tick {
   background-position: 0 0;
 }
 
@@ -216,9 +216,30 @@ li {
   margin-top: 20px;
 }
 
+/* line 133, ../sass/screen.scss */
+.complete {
+  width: 100%;
+  height: 102px;
+  margin-top: 180px;
+  background-position: center;
+}
+
+/* line 140, ../sass/screen.scss */
+.complete-title {
+  font: normal bold 32px Arial, "sans-serif";
+}
+
+/* line 143, ../sass/screen.scss */
+.complete-copy {
+  font: normal bold 16px Arial, "sans-serif";
+  width: 80%;
+  padding: 2% 10%;
+  line-height: 22px;
+}
+
 /* Bootstrap overrides */
-/* line 135, ../sass/screen.scss */
-.bootstrap-overrides.btn-primary, .bootstrap-overrides.btn-primary[disabled=disabled], .bootstrap-overrides.btn-primary[disabled=disabled]:hover {
+/* line 151, ../sass/screen.scss */
+.bootstrap-overrides.btn-primary, .bootstrap-overrides.btn-primary:focus, .bootstrap-overrides.btn-primary[disabled=disabled], .bootstrap-overrides.btn-primary[disabled=disabled]:hover, .bootstrap-overrides.btn-primary[disabled=disabled]:focus {
   background: #fff;
   color: #4b4b4b;
   text-transform: uppercase;
@@ -232,13 +253,14 @@ li {
   -moz-box-shadow: rgba(75, 75, 75, 0.7) 0px 2px 0px;
   box-shadow: rgba(75, 75, 75, 0.7) 0px 2px 0px;
   min-width: 100px;
+  outline: none;
 }
-/* line 146, ../sass/screen.scss */
+/* line 163, ../sass/screen.scss */
 .bootstrap-overrides.btn-primary:hover {
   background: #CCC;
   color: #4b4b4b;
 }
-/* line 151, ../sass/screen.scss */
+/* line 168, ../sass/screen.scss */
 .bootstrap-overrides.media {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -248,7 +270,7 @@ li {
   background-color: rgba(255, 255, 255, 0.7);
   margin-bottom: 25px;
 }
-/* line 156, ../sass/screen.scss */
+/* line 173, ../sass/screen.scss */
 .bootstrap-overrides.media > .media-object {
   -moz-border-radius-topleft: 6px;
   -webkit-border-top-left-radius: 6px;
@@ -261,19 +283,31 @@ li {
   background-image: -moz-linear-gradient(#c775b0, #8e5ba6);
   background-image: -o-linear-gradient(#c775b0, #8e5ba6);
   background-image: linear-gradient(#c775b0, #8e5ba6);
-  width: 120px;
+  padding: 0 20px;
   height: 46px;
   line-height: 46px;
   text-align: center;
   color: white;
 }
-/* line 165, ../sass/screen.scss */
+/* line 182, ../sass/screen.scss */
 .bootstrap-overrides.media > .media-object > img {
   margin-top: -3px;
   margin-right: 5px;
 }
+/* line 187, ../sass/screen.scss */
+.bootstrap-overrides.media > .media-object.media-object_questionnaire {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #50b847), color-stop(100%, #02a200));
+  background-image: -webkit-linear-gradient(#50b847, #02a200);
+  background-image: -moz-linear-gradient(#50b847, #02a200);
+  background-image: -o-linear-gradient(#50b847, #02a200);
+  background-image: linear-gradient(#50b847, #02a200);
+}
+/* line 193, ../sass/screen.scss */
+.bootstrap-overrides.radio {
+  line-height: 24px;
+}
 
-/* line 1, ../sass/partials/_animations.scss */
+/* line 1, /Applications/MAMP/htdocs/worth/assets/sass/partials/_animations.scss */
 .fade-hide, .fade-show {
   -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
   -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
@@ -281,22 +315,22 @@ li {
   transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
 }
 
-/* line 7, ../sass/partials/_animations.scss */
+/* line 7, /Applications/MAMP/htdocs/worth/assets/sass/partials/_animations.scss */
 .fade-hide {
   opacity: 1;
 }
 
-/* line 10, ../sass/partials/_animations.scss */
+/* line 10, /Applications/MAMP/htdocs/worth/assets/sass/partials/_animations.scss */
 .fade-hide.fade-hide-active {
   opacity: 0;
 }
 
-/* line 13, ../sass/partials/_animations.scss */
+/* line 13, /Applications/MAMP/htdocs/worth/assets/sass/partials/_animations.scss */
 .fade-show {
   opacity: 0;
 }
 
-/* line 16, ../sass/partials/_animations.scss */
+/* line 16, /Applications/MAMP/htdocs/worth/assets/sass/partials/_animations.scss */
 .fade-show.fade-show-active {
   opacity: 1;
 }
