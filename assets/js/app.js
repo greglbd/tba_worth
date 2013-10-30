@@ -1,22 +1,12 @@
 
 var app = angular.module('app',  ['ui.bootstrap']);
 
+//page controller
 app.controller('PageCtrl', function($scope){
-
-  $scope.safeApply = function(fn) {
-    var phase = this.$root.$$phase;
-    if(phase == '$apply' || phase == '$digest') {
-      if(fn && (typeof(fn) === 'function')) {
-        fn();
-      }
-    } else {
-      this.$apply(fn);
-    }
-  };
-
+  
+  //Variables
   $scope.currentPage = 0;
   $scope.finished = false;
-  
   $scope.pageCopy = [
     {
       copy: [
@@ -49,6 +39,19 @@ app.controller('PageCtrl', function($scope){
   ];
   $scope.currentPageCopy = $scope.pageCopy[0];
 
+  //functions
+  $scope.safeApply = function(fn) {
+    var phase = this.$root.$$phase;
+    if(phase == '$apply' || phase == '$digest') {
+      if(fn && (typeof(fn) === 'function')) {
+        fn();
+      }
+    } else {
+      this.$apply(fn);
+    }
+  };
+  
+  //change page
   $scope.change= function($targetPage, $window) {
     if($window)
     {
@@ -67,26 +70,41 @@ app.controller('PageCtrl', function($scope){
       $scope.currentPage = $targetPage;
     }
   }
+  
+  //test finished
   $scope.setFinish = function(b){
     $scope.finished = b;
   }
+  
+  //next page
   $scope.nextPage= function(){
     if(!$scope.finished)
       $scope.currentPage++;
     else
       $scope.currentPage+=2;
+    
+    if($scope.currentPage == 4)
+    {
+      $scope.setFinish(true);
+    }
     $scope.change($scope.currentPage);
   }
+  
+  //previous page
   $scope.prevPage= function(){
     $scope.currentPage--;
     $scope.change($scope.currentPage);
   }
+  
+  //update the copy in the header
   $scope.updateHeader = function($index) {
     $scope.currentPageCopy = $scope.pageCopy[$index];
   }
 });
 
+//Controller for actual test
 app.controller('TestCtrl', function($scope) {
+  //Variables
   $scope.test1 = {
     list1: [{word:"dot"}, {word:"table"}, {word: "pencil"}, {word: "tree"}, {word: "proom"}, {word: "bike"}, {word: "amigo"}, {word: "dog"}, {word: "mafer"}, {word: "lamp"}, {word: "drink"}, {word: "mary"}, {word: "had"}, {word: "a"}, {word: "little"}, {word: "lamb"}, {word: "polit"}, {word: "floor"}, {word: "letter"}],
     list2: [{word:"there"}, {word:"is"}, {word:"much"}, {word:"to"}, {word:"be"}, {word:"learned"}, {word:"from"}, {word:"the"}, {word:"very"}, {word:"interesting"}, {word:"information"}, {word:"that"}, {word:"is"}, {word:"being"}, {word:"presented"}, {word:"in"}, {word:"the"}, {word:"middle"}, {word:"stream"}],
@@ -101,6 +119,7 @@ app.controller('TestCtrl', function($scope) {
   $scope.test = 1;
   $scope.myInterval;
   
+  //Start the streams
   $scope.startTest= function() {
     $scope.isplaying = true;
     $scope.complete = false;
@@ -135,6 +154,7 @@ app.controller('TestCtrl', function($scope) {
     return false;
   }
   
+  //stop the test
   $scope.stopTest = function() {
     clearInterval($scope.myInterval);
     if($scope.test==1)
@@ -147,6 +167,7 @@ app.controller('TestCtrl', function($scope) {
     $scope.isplaying = false;
   }
   
+  //initialise test and variables
   $scope.initTest= function(test) {
     if(test)
     {
@@ -164,6 +185,7 @@ app.controller('TestCtrl', function($scope) {
     $scope.list3='(ignore)';  
   }
   
+  //finish test
   $scope.finishTest=function(){
     $scope.test++;
     if($scope.test>2)
@@ -176,7 +198,9 @@ app.controller('TestCtrl', function($scope) {
   
 });
 
+//Controller for Questionnaire
 app.controller('QuestionCtrl', function($scope, $modal){
+  //Variables
   $scope.currentQuestion = 1;
   $scope.currentAnswer;
   $scope.userFeedback= 'jello';
@@ -273,14 +297,19 @@ app.controller('QuestionCtrl', function($scope, $modal){
         B: 'Sorry. Such an effect, if it did occur, would not be advantageous. The correct answer is D. Click EXPLAIN if you want to review this topic.',
         C: 'Sorry. Processing unattended areas to some extent would have the opposite effect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
         D: 'Correct!'
-      }
+      },
+      media: 'assets/images/figure2.png'
     }
   ];
   
+  //Functions
+  
+  //update the current answer variable
   $scope.update= function(id){
     $scope.currentAnswer = id;
   }
   
+  //submit the answer - this is where the answer should be submitted to the LMS if required
   $scope.submitAnswer= function() {
     $scope.userFeedback = $scope.questions[$scope.currentQuestion - 1].answers[$scope.currentAnswer];
     if($scope.questions[$scope.currentQuestion - 1].answer == $scope.currentAnswer){
@@ -289,12 +318,12 @@ app.controller('QuestionCtrl', function($scope, $modal){
     $scope.open();
   }
   
+  //Navigate through the 3 questions.
   $scope.questionsControl = function(target) {
     if($scope.currentQuestion >= $scope.questions.length )
     {
       if(target == "prev")
       {
-        
         $scope.setFinish(true);
         $scope.prevPage();
       }else
@@ -313,6 +342,7 @@ app.controller('QuestionCtrl', function($scope, $modal){
     $scope.safeApply();
   }
   
+  //open modal
   $scope.open = function () {
     var modalInstance = $modal.open({
       templateUrl: 'myModalContent.html',
@@ -333,6 +363,7 @@ app.controller('QuestionCtrl', function($scope, $modal){
   
 });
 
+//Modal instance controller
 var ModalInstanceCtrl = function ($scope, $modalInstance, userFeedback) {
   $scope.copy = userFeedback;
   $scope.ok = function () {
@@ -343,3 +374,23 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, userFeedback) {
     $modalInstance.dismiss('cancel');
   };
 };
+
+//Catch url location change to get user to complete test.
+app.directive('confirmOnExit', function() {
+  return {
+    link: function($scope, elem, attrs) {
+      window.onbeforeunload = function(){
+        if (!$scope.finished) {
+          return "You haven't completed the test";
+        }
+      }
+      $scope.$on('$locationChangeStart', function(event, next, current) {
+        if (!$scope.finished) {
+          if(!confirm("You haven't completed the test")) {
+              event.preventDefault();
+          }
+        }
+      });
+    }
+  };
+});

@@ -12,7 +12,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body ng-app="app" ng-cloak>
-    <div class="container-wrapper" ng-controller="PageCtrl" ng-click="change(1, 'home')">
+    <div class="container-wrapper" ng-controller="PageCtrl" ng-click="change(1, 'home')" confirm-on-exit>
       <div class="content-wrapper">
         <div class="page" ng-model="currentPage" ng-click="change(1)" ng-show="currentPage==0"  ng-animate="'fade'">
           <div class="container">
@@ -187,10 +187,18 @@
               <div  ng-repeat="question in questions">
                 <div ng-show="currentQuestion==question.id">                
                   <h2 class="page-title">{{question.question}}</h2>
-                  <label ng-repeat="option in question.options" class="bootstrap-overrides radio">
-                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="{{option.id}}" ng-click="update(option.id)">
-                    {{option.option}}
-                  </label>
+                  <div class="row">
+                    <div ng-class="{'span12': !question.media, 'span6': question.media}">
+                      <label ng-repeat="option in question.options" class="bootstrap-overrides radio">
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="{{option.id}}" ng-click="update(option.id)">
+                        {{option.option}}
+                      </label>
+                    </div>
+                    <div class="span6">
+                      <img ng-show="question.media" data-b="{{question.media}}" src="{{question.media}}"/>
+                    </div>
+                  </div>
+                 
                 </div>
               </div>
               <div class="control-group">
