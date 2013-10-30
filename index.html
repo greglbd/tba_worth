@@ -53,29 +53,35 @@
                     </div>
                   </div>
                   <div class="span4" ng-model="stimuli" ng-hide="stimuli==false">
-                    <div class="list1" ng-model="stimuliList" data-list="{{stimuliList}}">
-                      <div class="stimulibox">
-                        <h2 class="centeredtext">Top Stream</h2>
-                        <div class="pull-left stimulibox-list">
-                          <span ng-repeat="stimuliList in stimuliList.list1">
-                            {{stimuliList.word}},
-                          </span>
+                    <div class="list1" ng-model="stimuliList">
+                      <div class="row">
+                        <div class="stimulibox span4">
+                          <h2 class="centeredtext">Top Stream</h2>
+                          <div class="pull-left stimulibox-list">
+                            <span ng-repeat="stimuliList in stimuliList.list1">
+                              {{stimuliList.word}},
+                            </span>
+                          </div>
                         </div>
                       </div>
-                      <div class="stimulibox">
-                        <h2 class="centeredtext">Middle Stream</h2>
-                        <div class="pull-left stimulibox-list">
-                          <span ng-repeat="stimuliList in stimuliList.list2">
-                            {{stimuliList.word}},
-                          </span>
+                      <div class="row">
+                        <div class="stimulibox span4">
+                          <h2 class="centeredtext">Middle Stream</h2>
+                          <div class="pull-left stimulibox-list">
+                            <span ng-repeat="stimuliList in stimuliList.list2">
+                              {{stimuliList.word}},
+                            </span>
+                          </div>
                         </div>
                       </div>
-                      <div class="stimulibox">
-                        <h2 class="centeredtext">Bottom Stream</h2>
-                        <div class="pull-left stimulibox-list">
-                          <span ng-repeat="stimuliList in stimuliList.list3">
-                            {{stimuliList.word}},
-                          </span>
+                      <div class="row">
+                        <div class="stimulibox span4">
+                          <h2 class="centeredtext">Bottom Stream</h2>
+                          <div class="pull-left stimulibox-list">
+                            <span ng-repeat="stimuliList in stimuliList.list3">
+                              {{stimuliList.word}},
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -129,7 +135,7 @@
             <div class="row">
               <div class="span12">
                 <div class="media bootstrap-overrides">
-                  <div class="pull-left media-object">
+                  <div class="pull-left media-object explanation-object">
                     <img class="" src="assets/images/icon.png"/>
                     Explain
                   </div>
@@ -167,23 +173,31 @@
           </div>
         </div>
         <div class="page" ng-model="currentPage"  ng-show="currentPage==3" ng-animate="'fade'">
-          <div class="container">
+          <div class="container" ng-controller="QuestionCtrl" ng-model="currentQuestion">
             <div class="row">
               <div class="span12">
                 <div class="media bootstrap-overrides">
                   <div class="pull-left media-object media-object_questionnaire">
-                    <img class="" src="assets/images/icon2.png"/>
-                    Test Yourself
+                    <div class="pull-left question-object question-object_icon">
+                       <img class="" src="assets/images/icon2.png"/>
+                        Test Yourself
+                    </div>
+                    <div class="question-object question-object_id">
+                    {{currentQuestion}}
+                    </div>
                   </div>
-                  <div class="media-body">
-                    <h2 class="page-title explanation-title centeredtext media-heading">
-                      Select your answer to the question below. Click SUBMIT when you have your final answer.
-                    </h2>
+                  <div class="media-body media-body_questionnaire">
+                    <p class="page-copy questions-title centeredtext media-heading">
+                      Select your answer to the question below.
+                    </p>
+                    <p class="page-copy questions-title centeredtext media-heading">
+                      Click SUBMIT when you have your final answer.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-            <form class="form-horizontal" ng-controller="QuestionCtrl" ng-model="currentQuestion">
+            <form class="form-horizontal" >
               <div  ng-repeat="question in questions">
                 <div ng-show="currentQuestion==question.id">                
                   <h2 class="page-title">{{question.question}}</h2>

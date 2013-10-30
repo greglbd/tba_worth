@@ -64,7 +64,8 @@ li {
 }
 
 .test-wrapper {
-  height: 90px;
+  height: auto;
+  float: left !important;
   position: relative;
   display: table-cell;
   vertical-align: middle;
@@ -72,6 +73,11 @@ li {
   background-color: rgba(#ffffff, 0.5);
   border: 2px solid #000;
   margin-bottom: 12px;
+  
+  @media screen and (max-width: 762px)
+  {
+    padding: 30px 0px;
+  }
 }
 
 .test-listitem {
@@ -99,7 +105,8 @@ li {
   border: 2px solid #000;
   width: 225px;
   margin: 0px 0 10px;
-  float: left;
+  float: left !important;
+  background-color: #fff;
   
   & > h2 {
     background-color: #000;
@@ -124,6 +131,15 @@ li {
 .explanation-image {
   padding: 16px;
   background-color: #fff;
+  @media screen and (max-width: 1200px)
+  {
+    width: 90%;
+  }
+}
+
+.questions-title {
+  line-height: 23px;
+  margin: 0px !important;
 }
 
 .btn-margintop {
@@ -146,6 +162,36 @@ li {
   padding: 2% 10%;
   line-height: 22px;
 }
+
+.explanation-object {
+  padding: 0 20px;
+}
+.question-object {
+  float: left !important;
+  color: $body-copy-inverse;
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
+  &.question-object_icon {
+    width: 65%;
+    padding: 0% 5%;
+    & > img {
+      margin-top: -3px;
+      margin-right: 5px;
+    }
+  }
+  
+  &.question-object_id {
+    width: 19%;
+    padding-right: 5%;
+    font-size: 40px;
+    border-left: 1px solid #fff;
+    //border-left: 1px solid #fff;
+  }
+}
+
+
+
 /* Bootstrap overrides */
 .bootstrap-overrides {
   &.btn-primary, &.btn-primary:focus, &.btn-primary[disabled=disabled],&.btn-primary[disabled=disabled]:hover,&.btn-primary[disabled=disabled]:focus {
@@ -170,22 +216,45 @@ li {
     background-color: rgba(#ffffff, 0.7);
     margin-bottom: 25px;
     
+    
     & > .media-object {
       @include border-top-left-radius(6px);
       @include border-bottom-left-radius(6px);
       @include background-image(linear-gradient(#C775B0, #8E5BA6));
-      padding: 0 20px;
       height: 46px;
       line-height: 46px;
       text-align: center;
       color: $body-copy-inverse;
+      float: left !important;
+           
+      /* Smartphones (portrait and landscape) ----------- */
+      @media screen and (max-width : 570px) {
+        padding: 0 0px;
+        width: 100%;
+        @include border-top-right-radius(6px);
+        @include border-bottom-left-radius(0px);
+        /* Styles */
+      }
       & > img {
         margin-top: -3px;
         margin-right: 5px;
       }
       
+      
       &.media-object_questionnaire {
+        min-width: 200px;
         @include background-image(linear-gradient(#50B847,#02A200));
+        /* Smartphones (portrait and landscape) ----------- */
+      }
+    }
+    
+    & > .media-body {
+      @media screen and (max-width : 570px)  {
+        float: left;        /* Styles */
+        & > .page-copy {
+          float: left;
+          width: 100%;
+        }
       }
     }
   }
