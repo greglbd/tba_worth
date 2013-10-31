@@ -137,13 +137,22 @@ app.controller('TestCtrl', function($scope) {
     $scope.list3 = '+';
     setTimeout(function(){
       $scope.myInterval=setInterval(function(){
-        $scope.list1 = $scope.stimuliList.list1[$i]['word'];
-        $scope.list2 = $scope.stimuliList.list2[$i]['word'];
-        $scope.list3 = $scope.stimuliList.list3[$i]['word'];
-        $i++;
-        if($i == $scope.stimuliList.list1.length)
+        if($i < $scope.stimuliList.list1.length)
         {
-          $scope.stopTest();
+          $scope.list1 = $scope.stimuliList.list1[$i]['word'];
+          $scope.list2 = $scope.stimuliList.list2[$i]['word'];
+          $scope.list3 = $scope.stimuliList.list3[$i]['word'];
+          $i++;
+        }
+        else if($i == $scope.stimuliList.list1.length)
+        {
+          setTimeout(function(){
+            $scope.list1='(ignore)';
+            $scope.list2='(attend)';
+            $scope.list3='(ignore)';
+            $scope.stopTest();
+            $scope.safeApply();
+          }, 200);          
           $scope.complete = true;
         }
         $scope.safeApply();
@@ -157,6 +166,7 @@ app.controller('TestCtrl', function($scope) {
   //stop the test
   $scope.stopTest = function() {
     clearInterval($scope.myInterval);
+    
     if($scope.test==1)
     {
       $scope.updateHeader(1);
@@ -165,6 +175,7 @@ app.controller('TestCtrl', function($scope) {
       $scope.updateHeader(3);
     }
     $scope.isplaying = false;
+    $scope.safeApply(); 
   }
   
   //initialise test and variables
@@ -312,9 +323,8 @@ app.controller('QuestionCtrl', function($scope, $modal){
   //submit the answer - this is where the answer should be submitted to the LMS if required
   $scope.submitAnswer= function() {
     $scope.userFeedback = $scope.questions[$scope.currentQuestion - 1].answers[$scope.currentAnswer];
-    if($scope.questions[$scope.currentQuestion - 1].answer == $scope.currentAnswer){
-      $scope.currentAnswer = -1;
-    }
+    $scope.currentAnswer = -1;
+    $scope.safeApply();
     $scope.open();
   }
   

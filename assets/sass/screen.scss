@@ -15,10 +15,15 @@
 @import "compass/css3/transform";
 @import "compass/css3/box-shadow";
 @import "compass/css3/border-radius";
+@import "compass/css3/text-shadow";
 
 
 body, p, span, div {
   color: $body-copy;
+}
+body {
+  background-color : #ccc !important; 
+  @include background-image(url(../images/bg.png), radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%));
 }
 li {
   float: left;
@@ -52,8 +57,8 @@ li {
 .container-wrapper {
   height: 100%;
   min-height: 800px;
-  @include background-image(url(../images/bg.png),radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%));
-  background-repeat: repeat;
+  height: auto !important;
+  height: 800px;
 }
 .content-wrapper {
   overflow: hidden;
@@ -166,6 +171,12 @@ li {
 .explanation-object {
   padding: 0 20px;
 }
+.explanation-wrapper {
+  background-color: #ffffff;
+}
+.explanation-copy {
+  line-height: 19px;
+}
 .question-object {
   float: left !important;
   color: $body-copy-inverse;
@@ -203,7 +214,7 @@ li {
     @include box-shadow(rgba($body-copy, 0.7) 0px 2px 0px);
     min-width: 100px;
     outline: none;
-    
+    @include text-shadow(rgba($body-copy, 0) 0px 0px 0);
   }
   
   &.btn-primary:hover {

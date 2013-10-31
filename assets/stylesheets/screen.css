@@ -78,12 +78,22 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background-position: 0 0;
 }
 
-/* line 20, ../sass/screen.scss */
+/* line 21, ../sass/screen.scss */
 body, p, span, div {
   color: #4b4b4b;
 }
 
-/* line 23, ../sass/screen.scss */
+/* line 24, ../sass/screen.scss */
+body {
+  background-color: #ccc !important;
+  background-image: url(../images/bg.png), -webkit-gradient(radial, 50%, 0, 50%, 100, color-stop(16%, #ffffff), color-stop(100%, #cccccc));
+  background-image: url(../images/bg.png), -webkit-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+  background-image: url(../images/bg.png), -moz-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+  background-image: url(../images/bg.png), -o-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+  background-image: url(../images/bg.png), radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+}
+
+/* line 28, ../sass/screen.scss */
 li {
   float: left;
 }
@@ -93,54 +103,50 @@ li {
   templates compile.  The !important is important given that there may be 
   other selectors that are more specific or come later and might alter display.  
  */
-/* line 32, ../sass/screen.scss */
+/* line 37, ../sass/screen.scss */
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
 }
 
-/* line 36, ../sass/screen.scss */
+/* line 41, ../sass/screen.scss */
 .page-title {
-  font: normal bold 16px Arial, "sans-serif";
+  font: normal bold 17px Arial, "sans-serif";
 }
 
-/* line 40, ../sass/screen.scss */
+/* line 45, ../sass/screen.scss */
 .page-copy {
-  font: normal normal 14px Arial, "sans-serif";
+  font: normal normal 15px Arial, "sans-serif";
 }
 
-/* line 44, ../sass/screen.scss */
+/* line 49, ../sass/screen.scss */
 .page-copy_margin {
   margin: 10px 10px;
 }
 
-/* line 48, ../sass/screen.scss */
+/* line 53, ../sass/screen.scss */
 .container {
   margin-bottom: 20px;
 }
 
-/* line 52, ../sass/screen.scss */
+/* line 57, ../sass/screen.scss */
 .container-wrapper {
   height: 100%;
   min-height: 800px;
-  background-image: url(../images/bg.png), -webkit-gradient(radial, 50%, 0, 50%, 100, color-stop(16%, #ffffff), color-stop(100%, #cccccc));
-  background-image: url(../images/bg.png), -webkit-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
-  background-image: url(../images/bg.png), -moz-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
-  background-image: url(../images/bg.png), -o-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
-  background-image: url(../images/bg.png), radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
-  background-repeat: repeat;
+  height: auto !important;
+  height: 800px;
 }
 
-/* line 58, ../sass/screen.scss */
+/* line 63, ../sass/screen.scss */
 .content-wrapper {
   overflow: hidden;
 }
 
-/* line 62, ../sass/screen.scss */
+/* line 67, ../sass/screen.scss */
 .page {
   margin: 20px;
 }
 
-/* line 66, ../sass/screen.scss */
+/* line 71, ../sass/screen.scss */
 .test-wrapper {
   height: auto;
   float: left !important;
@@ -153,38 +159,38 @@ li {
   margin-bottom: 12px;
 }
 @media screen and (max-width: 762px) {
-  /* line 66, ../sass/screen.scss */
+  /* line 71, ../sass/screen.scss */
   .test-wrapper {
     padding: 30px 0px;
   }
 }
 
-/* line 83, ../sass/screen.scss */
+/* line 88, ../sass/screen.scss */
 .test-listitem {
   float: left;
   width: 100%;
   text-align: center;
-  font: normal bold 16px Arial, "sans-serif";
-  line-height: 26px;
+  font: normal bold 17px Arial, "sans-serif";
+  line-height: 27px;
 }
 
-/* line 91, ../sass/screen.scss */
+/* line 96, ../sass/screen.scss */
 .centeredtext {
   text-align: center;
 }
 
-/* line 95, ../sass/screen.scss */
+/* line 100, ../sass/screen.scss */
 .fullscreen {
   width: 100%;
   height: 100%;
 }
 
-/* line 100, ../sass/screen.scss */
+/* line 105, ../sass/screen.scss */
 .whitebox {
   background-color: #fff;
 }
 
-/* line 104, ../sass/screen.scss */
+/* line 109, ../sass/screen.scss */
 .stimulibox {
   border: 2px solid #000;
   width: 225px;
@@ -192,51 +198,51 @@ li {
   float: left !important;
   background-color: #fff;
 }
-/* line 111, ../sass/screen.scss */
+/* line 116, ../sass/screen.scss */
 .stimulibox > h2 {
   background-color: #000;
   color: white;
-  font: normal bold 14px Arial, "sans-serif";
+  font: normal bold 15px Arial, "sans-serif";
   margin: 0;
   line-height: 26px;
 }
-/* line 119, ../sass/screen.scss */
+/* line 124, ../sass/screen.scss */
 .stimulibox > .stimulibox-list {
   background-color: white;
   padding: 5px;
-  font: normal normal 12px Arial, "sans-serif";
+  font: normal normal 13px Arial, "sans-serif";
 }
 
-/* line 126, ../sass/screen.scss */
+/* line 131, ../sass/screen.scss */
 .explanation-title {
   line-height: 46px;
   margin: 0px !important;
 }
 
-/* line 131, ../sass/screen.scss */
+/* line 136, ../sass/screen.scss */
 .explanation-image {
   padding: 16px;
   background-color: #fff;
 }
 @media screen and (max-width: 1200px) {
-  /* line 131, ../sass/screen.scss */
+  /* line 136, ../sass/screen.scss */
   .explanation-image {
     width: 90%;
   }
 }
 
-/* line 140, ../sass/screen.scss */
+/* line 145, ../sass/screen.scss */
 .questions-title {
   line-height: 23px;
   margin: 0px !important;
 }
 
-/* line 145, ../sass/screen.scss */
+/* line 150, ../sass/screen.scss */
 .btn-margintop {
   margin-top: 20px;
 }
 
-/* line 149, ../sass/screen.scss */
+/* line 154, ../sass/screen.scss */
 .complete {
   width: 100%;
   height: 102px;
@@ -244,25 +250,35 @@ li {
   background-position: center;
 }
 
-/* line 156, ../sass/screen.scss */
+/* line 161, ../sass/screen.scss */
 .complete-title {
   font: normal bold 32px Arial, "sans-serif";
 }
 
-/* line 159, ../sass/screen.scss */
+/* line 164, ../sass/screen.scss */
 .complete-copy {
-  font: normal bold 16px Arial, "sans-serif";
+  font: normal bold 17px Arial, "sans-serif";
   width: 80%;
   padding: 2% 10%;
   line-height: 22px;
 }
 
-/* line 166, ../sass/screen.scss */
+/* line 171, ../sass/screen.scss */
 .explanation-object {
   padding: 0 20px;
 }
 
-/* line 169, ../sass/screen.scss */
+/* line 174, ../sass/screen.scss */
+.explanation-wrapper {
+  background-color: #ffffff;
+}
+
+/* line 177, ../sass/screen.scss */
+.explanation-copy {
+  line-height: 19px;
+}
+
+/* line 180, ../sass/screen.scss */
 .question-object {
   float: left !important;
   color: white;
@@ -270,17 +286,17 @@ li {
   line-height: 46px;
   text-align: center;
 }
-/* line 175, ../sass/screen.scss */
+/* line 186, ../sass/screen.scss */
 .question-object.question-object_icon {
   width: 65%;
   padding: 0% 5%;
 }
-/* line 178, ../sass/screen.scss */
+/* line 189, ../sass/screen.scss */
 .question-object.question-object_icon > img {
   margin-top: -3px;
   margin-right: 5px;
 }
-/* line 184, ../sass/screen.scss */
+/* line 195, ../sass/screen.scss */
 .question-object.question-object_id {
   width: 19%;
   padding-right: 5%;
@@ -289,7 +305,7 @@ li {
 }
 
 /* Bootstrap overrides */
-/* line 197, ../sass/screen.scss */
+/* line 208, ../sass/screen.scss */
 .bootstrap-overrides.btn-primary, .bootstrap-overrides.btn-primary:focus, .bootstrap-overrides.btn-primary[disabled=disabled], .bootstrap-overrides.btn-primary[disabled=disabled]:hover, .bootstrap-overrides.btn-primary[disabled=disabled]:focus {
   background: #fff;
   color: #4b4b4b;
@@ -305,13 +321,14 @@ li {
   box-shadow: rgba(75, 75, 75, 0.7) 0px 2px 0px;
   min-width: 100px;
   outline: none;
+  text-shadow: rgba(75, 75, 75, 0) 0px 0px 0;
 }
-/* line 209, ../sass/screen.scss */
+/* line 220, ../sass/screen.scss */
 .bootstrap-overrides.btn-primary:hover {
   background: #CCC;
   color: #4b4b4b;
 }
-/* line 214, ../sass/screen.scss */
+/* line 225, ../sass/screen.scss */
 .bootstrap-overrides.media {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -321,7 +338,7 @@ li {
   background-color: rgba(255, 255, 255, 0.7);
   margin-bottom: 25px;
 }
-/* line 220, ../sass/screen.scss */
+/* line 231, ../sass/screen.scss */
 .bootstrap-overrides.media > .media-object {
   -moz-border-radius-topleft: 6px;
   -webkit-border-top-left-radius: 6px;
@@ -342,7 +359,7 @@ li {
   /* Smartphones (portrait and landscape) ----------- */
 }
 @media screen and (max-width : 570px) {
-  /* line 220, ../sass/screen.scss */
+  /* line 231, ../sass/screen.scss */
   .bootstrap-overrides.media > .media-object {
     padding: 0 0px;
     width: 100%;
@@ -355,12 +372,12 @@ li {
     /* Styles */
   }
 }
-/* line 238, ../sass/screen.scss */
+/* line 249, ../sass/screen.scss */
 .bootstrap-overrides.media > .media-object > img {
   margin-top: -3px;
   margin-right: 5px;
 }
-/* line 244, ../sass/screen.scss */
+/* line 255, ../sass/screen.scss */
 .bootstrap-overrides.media > .media-object.media-object_questionnaire {
   min-width: 200px;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #50b847), color-stop(100%, #02a200));
@@ -371,18 +388,18 @@ li {
   /* Smartphones (portrait and landscape) ----------- */
 }
 @media screen and (max-width : 570px) {
-  /* line 251, ../sass/screen.scss */
+  /* line 262, ../sass/screen.scss */
   .bootstrap-overrides.media > .media-body {
     float: left;
     /* Styles */
   }
-  /* line 254, ../sass/screen.scss */
+  /* line 265, ../sass/screen.scss */
   .bootstrap-overrides.media > .media-body > .page-copy {
     float: left;
     width: 100%;
   }
 }
-/* line 262, ../sass/screen.scss */
+/* line 273, ../sass/screen.scss */
 .bootstrap-overrides.radio {
   line-height: 24px;
 }
