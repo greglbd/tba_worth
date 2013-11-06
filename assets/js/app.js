@@ -7,12 +7,13 @@ app.controller('PageCtrl', function($scope){
   //Variables
   $scope.currentPage = 0;
   $scope.finished = false;
+  $scope.questions = false;
   $scope.pageCopy = [
     {
       copy: [
         { line: "You are a participant in an experiment on selective attention. Click play to see three rapid streams of words in the box below. Your task is:" },
         { line: "BE SURE THAT YOU ATTEND TO THE MIDDLE STREAM ONLY, SO YOU DON'T MISS ANY OF THE WORDS IN IT."  },
-        { line: "To ensure that you attend to every word in the middle stream, you should shadow the words silently in your mind as they go by. You can replay the streams as many times as you like. When you feel confident that you have carried out this task successfully, click finished"  }
+        { line: "To ensure that you attend to every word in the middle stream, you should shadow the words silently in your mind as they go by. You can replay the streams as many times as you like. When you feel confident you have carried out this task successfully, click FINISHED."  }
       ]
     },
     {
@@ -68,6 +69,11 @@ app.controller('PageCtrl', function($scope){
     else if (!$window)
     {
       $scope.currentPage = $targetPage;
+    }
+    
+    if($scope.currentPage == 3)
+    {
+      $scope.questions = true;
     }
   }
   

@@ -104,6 +104,13 @@ li {
 
 .whitebox {
   background-color: #fff;
+  display: table;
+  min-height: 150px !important;
+}
+
+.whitebox-cell{
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .stimulibox {
@@ -127,6 +134,10 @@ li {
     @include font-small(normal);
   }
 }
+.stimuli-list {
+  display: table;
+  height: 297px;
+}
 
 .explanation-title {
   line-height: 46px;
@@ -143,7 +154,7 @@ li {
 }
 
 .questions-title {
-  line-height: 23px;
+  line-height: 46px;
   margin: 0px !important;
 }
 

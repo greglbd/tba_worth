@@ -18,9 +18,11 @@
           <div class="container">
             <div class="row">
               <div class="span12 whitebox">
-                <h1 class="page-title page-copy_margin centeredtext">Selective Attention</h1>
-                <p class="page-copy page-copy_margin centeredtext"> Participate in a visual version of a dichotic listening experiment to explore the factors involved in selective attention.</p>
-                <p class="page-copy page-copy_margin centeredtext">Click anywhere to begin.</p>
+                <div class="whitebox-cell">
+                  <h1 class="page-title page-copy_margin centeredtext">Selective Attention</h1>
+                  <p class="page-copy page-copy_margin centeredtext"> Participate in a visual version of a dichotic listening experiment to explore the factors involved in selective attention.</p>
+                  <p class="page-copy page-copy_margin centeredtext">Click anywhere to begin.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -30,9 +32,11 @@
            <div class="container">
             <div class="row">
               <div class="span12 whitebox" ng-model="currentPageCopy">
-                <p class="page-copy page-copy_margin centeredtext" ng-repeat="pageCopy in currentPageCopy.copy">
-                  {{pageCopy.line}}
-                </p>
+                <div class="whitebox-cell">
+                  <p class="page-copy page-copy_margin centeredtext" ng-repeat="pageCopy in currentPageCopy.copy">
+                    {{pageCopy.line}}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -53,34 +57,36 @@
                     </div>
                   </div>
                   <div class="span4" ng-model="stimuli" ng-hide="stimuli==false">
-                    <div class="list1" ng-model="stimuliList">
-                      <div class="row">
-                        <div class="stimulibox span4">
-                          <h2 class="centeredtext">Top Stream</h2>
-                          <div class="pull-left stimulibox-list">
-                            <span ng-repeat="stimuliList in stimuliList.list1">
-                              {{stimuliList.word}},
-                            </span>
+                    <div class="stimuli-list" ng-model="stimuliList">  
+                      <div class="whitebox-cell">
+                        <div class="row">
+                          <div class="stimulibox span4">
+                            <h2 class="centeredtext">Top Stream</h2>
+                            <div class="pull-left stimulibox-list">
+                              <span ng-repeat="stimuliList in stimuliList.list1">
+                                {{stimuliList.word}}<span ng-show=" ! $last ">,</span>
+                              </span>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="row">
-                        <div class="stimulibox span4">
-                          <h2 class="centeredtext">Middle Stream</h2>
-                          <div class="pull-left stimulibox-list">
-                            <span ng-repeat="stimuliList in stimuliList.list2">
-                              {{stimuliList.word}},
-                            </span>
+                        <div class="row">
+                          <div class="stimulibox span4">
+                            <h2 class="centeredtext">Middle Stream</h2>
+                            <div class="pull-left stimulibox-list">
+                              <span ng-repeat="stimuliList in stimuliList.list2">
+                                {{stimuliList.word}}<span ng-show=" ! $last ">,</span>
+                              </span>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="row">
-                        <div class="stimulibox span4">
-                          <h2 class="centeredtext">Bottom Stream</h2>
-                          <div class="pull-left stimulibox-list">
-                            <span ng-repeat="stimuliList in stimuliList.list3">
-                              {{stimuliList.word}},
-                            </span>
+                        <div class="row">
+                          <div class="stimulibox span4">
+                            <h2 class="centeredtext">Bottom Stream</h2>
+                            <div class="pull-left stimulibox-list">
+                              <span ng-repeat="stimuliList in stimuliList.list3">
+                                {{stimuliList.word}}<span ng-show=" ! $last ">,</span>
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -167,7 +173,7 @@
             </div>
             <div class="control-group">
               <div class="control centeredtext"> 
-                <button type="button" ng-click="prevPage();" class="btn-margintop bootstrap-overrides btn btn-primary">
+                <button type="button" ng-disabled="questions" ng-click="prevPage();" class="btn-margintop bootstrap-overrides btn btn-primary">
                   Back
                 </button>
                 <button type="button" ng-click="nextPage();" class="btn-margintop bootstrap-overrides btn btn-primary">
@@ -193,10 +199,7 @@
                   </div>
                   <div class="media-body media-body_questionnaire">
                     <p class="page-copy questions-title centeredtext media-heading">
-                      Select your answer to the question below.
-                    </p>
-                    <p class="page-copy questions-title centeredtext media-heading">
-                      Click SUBMIT when you have your final answer.
+                      Select your answer to the question below. Then click SUBMIT.
                     </p>
                   </div>
                 </div>
@@ -245,7 +248,7 @@
               <div class="span4 offset4">
                 <div class="complete general-tick"></div>
                 <h2 class="complete-title centeredtext">Activity Complete!</h2>
-                <p class="complete-copy centeredtext">You have completed the activity set for Neurons and Neural Communication.</p>
+                <p class="complete-copy centeredtext">You have completed the activity Selective Attention.</p>
               </div>
             </div>
           </div>
