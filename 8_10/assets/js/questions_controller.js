@@ -12,55 +12,55 @@ angular.module('app.questions_controller', [])
   $scope.questions = [
     {
       id: '1',
-      question: 'Which of the following questions expresses the cocktail party problem?',
+      question: 'Why do conjunction searches take longer than feature searches?',
       options: 
       [
         { 
-          option:  "A. How can you pay attention to what the actors in a play are saying if the people seated next to you in the audience are talking?",
+          option:  "A. The displays contain more objects in conjunction searches than in feature searches.",
           id: 'A'
         },  
         { 
-          option:  "B. How can you hear what your friend is saying during a noisy fireworks display?",
+          option:  "B. In feature searches, the target just “pops out” of the search display. In conjunction searches, the person must examine one object after another in the display, until the target is found.",
           id: 'B'
         },
         { 
-          option:  "C. Can you figure out what the TV newsperson is saying if the sound keeps going off and on?",
+          option:  "C. In feature searches, each object has just one feature, so scanning all the objects is quick and easy. In conjunction searches, each object has multiple features, which makes scanning take longer.",
           id: 'C'
         },
         { 
-          option:  "D. Did you hear something, or are you just imagining things?",
+          option:  "D. In conjunction searches, the objects in the display change locations. In feature searches, the objects remain in fixed positions.",
           id: 'D'
         }  
       ],
-      answer: 'A',
+      answer: 'B',
       answers:
       {
-        A: 'Correct!',
-        B: 'Sorry. The correct answer is A. Click EXPLAIN if you want to review this topic.',
-        C: 'Sorry. Often we do notice salient stimuli, like our name, in unattended converstions. The correct answer is A. Click EXPLAIN if you want to review this topic.',
-        D: 'Sorry. Typically we can recall very little about what occurred in the unattended stream.  The correct answer is A. Click EXPLAIN if you want to review this topic.'
+        B: 'Correct!',
+        A: 'Sorry. The correct answer is B. Click EXPLAIN if you want to review this topic.',
+        C: 'Sorry. Often we do notice salient stimuli, like our name, in unattended converstions. The correct answer is B. Click EXPLAIN if you want to review this topic.',
+        D: 'Sorry. Typically we can recall very little about what occurred in the unattended stream.  The correct answer is B. Click EXPLAIN if you want to review this topic.'
       }
       
     },
     {
       id: 2,
-      question: 'Which of these scenarios shows that we process unattended speech to some degree?',
+      question: 'In this graph of typical group results from a visual search experiment like the one in this demonstration, the curve for feature search is a horizontal line. What does this indicate?	',
       options:
       [
         {
-          option: "A. As a low-flying plane passes overhead, you focus on your friend’s lip movements to perceive what she’s saying.",
+          option: "A. The greater the number of items in the display, the shorter the response time.",
           id: 'A'
         },
         {
-          option: "B. While soothing a crying baby, you carry on a conversation with your neighbor.",
+          option: "B. The difficulty of determining that the target is absent is offset by the ease of determining that the target is present.",
           id: 'B'
         },
         {
-          option: "C. During a very interesting movie, you hear the person sitting behind you say “Ouch!” in a low voice.",
+          option: "C. The number of items in the display has no effect on the response time.",
           id: 'C'
         },
         {
-          option: "D. A door slams, distracting you for a moment, and you miss hearing the final score of the game.",
+          option: "D. Feature searches always have the same number of items in the display.",
           id: 'D'
         },
       ],
@@ -71,27 +71,28 @@ angular.module('app.questions_controller', [])
         B: 'Sorry. That result could occur even if the unattended stream was not processed at all.  The correct answer is C. Click EXPLAIN if you want to review this topic.',
         C: 'Correct!',
         D: 'Sorry. Typically only salient stimuli are noticed in the unattended stream.  The correct answer is C. Click EXPLAIN if you want to review this topic.'
-      }
+      },
+      media: 'assets/images/group_graph.png'
     },
     {
       id: 3,
-      question: 'In the dichotic listening scenario illustrated, why is the participant likely to recall parts of the unattended message?',
+      question: 'The target is a red triangle. Which of these displays involve(s) feature search and which  involve(s) conjunction search?',
       options:
       [
         {
-          option: "A. It’s impossible to really ignore what you’re hearing.",
+          option: "A. Feature search, 1. Conjunction search, 2 and 3.",
           id: 'A'
         },
         {
-          option: "B. The unattended message is very different from the attended message.",
+          option: "B. Feature search, 3. Conjunction search, 1 and 2.",
           id: 'B'
         },
         {
-          option: "C. The attended message is too dull to claim the participant’s full attention.",
+          option: "C. Feature search, 2 and 3. Conjunction search, 1.",
           id: 'C'
         },
         {
-          option: "D. The unattended message describes terrifying events.",
+          option: "D. Feature search, 1 and 2. Conjunction search, 3.",
           id: 'D'
         },
       ],
@@ -103,7 +104,7 @@ angular.module('app.questions_controller', [])
         C: 'Sorry. Processing unattended areas to some extent would have the opposite effect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
         D: 'Correct!'
       },
-      media: 'assets/images/figure2.png'
+      media: 'assets/images/question_3.png'
     }
   ];
   

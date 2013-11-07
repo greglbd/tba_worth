@@ -4,7 +4,8 @@ angular.module('app.controllers', [])
 .controller('PageCtrl', function($scope){
   
   //Variables
-  $scope.currentPage = 0;
+  $scope.activity_title = "Neurons and Neural Communication"
+  $scope.currentPage = 0
   $scope.finished = false;
   $scope.questions = false;
   $scope.pageCopy = [

@@ -19,8 +19,8 @@
             <div class="row">
               <div class="span12 whitebox">
                 <div class="whitebox-cell">
-                  <h1 class="page-title page-copy_margin centeredtext">Selective Attention</h1>
-                  <p class="page-copy page-copy_margin centeredtext"> Participate in a visual version of a dichotic listening experiment to explore the factors involved in selective attention.</p>
+                  <h1 class="page-title page-copy_margin centeredtext">Searching for Features and Conjunctions</h1>
+                  <p class="page-copy page-copy_margin centeredtext">Participate in an experiment on visual search for features or conjunctions of features.</p>
                   <p class="page-copy page-copy_margin centeredtext">Click anywhere to begin.</p>
                 </div>
               </div>
@@ -147,7 +147,7 @@
                   </div>
                   <div class="media-body">
                     <h2 class="page-title explanation-title centeredtext media-heading">
-                      What Is the Cocktail Party Problem, and What Does It Tells Us About Selective Attention?
+                      What Is the Role of Attention in Feature Search Versus Conjunction Search?
                     </h2>
                   </div>
                 </div>
@@ -158,8 +158,10 @@
               <div class="span12 explanation-wrapper">
                 <div class="row">
                   <div class="span8">
-                    <p class="page-copy page-copy_margin explanation-copy">The challenge of comprehending speech in a noisy environment has been called the cocktail party problem, on the analogy of trying to pay attention to one conversation among many simultaneous, overlapping conversations. This problem in selective attention has been studied in dichotic listening experiments, as illustrated in Figure 1. Participants wear headphones that transmit one spoken |message into one ear and a different spoken message into the other ear (e.g., two different mundane newspaper articles that don’t include any proper names or unusual words). As the messages play, participants must repeat back (or shadow) the message heard in one ear as the message unfolds, in order to ensure that they are perceiving and understanding that message. After shadowing one message for a minute or two, participants are asked what they heard in the other, ignored ear. Consistently, participants are able to report almost nothing about the content of the ignored message. In fact, even changing the language being spoken in the ignored ear, or playing the message in reverse, is often not noticed.</p>
-                    <p class="page-copy page-copy_margin explanation-copy"> However, some changes tend to be noticed immediately—for example, when the unattended message is replaced by a tone or when a man’s voice is replaced by a woman’s. This suggests that low-level sensory changes in the ignored ear are noticed but that changes related to meaning aren’t. This conclusion, of course, raises a question: If meaning isn’t registered when you’re attending to one among many conversations, why do you notice your own name spoken in an unattended conversation at a party? Further studies have suggested that certain words (e.g., your own name or emotionally charged words such as sex and death) tend to capture your attention. This suggests that the semantic content of the ignored message is processed to some degree, but unless that message has particular importance for you, it’s discarded and unavailable for later recall.</p>
+                    <p class="page-copy page-copy_margin explanation-copy">Searching for a book with a blue cover in a large bookcase would be quick and easy if all the other books had red covers. In laboratory studies of this type of visual search, a display containing multiple objects is presented on a computer screen, and the participant is instructed to search the display for a target with one or more specific features; the target is present half the time and absent the other half. Searching for a target that differs from all the other objects in the display in one feature is called feature search, as in the example of the book with the blue cover. Searching for a target that is defined by multiple features is called conjunction search, because the participant is searching for a target that consists of a conjunction of features in a single object.</p>
+                    <p class="page-copy page-copy_margin explanation-copy"> In an experiment like the one in this demonstration (illustrated in Figure 1), where the target is the blue horizontal bar, the participant responds by pressing a button as soon as she finds the target or as soon as she determines that the target is absent. This procedure is repeated many times, with varying numbers of objects in the display, and the time required to make each response is recorded. The left and middle displays in the figure illustrate feature search—in the left display; the target is the only blue bar; in the middle display, the target is the only horizontal bar; and in both cases, the search is quick and easy because the single feature that defines the target “pops out” of the display. The graph in the figure shows that the response time in feature search is fast regardless of the number of objects in the display and regardless of whether the target is present or absent.</p>
+                    <p class="page-copy page-copy_margin explanation-copy"> 	The right display illustrates conjunction search: the participant must search for the conjunction of features blue and horizontal, because the display contains other blue objects and other horizontal objects. The graph shows that conjunction search is much more difficult than feature search: the response time is greater than in feature search for any given number of objects, the response time increases as the number of objects increases, and the response time is greater when the target is absent than when the target is present.</p>
+                    <p class="page-copy page-copy_margin explanation-copy"> 	These results suggest that, in a feature search, the observer can detect the unique feature by attending to the entire visual scene—the target “pops out.” In contrast, conjunction search requires the observer to direct attention to one object at a time, sequentially, to determine whether it contains the required conjunction of features. This distinction between rapid, efficient feature search and slow, inefficient conjunction search provides good evidence that binding features together requires attention to the spatial location of those features, to make sure that the features are in the same location and belong to the same object.</p>
                   </div>
                   <div class="span4">
                     <div class="media">
@@ -210,14 +212,14 @@
                 <div ng-show="currentQuestion==question.id">                
                   <h2 class="page-title">{{question.question}}</h2>
                   <div class="row">
-                    <div ng-class="{'span12': !question.media, 'span6': question.media}">
+                    <div class="span8 centeredtext page-copy_margin">
+                      <img ng-show="question.media" data-b="{{question.media}}" src="{{question.media}}"/>
+                    </div>
+                    <div class="span12">
                       <label ng-repeat="option in question.options" class="bootstrap-overrides radio">
                         <input type="radio" name="optionsRadios" id="optionsRadios1" value="{{option.id}}" ng-click="update(option.id)">
                         {{option.option}}
                       </label>
-                    </div>
-                    <div class="span6">
-                      <img ng-show="question.media" data-b="{{question.media}}" src="{{question.media}}"/>
                     </div>
                   </div>
                  
@@ -248,7 +250,7 @@
               <div class="span4 offset4">
                 <div class="complete general-tick"></div>
                 <h2 class="complete-title centeredtext">Activity Complete!</h2>
-                <p class="complete-copy centeredtext">You have completed the activity Selective Attention.</p>
+                <p class="complete-copy centeredtext">You have completed the activity set for {{activity_title}}.</p>
               </div>
             </div>
           </div>

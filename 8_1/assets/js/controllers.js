@@ -4,6 +4,7 @@ angular.module('app.controllers', [])
 .controller('PageCtrl', function($scope){
   
   //Variables
+  $scope.activity_title = "Selective Attention";
   $scope.currentPage = 0;
   $scope.finished = false;
   $scope.questions = false;
