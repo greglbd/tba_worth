@@ -1,0 +1,447 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* sprite generation */
+/* line 42, sprites/general/*.png */
+.general-sprite, .general-tick {
+  background: url('worth/8_1/assets/images/sprites/general-s6d60dcfbe8.png') no-repeat;
+}
+
+/* line 60, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.general-tick {
+  background-position: 0 0;
+}
+
+/* line 21, ../sass/screen.scss */
+body, p, span, div {
+  color: #4b4b4b;
+}
+
+/* line 24, ../sass/screen.scss */
+body {
+  background-color: #ccc !important;
+  background-image: url(../images/bg.png), -webkit-gradient(radial, 50%, 0, 50%, 100, color-stop(16%, #ffffff), color-stop(100%, #cccccc));
+  background-image: url(../images/bg.png), -webkit-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+  background-image: url(../images/bg.png), -moz-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+  background-image: url(../images/bg.png), -o-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+  background-image: url(../images/bg.png), radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+}
+
+/* line 28, ../sass/screen.scss */
+li {
+  float: left;
+}
+
+/* 
+  Allow angular.js to be loaded in body, hiding cloaked elements until 
+  templates compile.  The !important is important given that there may be 
+  other selectors that are more specific or come later and might alter display.  
+ */
+/* line 37, ../sass/screen.scss */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+/* line 41, ../sass/screen.scss */
+.page-title {
+  font: normal bold 17px Arial, "sans-serif";
+}
+
+/* line 45, ../sass/screen.scss */
+.page-copy {
+  font: normal normal 15px Arial, "sans-serif";
+}
+
+/* line 49, ../sass/screen.scss */
+.page-copy_margin {
+  margin: 10px 10px;
+}
+
+/* line 53, ../sass/screen.scss */
+.container {
+  margin-bottom: 20px;
+}
+
+/* line 57, ../sass/screen.scss */
+.container-wrapper {
+  height: 100%;
+  min-height: 800px;
+  height: auto !important;
+  height: 800px;
+}
+
+/* line 63, ../sass/screen.scss */
+.content-wrapper {
+  overflow: hidden;
+}
+
+/* line 67, ../sass/screen.scss */
+.page {
+  margin: 20px;
+}
+
+/* line 71, ../sass/screen.scss */
+.test-wrapper {
+  height: auto;
+  float: left !important;
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 100px 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid #000;
+  margin-bottom: 12px;
+}
+@media screen and (max-width: 762px) {
+  /* line 71, ../sass/screen.scss */
+  .test-wrapper {
+    padding: 30px 0px;
+  }
+}
+
+/* line 88, ../sass/screen.scss */
+.test-listitem {
+  float: left;
+  width: 100%;
+  text-align: center;
+  font: normal bold 17px Arial, "sans-serif";
+  line-height: 27px;
+}
+
+/* line 96, ../sass/screen.scss */
+.centeredtext {
+  text-align: center;
+}
+
+/* line 100, ../sass/screen.scss */
+.fullscreen {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 105, ../sass/screen.scss */
+.whitebox {
+  background-color: #fff;
+  display: table;
+  min-height: 150px !important;
+}
+
+/* line 111, ../sass/screen.scss */
+.whitebox-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* line 116, ../sass/screen.scss */
+.stimulibox {
+  border: 2px solid #000;
+  width: 225px;
+  margin: 0px 0 10px;
+  float: left !important;
+  background-color: #fff;
+}
+/* line 123, ../sass/screen.scss */
+.stimulibox > h2 {
+  background-color: #000;
+  color: white;
+  font: normal bold 15px Arial, "sans-serif";
+  margin: 0;
+  line-height: 26px;
+}
+/* line 131, ../sass/screen.scss */
+.stimulibox > .stimulibox-list {
+  background-color: white;
+  padding: 5px;
+  font: normal normal 13px Arial, "sans-serif";
+}
+
+/* line 137, ../sass/screen.scss */
+.stimuli-list {
+  display: table;
+  height: 297px;
+}
+
+/* line 142, ../sass/screen.scss */
+.explanation-title {
+  line-height: 46px;
+  margin: 0px !important;
+}
+
+/* line 147, ../sass/screen.scss */
+.explanation-image {
+  padding: 16px;
+  background-color: #fff;
+}
+@media screen and (max-width: 1200px) {
+  /* line 147, ../sass/screen.scss */
+  .explanation-image {
+    width: 90%;
+  }
+}
+
+/* line 156, ../sass/screen.scss */
+.questions-title {
+  line-height: 46px;
+  margin: 0px !important;
+}
+
+/* line 161, ../sass/screen.scss */
+.btn-margintop {
+  margin-top: 20px;
+}
+
+/* line 165, ../sass/screen.scss */
+.complete {
+  width: 100%;
+  height: 102px;
+  margin-top: 180px;
+  background-position: center;
+}
+
+/* line 172, ../sass/screen.scss */
+.complete-title {
+  font: normal bold 32px Arial, "sans-serif";
+}
+
+/* line 175, ../sass/screen.scss */
+.complete-copy {
+  font: normal bold 17px Arial, "sans-serif";
+  width: 80%;
+  padding: 2% 10%;
+  line-height: 22px;
+}
+
+/* line 182, ../sass/screen.scss */
+.explanation-object {
+  padding: 0 20px;
+}
+
+/* line 185, ../sass/screen.scss */
+.explanation-wrapper {
+  background-color: #ffffff;
+}
+
+/* line 188, ../sass/screen.scss */
+.explanation-copy {
+  line-height: 19px;
+}
+
+/* line 191, ../sass/screen.scss */
+.question-object {
+  float: left !important;
+  color: white;
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
+}
+/* line 197, ../sass/screen.scss */
+.question-object.question-object_icon {
+  width: 65%;
+  padding: 0% 5%;
+}
+/* line 200, ../sass/screen.scss */
+.question-object.question-object_icon > img {
+  margin-top: -3px;
+  margin-right: 5px;
+}
+/* line 206, ../sass/screen.scss */
+.question-object.question-object_id {
+  width: 19%;
+  padding-right: 5%;
+  font-size: 40px;
+  border-left: 1px solid #fff;
+}
+
+/* Bootstrap overrides */
+/* line 219, ../sass/screen.scss */
+.bootstrap-overrides.btn-primary, .bootstrap-overrides.btn-primary:focus, .bootstrap-overrides.btn-primary[disabled=disabled], .bootstrap-overrides.btn-primary[disabled=disabled]:hover, .bootstrap-overrides.btn-primary[disabled=disabled]:focus {
+  background: #fff;
+  color: #4b4b4b;
+  text-transform: uppercase;
+  font-size: 11pt;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: rgba(75, 75, 75, 0.7) 0px 2px 0px;
+  -moz-box-shadow: rgba(75, 75, 75, 0.7) 0px 2px 0px;
+  box-shadow: rgba(75, 75, 75, 0.7) 0px 2px 0px;
+  min-width: 100px;
+  outline: none;
+  text-shadow: rgba(75, 75, 75, 0) 0px 0px 0;
+}
+/* line 231, ../sass/screen.scss */
+.bootstrap-overrides.btn-primary:hover {
+  background: #CCC;
+  color: #4b4b4b;
+}
+/* line 236, ../sass/screen.scss */
+.bootstrap-overrides.media {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 25px;
+}
+/* line 242, ../sass/screen.scss */
+.bootstrap-overrides.media > .media-object {
+  -moz-border-radius-topleft: 6px;
+  -webkit-border-top-left-radius: 6px;
+  border-top-left-radius: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #c775b0), color-stop(100%, #8e5ba6));
+  background-image: -webkit-linear-gradient(#c775b0, #8e5ba6);
+  background-image: -moz-linear-gradient(#c775b0, #8e5ba6);
+  background-image: -o-linear-gradient(#c775b0, #8e5ba6);
+  background-image: linear-gradient(#c775b0, #8e5ba6);
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
+  color: white;
+  float: left !important;
+  /* Smartphones (portrait and landscape) ----------- */
+}
+@media screen and (max-width : 570px) {
+  /* line 242, ../sass/screen.scss */
+  .bootstrap-overrides.media > .media-object {
+    padding: 0 0px;
+    width: 100%;
+    -moz-border-radius-topright: 6px;
+    -webkit-border-top-right-radius: 6px;
+    border-top-right-radius: 6px;
+    -moz-border-radius-bottomleft: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    /* Styles */
+  }
+}
+/* line 260, ../sass/screen.scss */
+.bootstrap-overrides.media > .media-object > img {
+  margin-top: -3px;
+  margin-right: 5px;
+}
+/* line 266, ../sass/screen.scss */
+.bootstrap-overrides.media > .media-object.media-object_questionnaire {
+  min-width: 200px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #50b847), color-stop(100%, #02a200));
+  background-image: -webkit-linear-gradient(#50b847, #02a200);
+  background-image: -moz-linear-gradient(#50b847, #02a200);
+  background-image: -o-linear-gradient(#50b847, #02a200);
+  background-image: linear-gradient(#50b847, #02a200);
+  /* Smartphones (portrait and landscape) ----------- */
+}
+@media screen and (max-width : 570px) {
+  /* line 273, ../sass/screen.scss */
+  .bootstrap-overrides.media > .media-body {
+    float: left;
+    /* Styles */
+  }
+  /* line 276, ../sass/screen.scss */
+  .bootstrap-overrides.media > .media-body > .page-copy {
+    float: left;
+    width: 100%;
+  }
+}
+/* line 284, ../sass/screen.scss */
+.bootstrap-overrides.radio {
+  line-height: 24px;
+}
+
+/* line 1, ../sass/partials/_animations.scss */
+.fade-hide, .fade-show {
+  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+  -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+  -o-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+}
+
+/* line 7, ../sass/partials/_animations.scss */
+.fade-hide {
+  opacity: 1;
+}
+
+/* line 10, ../sass/partials/_animations.scss */
+.fade-hide.fade-hide-active {
+  opacity: 0;
+}
+
+/* line 13, ../sass/partials/_animations.scss */
+.fade-show {
+  opacity: 0;
+}
+
+/* line 16, ../sass/partials/_animations.scss */
+.fade-show.fade-show-active {
+  opacity: 1;
+}
