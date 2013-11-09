@@ -1,8 +1,8 @@
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> 
+*/
 @import "compass/reset";
 @import "partials/variables";
 @import "partials/mixins";
@@ -113,32 +113,6 @@ li {
   vertical-align: middle;
 }
 
-.stimulibox {
-  border: 2px solid #000;
-  width: 225px;
-  margin: 0px 0 10px;
-  float: left !important;
-  background-color: #fff;
-  
-  & > h2 {
-    background-color: #000;
-    color: $body-copy-inverse;
-    @include font-regular(bold);
-    margin: 0;
-    line-height: 26px;
-  }
-  
-  & > .stimulibox-list {
-    background-color: white;
-    padding: 5px;
-    @include font-small(normal);
-  }
-}
-.stimuli-list {
-  display: table;
-  height: 297px;
-}
-
 .explanation-title {
   line-height: 46px;
   margin: 0px !important;
@@ -212,7 +186,14 @@ li {
   }
 }
 
+.centeredinside {
+  display: inline-block;
+  text-align: center;
+}
 
+.margin-vertical {
+  margin: 10px 0;
+}
 
 /* Bootstrap overrides */
 .bootstrap-overrides {
@@ -286,6 +267,6 @@ li {
   }
   
 }
-
+@import "partials/8_10";
 @import "partials/animations";
  

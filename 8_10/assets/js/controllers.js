@@ -2,7 +2,6 @@
 
 angular.module('app.controllers', [])
 .controller('PageCtrl', function($scope){
-  
   //Variables
   $scope.activity_title = "Neurons and Neural Communication"
   $scope.currentPage = 0
@@ -11,9 +10,7 @@ angular.module('app.controllers', [])
   $scope.pageCopy = [
     {
       copy: [
-        { line: "You are a participant in an experiment on selective attention. Click play to see three rapid streams of words in the box below. Your task is:" },
-        { line: "BE SURE THAT YOU ATTEND TO THE MIDDLE STREAM ONLY, SO YOU DON'T MISS ANY OF THE WORDS IN IT."  },
-        { line: "To ensure that you attend to every word in the middle stream, you should shadow the words silently in your mind as they go by. You can replay the streams as many times as you like. When you feel confident you have carried out this task successfully, click FINISHED."  }
+        { line: "In this demonstration, you’ll be a participant in a visual search experiment. On each trial, you’ll view a display containing red or blue rectangles oriented either vertically or horizontally. Here’s a sample display:" }
       ]
     },
     {
@@ -109,112 +106,46 @@ angular.module('app.controllers', [])
 })
 
 .controller('TestCtrl', function($scope) {
-
-//Controller for actual test
-  //Variables
-  $scope.test1 = {
-    list1: [{word:"dot"}, {word:"table"}, {word: "pencil"}, {word: "tree"}, {word: "proom"}, {word: "bike"}, {word: "amigo"}, {word: "dog"}, {word: "mafer"}, {word: "lamp"}, {word: "drink"}, {word: "mary"}, {word: "had"}, {word: "a"}, {word: "little"}, {word: "lamb"}, {word: "polit"}, {word: "floor"}, {word: "letter"}],
-    list2: [{word:"there"}, {word:"is"}, {word:"much"}, {word:"to"}, {word:"be"}, {word:"learned"}, {word:"from"}, {word:"the"}, {word:"very"}, {word:"interesting"}, {word:"information"}, {word:"that"}, {word:"is"}, {word:"being"}, {word:"presented"}, {word:"in"}, {word:"the"}, {word:"middle"}, {word:"stream"}],
-    list3: [{word:"tark"}, {word:"choice"}, {word:"madre"}, {word:"blend"}, {word:"cube"}, {word:"klipe"}, {word:"green"}, {word:"little"}, {word:"miss"}, {word:"muffet"}, {word:"umbrella"}, {word:"week"}, {word:"bird"}, {word:"try"}, {word:"zink"}, {word:"polite"}, {word:"if"}, {word:"bonjour"}, {word:"trunk"}]
-  };
-  
-  $scope.test2 = {list1: [{word:"jump"}, {word:"ball"}, {word: "glass"}, {word: "murder"}, {word: "chair"}, {word: "paper"}, {word: "danger"}, {word: "food"}, {word: "clock"}, {word: "hate"}, {word: "book"}, {word: "plate"}, {word: "sex"}, {word: "case"}, {word: "horror"}, {word: "phone"}, {word: "hell"}, {word: "phony"}, {word: "relative"}],
-    list2: [{word:"even"}, {word:"when"}, {word:"carefully"}, {word:"attending"}, {word:"to"}, {word:"just"}, {word:"the"}, {word:"middle"}, {word:"stream"}, {word:"people"}, {word:"sometimes"}, {word:"notice"}, {word:"emotionally"}, {word:"charged"}, {word:"words"}, {word:"in"}, {word:"the"}, {word:"other"}, {word:"stream"}],
-    list3: [{word:"feeble"}, {word:"red"}, {word:"love"}, {word:"thud"}, {word:"grass"}, {word:"kill"}, {word:"face"}, {word:"grave"}, {word:"funny"}, {word:"museum"}, {word:"iron"}, {word:"help"}, {word:"quiet"}, {word:"file"}, {word:"pain"}, {word:"shoe"}, {word:"away"}, {word:"scream"}, {word:"fire"}]
-  };
-
-  $scope.test = 1;
-  $scope.myInterval;
-  
-  //Start the streams
-  $scope.startTest= function() {
-    $scope.isplaying = true;
-    $scope.complete = false;
-    if($scope.test == 1)
-    {
-      $scope.stimuliList = $scope.test1; 
-    }else
-    { 
-      $scope.stimuliList = $scope.test2;
-    }     
-    
-    $i = 0;
-    $scope.list1 = '+';
-    $scope.list2 = '+';
-    $scope.list3 = '+';
-    setTimeout(function(){
-      $scope.myInterval=setInterval(function(){
-        if($i < $scope.stimuliList.list1.length)
-        {
-          $scope.list1 = $scope.stimuliList.list1[$i]['word'];
-          $scope.list2 = $scope.stimuliList.list2[$i]['word'];
-          $scope.list3 = $scope.stimuliList.list3[$i]['word'];
-          $i++;
-        }
-        else if($i == $scope.stimuliList.list1.length)
-        {
-          setTimeout(function(){
-            $scope.list1='(ignore)';
-            $scope.list2='(attend)';
-            $scope.list3='(ignore)';
-            $scope.stopTest();
-            $scope.safeApply();
-          }, 200);          
-          $scope.complete = true;
-        }
-        $scope.safeApply();
-      },200);
-    }, 1000);
-        
-    $scope.not_started=false;
-    return false;
-  }
-  
-  //stop the test
-  $scope.stopTest = function() {
-    clearInterval($scope.myInterval);
-    
-    if($scope.test==1)
-    {
-      $scope.updateHeader(1);
-    }else if($scope.test==2)
-    {
-      $scope.updateHeader(3);
-    }
-    $scope.isplaying = false;
-    $scope.safeApply(); 
-  }
-  
-  //initialise test and variables
-  $scope.initTest= function(test) {
-    if(test)
-    {
-      if(test==2)
+  $scope.phase = 0;
+  $scope.setfocus;
+  //Controller for actual test
+  if($scope.phase==1){
+    $scope.$watch('spaceCount', function() {
+      if($scope.currentPage==1)
       {
-        $scope.updateHeader(test);
+        $scope.phase++;
+        $scope.safeApply();
       }
-    }
-    $scope.stimuli = false;
-    $scope.replay = false;
-    $scope.isplaying = false;
-    $scope.complete = false;
-    $scope.list1='(ignore)';
-    $scope.list2='(attend)';
-    $scope.list3='(ignore)';  
+    });
   }
-  
-  //finish test
-  $scope.finishTest=function(){
-    $scope.test++;
-    if($scope.test>2)
-    {    
-      $scope.nextPage();
-    }
-    else
-      $scope.initTest($scope.test);
-  }
-  
+ 
+    
 })
+
+.controller('TrialCtrl', function($scope) {
+  $scope.trialphase = 0;
+  if($scope.phase==0){
+    $scope.$watch('spaceCount', function() {
+      if($scope.currentPage==1)
+      {
+        
+        $scope.trialphase++;
+        $scope.safeApply();
+        console.log('trial : ' +  $scope.trialphase);
+        if($scope.trialphase==2)
+        {
+          $scope.setfocus = true;
+          setTimeout(function() {
+            console.log('hello')
+            $scope.setfocus = false;
+            $scope.safeApply();
+          }, 1000);
+        }
+      }
+    });
+  }
+})
+
 
 //Modal instance controller
 var ModalInstanceCtrl = function ($scope, $modalInstance, userFeedback) {

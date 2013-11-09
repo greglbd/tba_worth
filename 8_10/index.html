@@ -12,7 +12,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body ng-app="app" ng-cloak>
-    <div class="container-wrapper" ng-controller="PageCtrl" ng-click="change(1, 'home')" confirm-on-exit>
+    <div class="container-wrapper" ng-controller="PageCtrl" ng-click="change(1, 'home')" confirm-on-exit tabindex="0" ui-keydown="{32:'spacePressCallback($event)', 65:'aPressCallback($event)', 80:'pPressCallback($event)'}" key-ctrl>
       <div class="content-wrapper">
         <div class="page" ng-model="currentPage" ng-click="change(1)" ng-show="currentPage==0"  ng-animate="'fade'">
           <div class="container">
@@ -29,108 +29,86 @@
           
         </div>
         <div class="page" ng-model="currentPage"  ng-show="currentPage==1" ng-animate="'fade'">
-           <div class="container">
-            <div class="row">
-              <div class="span12 whitebox" ng-model="currentPageCopy">
-                <div class="whitebox-cell">
-                  <p class="page-copy page-copy_margin centeredtext" ng-repeat="pageCopy in currentPageCopy.copy">
-                    {{pageCopy.line}}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-         
           <div class="container">
-            <div class="row test" ng-controller="TestCtrl" data-ng-init="initTest()">
-              <div class="span8 offset4">
-                <div class="row">
-                  <div class="span4">                    
+            <div class="row test" ng-controller="TestCtrl"  data-ng-init="initTest()">
+              <div class="span12">
+                
+                <!-- trial -->
+                <div class="row" ng-controller="TrialCtrl" ng-show="phase==0">
+                  <!-- trial intro -->
+                  <div class="span12 centeredtext page-copy_margin" ng-show="trialphase==0">
+                    <div class="row page-copy_margin" >
+                      <div class="span12 whitebox" ng-model="currentPageCopy">
+                        <div class="whitebox-cell">
+                          <p class="page-copy page-copy_margin centeredtext" ng-repeat="pageCopy in currentPageCopy.copy">
+                            {{pageCopy.line}}
+                          </p>
+                        </div>
+                      </div>  
+                    </div>
+
+                    <img src="assets/images/sample.png"/>
+                    <p class="page-copy centeredtext margin-vertical"><strong>Your task on each trial will be to determine as quickly as possible whether the display contains a target, a horizontal blue rectangle, like this:</strong></p>
                     <div class="row">
-                      <div class="span4 test-wrapper">
-                        <ul class="unstyled test-listitems">
-                          <li class="test-listitem" ng-model="list1">{{list1}}</li>
-                          <li class="test-listitem" ng-model="list2">{{list2}}</li>
-                          <li class="test-listitem" ng-model="list3">{{list3}}</li>
-                        </ul>
+                      <div class="span2 offset5">
+                        <div class="blueblock-large"></div>
                       </div>
                     </div>
+                    <p class="page-copy centeredtext margin-vertical"><strong>Then, as quickly as possible, press</strong></p>
+                    <div class="row">
+                      <div class="span2 offset4 centeredtext">
+                        <div class="centeredinside"><div class="keyblock">P</div></div>
+                        <div class="centeredtext">If the target is present</div>
+                      </div>
+                      
+                      <div class="span2 centeredtext">
+                        <div class="centeredinside"><div class="keyblock">A</div></div>
+                        <div class="centeredtext">If the target is absent</div>
+                      </div>
+                    </div>
+                    <p class="page-copy centeredtext margin-vertical"><strong>The computer will be measuring your response time on each trial (the time from the appearance of the display to the time when you press P or A).  At the end of the experiment, you’ll see your results.</strong></p> 
+                    <div class="btn-margintop bootstrap-overrides btn btn-primary">PRESS SPACE BAR TO TRY A FEW PRACTICE TRIALS</div>
                   </div>
-                  <div class="span4" ng-model="stimuli" ng-hide="stimuli==false">
-                    <div class="stimuli-list" ng-model="stimuliList">  
-                      <div class="whitebox-cell">
-                        <div class="row">
-                          <div class="stimulibox span4">
-                            <h2 class="centeredtext">Top Stream</h2>
-                            <div class="pull-left stimulibox-list">
-                              <span ng-repeat="stimuliList in stimuliList.list1">
-                                {{stimuliList.word}}<span ng-show=" ! $last ">,</span>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="stimulibox span4">
-                            <h2 class="centeredtext">Middle Stream</h2>
-                            <div class="pull-left stimulibox-list">
-                              <span ng-repeat="stimuliList in stimuliList.list2">
-                                {{stimuliList.word}}<span ng-show=" ! $last ">,</span>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="stimulibox span4">
-                            <h2 class="centeredtext">Bottom Stream</h2>
-                            <div class="pull-left stimulibox-list">
-                              <span ng-repeat="stimuliList in stimuliList.list3">
-                                {{stimuliList.word}}<span ng-show=" ! $last ">,</span>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
+                  
+                  <!-- trial reminder -->
+                  <div class="span12 centeredtext page-copy_margin" ng-show="trialphase==1">
+                    <p class="page-copy centeredtext margin-vertical"><strong>Remember, the target is a horizontal blue rectangle, like this:</strong></p>
+                    <div class="row">
+                      <div class="span2 offset5">
+                        <div class="blueblock-large"></div>
                       </div>
                     </div>
+                    <p class="page-copy centeredtext margin-vertical"><strong>Press</strong></p>
+                    <div class="row">
+                      <div class="span2 offset4 centeredtext">
+                        <div class="centeredinside"><div class="keyblock">P</div></div>
+                        <div class="centeredtext">If the target is present</div>
+                      </div>
+                      
+                      <div class="span2 centeredtext">
+                        <div class="centeredinside"><div class="keyblock">A</div></div>
+                        <div class="centeredtext">If the target is absent</div>
+                      </div>
+                    </div>
+                    <p class="page-copy centeredtext margin-vertical"><strong>Keep one index finger on the P key and the other index finger on the A key, so you can press the correct key as quickly as possible.</strong></p> 
+                    <div class="btn-margintop bootstrap-overrides btn btn-primary">PRESS SPACE BAR FOR THE FIRST PRACTICE TRIAl</div>
+                  </div>
+                  
+                  <!-- trial -->
+                  <div class="span12 centeredinside" ng-show="trialphase==2">
+                    <div class="testfocus" ng-show="setfocus">+</div>
+                    <div class="trial" ng-hide="setfocus">trial</div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="span4" >                    
-                    <div class="control-group" ng-show="replay==false" ng-hide="complete || replay">
-                      <div class="control centeredtext">                         
-                        <button ng-click="startTest(1)" ng-model="isplaying" ng-disabled="isplaying"  type="button" class="bootstrap-overrides btn btn-primary">
-                            Play
-                        </button>
-                      </div>
-                    </div>    
-                    <div class="control-group" ng-show="complete || replay" >
-                      <div class="control centeredtext">  
-                        <button ng-click="startTest(1);replay=true;isplaying=true;" ng-disabled="isplaying" type="button" class="bootstrap-overrides btn btn-primary">
-                            REPLAY
-                        </button>
-                      </div>
-                    </div>
-                    <div class="control-group" ng-show="(replay || complete) && stimuli==false">
-                      <div class="control centeredtext">  
-                        <button type="button"  ng-click="stimuli = true" class="bootstrap-overrides btn btn-primary">
-                          Show The Stimuli
-                        </button>
-                      </div>
-                    </div>
-                    <div class="control-group" ng-show="stimuli">
-                      <div class="control centeredtext"> 
-                        <button type="button" ng-click="stimuli=false;" class="bootstrap-overrides btn btn-primary">
-                          Hide The Stimuli
-                        </button>
-                      </div>
-                    </div>
-                    <div class="control-group">
-                      <div class="control centeredtext"> 
-                        <button type="button" ng-click="stopTest(); finishTest();" ng-model="complete" ng-disabled="complete == false || isplaying" class="bootstrap-overrides btn btn-primary">
-                          Finished
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+               
+               
+                <!-- test -->
+                <div class="row" ng-show="phase==1" >
+                  
+                  
+                  
+                  
+                  
                 </div>
               </div>
             </div>
@@ -262,6 +240,7 @@
     <script src="assets/js/angular.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="assets/js/ui-bootstrap-tpls-0.6.0.min.js"></script>
+    <script src="assets/js/keypress.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/controllers.js"></script>
     <script src="assets/js/questions_controller.js"></script>
