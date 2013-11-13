@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <title>Worth Publishing Sense & Perception Activity Project</title>
+    <link rel="stylesheet" href="assets/stylesheets/screen.css">
+    <link rel="stylesheet" href="assets/stylesheets/bootstrap.min.css"> 
+    <link rel="stylesheet" href="assets/stylesheets/bootstrap-responsive.min.css">   
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body ng-app="app" ng-cloak>
+    <div class="container-wrapper" ng-controller="PageCtrl" ng-click="change(1, 'home')" confirm-on-exit tabindex="0" ui-keydown="{32:'spacePressCallback($event)'}" key-ctrl>
+      <div class="content-wrapper">
+        <div class="page" ng-model="currentPage" ng-click="change(1)" ng-show="currentPage==0"  ng-animate="'fade'">
+          <div class="container">
+            <div class="row">
+              <div class="span12 whitebox">
+                <div class="whitebox-cell">
+                  <h1 class="page-title page-copy_margin centeredtext">{{activity_title}}</h1>
+                  <p class="page-copy page-copy_margin centeredtext">Participate in simulated experiment demonstrating categorical perception</p>
+                  <p class="page-copy page-copy_margin centeredtext">Click anywhere to begin.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="page" ng-model="currentPage"  ng-show="currentPage==1" ng-animate="'fade'">
+          <div class="container">
+            <div class="row test" ng-controller="TestCtrl"  data-ng-init="initTest()">
+              <div class="span12">
+                
+                <!-- trial -->
+                <div class="row" ng-controller="TrialCtrl" ng-show="phase==0">
+                  <!-- trial intro -->
+                  <div class="span12 centeredtext page-copy_margin">
+                    <div class="row page-copy_margin" >
+                      <div class="span12 whitebox" ng-model="currentPageCopy">
+                        <div class="whitebox-cell">
+                          <p class="page-copy page-copy_margin centeredtext" ng-repeat="pageCopy in currentPageCopy.copy">
+                            {{pageCopy.line}}
+                          </p>
+                        </div>
+                      </div>  
+                    </div>
+                    
+                    
+                    <div class="row">
+                      <div class="span2 offset4 centeredtext">
+                        <div class="centeredinside"><button class="btn-margintop bootstrap-overrides btn btn-primary keyblock">PUH</button></div>
+                      </div>
+                      
+                      <div class="span2 centeredtext">
+                        <div class="centeredinside"><button class="btn-margintop bootstrap-overrides btn btn-primary keyblock">BUH</button></div>
+                      </div>
+                      <div class="span12" ng-show="trialphase>0">
+                        <div class="centeredinside"><div class="centeredtext keyblock margin-vertical">Trial {{trialphase}} of {{total}}</div></div>
+                      </div>
+
+                      <audio id="myaudio" ng-model="selectedAudioFile">
+                        <source src="{{selectedAudioFile}}"></source>
+                      </audio>
+                    </div>
+                    <div ng-show="trialphase==0" class="btn-margintop bootstrap-overrides btn btn-primary">PRESS SPACE BAR TO START THE FIRST TRIAL</div>
+                    
+                  
+                  </div>
+                                   
+                  <!-- trial -->
+                  <div class="span12 centeredinside" ng-show="trialphase==2">
+                    hello
+                  </div>
+                </div>
+               
+               
+                <!-- test -->
+                <div class="row" ng-show="phase==1" >
+                  
+                  
+                  
+                  
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page" ng-model="currentPage"  ng-show="currentPage==2" ng-animate="'fade'">
+          <div class="container">
+            <div class="row">
+              <div class="span12">
+                <div class="media bootstrap-overrides">
+                  <div class="pull-left media-object explanation-object">
+                    <img class="" src="assets/images/icon.png"/>
+                    Explain
+                  </div>
+                  <div class="media-body">
+                    <h2 class="page-title explanation-title centeredtext media-heading">
+                      What Is the Role of Attention in Feature Search Versus Conjunction Search?
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="span12 explanation-wrapper">
+                <div class="row">
+                  <div class="span8">
+                    <p class="page-copy page-copy_margin explanation-copy">Searching for a book with a blue cover in a large bookcase would be quick and easy if all the other books had red covers. In laboratory studies of this type of visual search, a display containing multiple objects is presented on a computer screen, and the participant is instructed to search the display for a target with one or more specific features; the target is present half the time and absent the other half. Searching for a target that differs from all the other objects in the display in one feature is called feature search, as in the example of the book with the blue cover. Searching for a target that is defined by multiple features is called conjunction search, because the participant is searching for a target that consists of a conjunction of features in a single object.</p>
+                    <p class="page-copy page-copy_margin explanation-copy"> In an experiment like the one in this demonstration (illustrated in Figure 1), where the target is the blue horizontal bar, the participant responds by pressing a button as soon as she finds the target or as soon as she determines that the target is absent. This procedure is repeated many times, with varying numbers of objects in the display, and the time required to make each response is recorded. The left and middle displays in the figure illustrate feature search—in the left display; the target is the only blue bar; in the middle display, the target is the only horizontal bar; and in both cases, the search is quick and easy because the single feature that defines the target “pops out” of the display. The graph in the figure shows that the response time in feature search is fast regardless of the number of objects in the display and regardless of whether the target is present or absent.</p>
+                    <p class="page-copy page-copy_margin explanation-copy"> 	The right display illustrates conjunction search: the participant must search for the conjunction of features blue and horizontal, because the display contains other blue objects and other horizontal objects. The graph shows that conjunction search is much more difficult than feature search: the response time is greater than in feature search for any given number of objects, the response time increases as the number of objects increases, and the response time is greater when the target is absent than when the target is present.</p>
+                    <p class="page-copy page-copy_margin explanation-copy"> 	These results suggest that, in a feature search, the observer can detect the unique feature by attending to the entire visual scene—the target “pops out.” In contrast, conjunction search requires the observer to direct attention to one object at a time, sequentially, to determine whether it contains the required conjunction of features. This distinction between rapid, efficient feature search and slow, inefficient conjunction search provides good evidence that binding features together requires attention to the spatial location of those features, to make sure that the features are in the same location and belong to the same object.</p>
+                  </div>
+                  <div class="span4">
+                    <div class="media">
+                      <img class="explanation-image" src="assets/images/figure1.png"/>
+                      <p class="page-copy centeredtext">Figure 1</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="control centeredtext"> 
+                <button type="button" ng-disabled="questions" ng-click="prevPage();" class="btn-margintop bootstrap-overrides btn btn-primary">
+                  Back
+                </button>
+                <button type="button" ng-click="nextPage();" class="btn-margintop bootstrap-overrides btn btn-primary">
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page" ng-model="currentPage"  ng-show="currentPage==3" ng-animate="'fade'">
+          <div class="container" ng-controller="QuestionCtrl" ng-model="currentQuestion">
+            <div class="row">
+              <div class="span12">
+                <div class="media bootstrap-overrides">
+                  <div class="pull-left media-object media-object_questionnaire">
+                    <div class="pull-left question-object question-object_icon">
+                       <img class="" src="assets/images/icon2.png"/>
+                        Test Yourself
+                    </div>
+                    <div class="question-object question-object_id">
+                    {{currentQuestion}}
+                    </div>
+                  </div>
+                  <div class="media-body media-body_questionnaire">
+                    <p class="page-copy questions-title centeredtext media-heading">
+                      Select your answer to the question below. Then click SUBMIT.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <form class="form-horizontal" >
+              <div  ng-repeat="question in questions">
+                <div ng-show="currentQuestion==question.id">                
+                  <h2 class="page-title">{{question.question}}</h2>
+                  <div class="row">
+                    <div class="span8 centeredtext page-copy_margin">
+                      <img ng-show="question.media" data-b="{{question.media}}" src="{{question.media}}"/>
+                    </div>
+                    <div class="span12">
+                      <label ng-repeat="option in question.options" class="bootstrap-overrides radio">
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="{{option.id}}" ng-click="update(option.id)">
+                        {{option.option}}
+                      </label>
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="control"> 
+                  <button type="button" ng-disabled="!currentAnswer || currentAnswer==-1" ng-click="submitAnswer();" class="btn-margintop bootstrap-overrides btn btn-primary">
+                    Submit
+                  </button>
+                </div>
+              </div>
+              <script type="text/ng-template" id="myModalContent.html">
+                <div class="modal-body">
+                  <h2 class="page-title">{{copy}}</h2>
+                </div>
+                <div class="modal-footer">
+                  <button class="bootstrap-overrides btn btn-primary" ng-click="ok()">Next</button>
+                  <button class="bootstrap-overrides btn btn-primary" ng-click="cancel()">Explain</button>
+                </div>
+              </script>
+            </form>
+          </div>
+        </div>
+         <div class="page" ng-model="currentPage"  ng-show="currentPage==4" ng-animate="'fade'">
+          <div class="container">
+            <div class="row">
+              <div class="span4 offset4">
+                <div class="complete general-tick"></div>
+                <h2 class="complete-title centeredtext">Activity Complete!</h2>
+                <p class="complete-copy centeredtext">You have completed the activity set for {{activity_title}}.</p>
+              </div>
+            </div>
+          </div>
+         </div>
+      
+      </div> 
+    </div> 
+    
+    <script src="assets/js/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="assets/js/ui-bootstrap-tpls-0.6.0.min.js"></script>
+    <script src="assets/js/keypress.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/controllers.js"></script>
+    <script src="assets/js/questions_controller.js"></script>
+    <script src="assets/js/directives.js"></script>
+  </body>
+</html>

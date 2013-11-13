@@ -1,0 +1,35 @@
+$blue: #1500C9;
+
+.blueblock-large {
+  width: 50%;
+  margin: 0 25%;
+  height: 25px;
+  background-color: $blue;
+  float:left; 
+}
+
+.keyblock {
+  background-color: $body-copy;
+  color: $body-copy-inverse;
+  line-height: 30px;
+  font-size: 18px;
+  padding: 10px;
+   
+}
+
+.highlight {
+  background-color: white;
+}
+
+.whitebox {
+  min-height: 75px !important;
+}
+
+.testfocus {
+  font-size: 100px;
+  line-height: 100px;
+  color: $body-copy;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 25%;
+}

@@ -14,7 +14,7 @@
   <body ng-app="app" ng-cloak>
     <div class="container-wrapper" ng-controller="PageCtrl" ng-click="change(1, 'home')" confirm-on-exit>
       <div class="content-wrapper">
-        <div class="page" ng-model="currentPage" ng-click="change(1)" ng-show="currentPage==0"  ng-animate="'fade'">
+        <div class="page fade-show" ng-model="currentPage" ng-click="change(1)" ng-show="currentPage==0">
           <div class="container">
             <div class="row">
               <div class="span12 whitebox">
@@ -28,7 +28,7 @@
           </div>
           
         </div>
-        <div class="page" ng-model="currentPage"  ng-show="currentPage==1" ng-animate="'fade'">
+        <div class="page fade-show" ng-model="currentPage"  ng-show="currentPage==1">
            <div class="container">
             <div class="row">
               <div class="span12 whitebox" ng-model="currentPageCopy">
@@ -136,7 +136,7 @@
             </div>
           </div>
         </div>
-        <div class="page" ng-model="currentPage"  ng-show="currentPage==2" ng-animate="'fade'">
+        <div class="page fade-show" ng-model="currentPage"  ng-show="currentPage==2">
           <div class="container">
             <div class="row">
               <div class="span12">
@@ -183,7 +183,7 @@
             </div>
           </div>
         </div>
-        <div class="page" ng-model="currentPage"  ng-show="currentPage==3" ng-animate="'fade'">
+        <div class="page fade-show" ng-model="currentPage"  ng-show="currentPage==3" >
           <div class="container" ng-controller="QuestionCtrl" ng-model="currentQuestion">
             <div class="row">
               <div class="span12">
@@ -242,7 +242,7 @@
             </form>
           </div>
         </div>
-         <div class="page" ng-model="currentPage"  ng-show="currentPage==4" ng-animate="'fade'">
+         <div class="page fade-show" ng-model="currentPage"  ng-show="currentPage==4">
           <div class="container">
             <div class="row">
               <div class="span4 offset4">
@@ -257,7 +257,9 @@
       </div> 
     </div> 
     
-    <script src="assets/js/angular.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-animate.min.js"></script>
+
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="assets/js/ui-bootstrap-tpls-0.6.0.min.js"></script>
     <script src="assets/js/app.js"></script>

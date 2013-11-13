@@ -1,0 +1,281 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> 
+*/
+@import "compass/reset";
+@import "partials/variables";
+@import "partials/mixins";
+
+/* sprite generation */
+@import "sprites/general/*.png";
+@include all-general-sprites;
+
+@import "compass/css3/images";
+@import "compass/css3/transform";
+@import "compass/css3/box-shadow";
+@import "compass/css3/border-radius";
+@import "compass/css3/text-shadow";
+
+
+body, p, span, div {
+  color: $body-copy;
+}
+body {
+  background-color : #ccc !important; 
+  @include background-image(url(../images/bg.png), radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%));
+}
+li {
+  float: left;
+} 
+
+/* 
+  Allow angular.js to be loaded in body, hiding cloaked elements until 
+  templates compile.  The !important is important given that there may be 
+  other selectors that are more specific or come later and might alter display.  
+ */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+.page-title {
+  @include font-large(bold);
+}
+
+.page-copy {
+  @include font-regular(normal);
+}
+
+.page-copy_margin {
+  margin: 10px 10px;
+}
+
+.container {
+  margin-bottom: 20px;
+}
+
+.container-wrapper {
+  height: 100%;
+  min-height: 800px;
+  height: auto !important;
+  height: 800px;
+}
+.content-wrapper {
+  overflow: hidden;
+}
+
+.page {
+  margin: 20px;
+}
+
+.test-wrapper {
+  height: auto;
+  float: left !important;
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 100px 0;
+  background-color: rgba(#ffffff, 0.5);
+  border: 2px solid #000;
+  margin-bottom: 12px;
+  
+  @media screen and (max-width: 762px)
+  {
+    padding: 30px 0px;
+  }
+}
+
+.test-listitem {
+  float: left;
+  width: 100%;
+  text-align: center;
+  @include font-large(bold);
+  line-height: $font-large + 10;
+}
+
+.centeredtext {
+  text-align: center;
+}
+
+.fullscreen {
+  width: 100%;
+  height: 100%;
+}
+
+.whitebox {
+  background-color: #fff;
+  display: table;
+  min-height: 150px !important;
+}
+
+.whitebox-cell{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.explanation-title {
+  line-height: 46px;
+  margin: 0px !important;
+}
+
+.explanation-image {
+  padding: 16px;
+  background-color: #fff;
+  @media screen and (max-width: 1200px)
+  {
+    width: 90%;
+  }
+}
+
+.questions-title {
+  line-height: 46px;
+  margin: 0px !important;
+}
+
+.btn-margintop {
+  margin-top: 20px;
+}
+
+.complete {
+  width: 100%;
+  height: 102px;
+  margin-top: 180px;
+  background-position: center;
+}
+
+.complete-title {
+  @include font-xlarge(bold);
+}
+.complete-copy {
+  @include font-large(bold);
+  width: 80%;
+  padding: 2% 10%;
+  line-height: 22px;
+}
+
+.explanation-object {
+  padding: 0 20px;
+}
+.explanation-wrapper {
+  background-color: #ffffff;
+}
+.explanation-copy {
+  line-height: 19px;
+}
+.question-object {
+  float: left !important;
+  color: $body-copy-inverse;
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
+  &.question-object_icon {
+    width: 65%;
+    padding: 0% 5%;
+    & > img {
+      margin-top: -3px;
+      margin-right: 5px;
+    }
+  }
+  
+  &.question-object_id {
+    width: 19%;
+    padding-right: 5%;
+    font-size: 40px;
+    border-left: 1px solid #fff;
+    //border-left: 1px solid #fff;
+  }
+}
+
+.centeredinside {
+  display: inline-block;
+  text-align: center;
+}
+
+.margin-vertical {
+  margin: 10px 0;
+}
+
+/* Bootstrap overrides */
+.bootstrap-overrides {
+  &.btn-primary, &.btn-primary:focus, &.btn-primary[disabled=disabled],&.btn-primary[disabled=disabled]:hover,&.btn-primary[disabled=disabled]:focus {
+    background: #fff;
+    color: $body-copy;
+    text-transform: uppercase;
+    font-size: 11pt;
+    @include border-radius(20px);
+    @include box-shadow(rgba($body-copy, 0.7) 0px 2px 0px);
+    min-width: 100px;
+    outline: none;
+    @include text-shadow(rgba($body-copy, 0) 0px 0px 0);
+    
+    &.keyblock {
+       @include border-radius(0px);
+       @include box-shadow(rgba(#DFDFDF, 0.7) 0px 2px 0px inset);
+       border: 2px solid #000;
+       background: #B2B2B2;
+       padding: 10px 20px;
+    }
+    
+  }
+  
+  &.btn-primary:hover {
+    background: #CCC;
+    color: $body-copy;
+  }
+  
+  &.media { 
+    @include border-radius(6px);
+    background-color: rgba(#ffffff, 0.7);
+    margin-bottom: 25px;
+    
+    
+    & > .media-object {
+      @include border-top-left-radius(6px);
+      @include border-bottom-left-radius(6px);
+      @include background-image(linear-gradient(#C775B0, #8E5BA6));
+      height: 46px;
+      line-height: 46px;
+      text-align: center;
+      color: $body-copy-inverse;
+      float: left !important;
+           
+      /* Smartphones (portrait and landscape) ----------- */
+      @media screen and (max-width : 570px) {
+        padding: 0 0px;
+        width: 100%;
+        @include border-top-right-radius(6px);
+        @include border-bottom-left-radius(0px);
+        /* Styles */
+      }
+      & > img {
+        margin-top: -3px;
+        margin-right: 5px;
+      }
+      
+      
+      &.media-object_questionnaire {
+        min-width: 200px;
+        @include background-image(linear-gradient(#50B847,#02A200));
+        /* Smartphones (portrait and landscape) ----------- */
+      }
+    }
+    
+    & > .media-body {
+      @media screen and (max-width : 570px)  {
+        float: left;        /* Styles */
+        & > .page-copy {
+          float: left;
+          width: 100%;
+        }
+      }
+    }
+  }
+  
+  &.radio {
+    line-height: 24px;
+  }
+  
+}
+@import "partials/11_1";
+@import "partials/animations";
+ 
