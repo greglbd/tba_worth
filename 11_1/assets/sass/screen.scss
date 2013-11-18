@@ -27,6 +27,10 @@ body {
 }
 li {
   float: left;
+  
+  &.fullwidth {
+    width: 100%;
+  }
 } 
 
 /* 
@@ -208,6 +212,9 @@ li {
     outline: none;
     @include text-shadow(rgba($body-copy, 0) 0px 0px 0);
     
+    &.spc {
+      cursor: default;
+    }
     &.keyblock {
        @include border-radius(0px);
        @include box-shadow(rgba(#DFDFDF, 0.7) 0px 2px 0px inset);
@@ -221,6 +228,11 @@ li {
   &.btn-primary:hover {
     background: #CCC;
     color: $body-copy;
+    
+    &.spc {      
+      background: #fff;
+      color: $body-copy;
+    }
   }
   
   &.media { 

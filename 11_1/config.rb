@@ -1,8 +1,8 @@
 # Require any additional compass plugins here.
 
 # Set this to the root of your project when deployed:
-#http_path = "/clients/tba-digital/8_10/"
-http_path = "/worth/11_1/"
+http_path = "/clients/tba-digital/11_1/"
+#http_path = "/worth/11_1/"
 css_dir = "assets/stylesheets"
 sass_dir = "assets/sass"
 images_dir = "assets/images"

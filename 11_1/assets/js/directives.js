@@ -28,10 +28,8 @@ angular.module('app.directives', [])
     controller: function($scope) {
       $scope.spaceCount = 0;
       $scope.spacePressCallback = function($event) {
-        console.log($event);
         $event.preventDefault();        
         $scope.spaceCount++;
-        console.log($scope.spaceCount);
       };
       
       

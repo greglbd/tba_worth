@@ -12,99 +12,98 @@ angular.module('app.questions_controller', [])
   $scope.questions = [
     {
       id: '1',
-      question: 'Why do conjunction searches take longer than feature searches?',
+      question: 'Why is perception of voiced versus voiceless stop consonants considered categorical rather than continuous?',
       options: 
       [
         { 
-          option:  "A. The displays contain more objects in conjunction searches than in feature searches.",
+          option:  "Perception shifts gradually from one to the other as the stimulus varies.",
           id: 'A'
         },  
         { 
-          option:  "B. In feature searches, the target just “pops out” of the search display. In conjunction searches, the person must examine one object after another in the display, until the target is found.",
+          option:  "Perception shifts abruptly from one to the other as the stimulus varies.",
           id: 'B'
         },
         { 
-          option:  "C. In feature searches, each object has just one feature, so scanning all the objects is quick and easy. In conjunction searches, each object has multiple features, which makes scanning take longer.",
+          option:  "Listeners never perceive voiced stop consonants as voiceless and never perceive voiceless stop consonants as voiced.",
           id: 'C'
         },
         { 
-          option:  "D. In conjunction searches, the objects in the display change locations. In feature searches, the objects remain in fixed positions.",
+          option:  "In syllables beginning with voiced vs. voiceless stop consonants, differences in the following vowel tell listeners which consonant was heard.",
           id: 'D'
         }  
       ],
-      answer: 'B',
+      answer: 'D',
       answers:
       {
-        B: 'Correct!',
-        A: 'Sorry. The correct answer is B. Click EXPLAIN if you want to review this topic.',
-        C: 'Sorry. Often we do notice salient stimuli, like our name, in unattended converstions. The correct answer is B. Click EXPLAIN if you want to review this topic.',
-        D: 'Sorry. Typically we can recall very little about what occurred in the unattended stream.  The correct answer is B. Click EXPLAIN if you want to review this topic.'
+        B: 'Incorrect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
+        A: 'Incorrect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
+        C: 'Incorrect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
+        D: 'Correct!'
       }
       
     },
     {
       id: 2,
-      question: 'In this graph of typical group results from a visual search experiment like the one in this demonstration, the curve for feature search is a horizontal line. What does this indicate?	',
+      question: 'In the graph above, at which voice onset time is the phonemic boundary, approximately?',
       options:
       [
         {
-          option: "A. The greater the number of items in the display, the shorter the response time.",
+          option: "50 msec.",
           id: 'A'
         },
         {
-          option: "B. The difficulty of determining that the target is absent is offset by the ease of determining that the target is present.",
+          option: "0 msec",
           id: 'B'
         },
         {
-          option: "C. The number of items in the display has no effect on the response time.",
+          option: "25 msec",
           id: 'C'
         },
         {
-          option: "D. Feature searches always have the same number of items in the display.",
+          option: "32 msec",
           id: 'D'
         },
       ],
       answer: 'C',
       answers:
       {
-        A: 'Sorry. That result could occur even if the unattended stream was not processed at all.  The correct answer is C. Click EXPLAIN if you want to review this topic.',
-        B: 'Sorry. That result could occur even if the unattended stream was not processed at all.  The correct answer is C. Click EXPLAIN if you want to review this topic.',
-        C: 'Correct!',
-        D: 'Sorry. Typically only salient stimuli are noticed in the unattended stream.  The correct answer is C. Click EXPLAIN if you want to review this topic.'
+        B: 'Incorrect. The correct answer is A. Click EXPLAIN if you want to review this topic.',
+        D: 'Incorrect. The correct answer is A. Click EXPLAIN if you want to review this topic.',
+        C: 'Incorrect. The correct answer is A. Click EXPLAIN if you want to review this topic.',
+        A: 'Correct!'
       },
       media: 'assets/images/group_graph.png'
     },
     {
       id: 3,
-      question: 'The target is a red triangle. Which of these displays involve(s) feature search and which  involve(s) conjunction search?',
+      question: 'Why are synthesized syllables used to investigate the relationship between voice onset time and the categorical perception of stop consonants?',
       options:
       [
         {
-          option: "A. Feature search, 1. Conjunction search, 2 and 3.",
+          option: "The voice onset time can be precisely controlled in synthesized syllables.",
           id: 'A'
         },
         {
-          option: "B. Feature search, 3. Conjunction search, 1 and 2.",
+          option: "In actual spoken syllables, the voice onset time is always 0.",
           id: 'B'
         },
         {
-          option: "C. Feature search, 2 and 3. Conjunction search, 1.",
+          option: "In actual spoken syllables, the voice onset time has no relation to which consonant is perceived.",
           id: 'C'
         },
         {
-          option: "D. Feature search, 1 and 2. Conjunction search, 3.",
+          option: "Precisely controlling the vowel quality is crucial in accurate perception of voice onset time.",
           id: 'D'
         },
       ],
-      answer: 'D',
+      answer: 'C',
       answers:
       {
-        A: 'Sorry. Processing of unattended streams is inconsistent with this.  The correct answer is D. Click EXPLAIN if you want to review this topic.',
-        B: 'Sorry. Such an effect, if it did occur, would not be advantageous. The correct answer is D. Click EXPLAIN if you want to review this topic.',
-        C: 'Sorry. Processing unattended areas to some extent would have the opposite effect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
-        D: 'Correct!'
-      },
-      media: 'assets/images/question_3.png'
+        B: 'Incorrect. The correct answer is C. Click EXPLAIN if you want to review this topic.',
+        D: 'Incorrect. The correct answer is C. Click EXPLAIN if you want to review this topic.',
+        A: 'Incorrect. The correct answer is C. Click EXPLAIN if you want to review this topic.',
+        C: 'Correct!'
+      }
     }
   ];
   
