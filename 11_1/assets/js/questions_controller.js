@@ -9,6 +9,7 @@ angular.module('app.questions_controller', [])
   $scope.currentQuestion = 1;
   $scope.currentAnswer;
   $scope.userFeedback= '';
+  $scope.submit = false;
   $scope.questions = [
     {
       id: '1',
@@ -118,10 +119,16 @@ angular.module('app.questions_controller', [])
   $scope.submitAnswer= function() {
     $scope.userFeedback = $scope.questions[$scope.currentQuestion - 1].answers[$scope.currentAnswer];
     $scope.currentAnswer = -1;
+    $scope.set_submit(true);
     $scope.safeApply();
+    //$scope.submit = false;
     $scope.open();
   }
-  
+  $scope.set_submit = function(b){
+    
+    $scope.submit = b;
+    $scope.safeApply();
+  }
   //Navigate through the 3 questions.
   $scope.questionsControl = function(target) {
     if($scope.currentQuestion >= $scope.questions.length )
@@ -141,7 +148,10 @@ angular.module('app.questions_controller', [])
       {
         $scope.prevPage();
       }
-      $scope.currentQuestion++;
+      if(target == 'next')
+      {
+        $scope.currentQuestion++;
+      }
     }
     $scope.safeApply();
   }
@@ -159,9 +169,10 @@ angular.module('app.questions_controller', [])
     });
 
     modalInstance.result.then(function () {
-      $scope.questionsControl('next');
+      
+      //$scope.questionsControl('next');
     }, function () {
-      $scope.questionsControl('prev');
+      //$scope.questionsControl('prev');
     });
   };
   

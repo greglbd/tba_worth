@@ -88,15 +88,22 @@
                     </div>
                     <div class="row">
                       <div class="span12 centeredinside">
-                        <div ng-controller="GraphCtrl" ng-hide="!test1Complete">
+                        <div>
                           <div class="row">
-                            <div class="span12">
-                              <div class="demo-container">
-                          		  <div id="placeholder" class="demo-placeholder"></div>
-                          		  <div class='flot-y-axis flot-y1-axis'>
-                                    <div class='flot-tick-label'>/puh/ responses (%)</div>
-                                </div>
+                            <div class="span7">
+                              <div id="container">
+                          		  
                               </div>
+                            </div>
+                            <div class="span4">
+                              <div class="black_box_wrapper">
+                                <div class="black_box" ng-show="showBlackBox">
+                                  {{feedback}}
+                                </div>
+                                <button type="button" ng-disabled="questions" ng-click="showBlackBox = true" class="btn-margintop bootstrap-overrides btn btn-primary black_box_btn">
+                                  What's going on?
+                                </button> 
+                              </div>   
                             </div>
                           </div>
                         </div>
@@ -108,7 +115,7 @@
                         
                         <div class="control-group">
                           <div class="control centeredtext"> 
-                            <button type="button" ng-disabled="questions" ng-click="prevPage();" class="btn-margintop bootstrap-overrides btn btn-primary">
+                            <button type="button" ng-disabled="questions" ng-click="prevPhase(1);" class="btn-margintop bootstrap-overrides btn btn-primary">
                               Back
                             </button>
                             <button type="button" ng-click="nextPage();" class="btn-margintop bootstrap-overrides btn btn-primary">
@@ -195,7 +202,8 @@
                   <h2 class="page-title">{{question.question}}</h2>
                   <div class="row">
                     <div ng-class="{'span12': !question.media, 'span6': question.media}">
-                      <label ng-repeat="option in question.options" class="bootstrap-overrides radio">
+                      
+                      <label ng-repeat="option in question.options" class="bootstrap-overrides radio" >
                         <input type="radio" name="optionsRadios" id="optionsRadios1" value="{{option.id}}" ng-click="update(option.id)">
                         {{option.option}}
                       </label>
@@ -204,7 +212,14 @@
                           <button type="button" ng-disabled="!currentAnswer || currentAnswer==-1" ng-click="submitAnswer();" class="btn-margintop bootstrap-overrides btn btn-primary">
                             Submit
                           </button>
+                          <button class="btn-margintop bootstrap-overrides btn btn-primary" ng-click="questionsControl('prev')">Explain</button>
                         </div>
+                      </div>
+                      
+                      <div class="control-group">
+                        <button type="button" ng-disabled="!submit" ng-click="set_submit(false);questionsControl('next'); " class="btn-margintop bootstrap-overrides btn btn-primary">
+                          Next Question
+                        </button>
                       </div>
                     </div>
                     <div class="span6">
@@ -221,8 +236,7 @@
                   <h2 class="page-title">{{copy}}</h2>
                 </div>
                 <div class="modal-footer">
-                  <button class="bootstrap-overrides btn btn-primary" ng-click="ok()">Next</button>
-                  <button class="bootstrap-overrides btn btn-primary" ng-click="cancel()">Explain</button>
+                  <button class="bootstrap-overrides btn btn-primary" ng-click="ok()">Close</button>
                 </div>
               </script>
             </form>
@@ -247,14 +261,45 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script src="assets/js/ui-bootstrap-tpls-0.6.0.min.js"></script>
-    <script src="assets/js/jquery.flot.js"></script>
-    <script src="assets/js/jquery.flot.resize.min.js"></script>
-    <script src="assets/js/jquery.flot.axislabels.js"></script>
     <script src="assets/js/keypress.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/controllers.js"></script>
     <script src="assets/js/questions_controller.js"></script>
     <script src="assets/js/directives.js"></script>
-    <script src="assets/js/graph.js"></script>
+    
+<script src="assets/js/highcharts/highcharts.js"></script>
+
+<div class="hidden hide">
+<audio controls id="audio0">
+  <source src="assets/audio/bp00.ogg" type="audio/ogg">
+  <source src="assets/audio/bp00.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<audio controls id="audio1">
+  <source src="assets/audio/bp10.ogg" type="audio/ogg">
+  <source src="assets/audio/bp10.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio><audio controls id="audio2">
+  <source src="assets/audio/bp20.ogg" type="audio/ogg">
+  <source src="assets/audio/bp20.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio><audio controls id="audio3">
+  <source src="assets/audio/bp30.ogg" type="audio/ogg">
+  <source src="assets/audio/bp30.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio><audio controls id="audio4">
+  <source src="assets/audio/bp40.ogg" type="audio/ogg">
+  <source src="assets/audio/bp40.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio><audio controls id="audio5">
+  <source src="assets/audio/bp50.ogg" type="audio/ogg">
+  <source src="assets/audio/bp50.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio><audio controls id="audio6">
+  <source src="assets/audio/bp60.ogg" type="audio/ogg">
+  <source src="assets/audio/bp60.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+</div>
   </body>
 </html>

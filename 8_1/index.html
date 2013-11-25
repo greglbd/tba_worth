@@ -228,15 +228,22 @@
                   <button type="button" ng-disabled="!currentAnswer || currentAnswer==-1" ng-click="submitAnswer();" class="btn-margintop bootstrap-overrides btn btn-primary">
                     Submit
                   </button>
+                   <button class="btn-margintop bootstrap-overrides btn btn-primary" ng-click="questionsControl('prev')">Explain</button>
+                        
                 </div>
               </div>
-              <script type="text/ng-template" id="myModalContent.html">
+              <div class="control-group">
+                <button type="button" ng-disabled="!submit" ng-click="set_submit(false);questionsControl('next'); " class="btn-margintop bootstrap-overrides btn btn-primary">
+                  Next Question
+                </button>
+              </div>
+
+               <script type="text/ng-template" id="myModalContent.html">
                 <div class="modal-body">
                   <h2 class="page-title">{{copy}}</h2>
                 </div>
                 <div class="modal-footer">
-                  <button class="bootstrap-overrides btn btn-primary" ng-click="ok()">Next</button>
-                  <button class="bootstrap-overrides btn btn-primary" ng-click="cancel()">Explain</button>
+                  <button class="bootstrap-overrides btn btn-primary" ng-click="ok()">Close</button>
                 </div>
               </script>
             </form>
