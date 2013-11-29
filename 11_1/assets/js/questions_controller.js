@@ -10,6 +10,7 @@ angular.module('app.questions_controller', [])
   $scope.currentAnswer;
   $scope.userFeedback= '';
   $scope.submit = false;
+  $scope.nextbutton = "Next Question";
   $scope.questions = [
     {
       id: '1',
@@ -118,11 +119,12 @@ angular.module('app.questions_controller', [])
   //submit the answer - this is where the answer should be submitted to the LMS if required
   $scope.submitAnswer= function() {
     $scope.userFeedback = $scope.questions[$scope.currentQuestion - 1].answers[$scope.currentAnswer];
+    $scope.userAnswer = $scope.currentAnswer;
     $scope.currentAnswer = -1;
     $scope.set_submit(true);
     $scope.safeApply();
     //$scope.submit = false;
-    $scope.open();
+    $scope.open('myModalContent.html');
   }
   $scope.set_submit = function(b){
     
@@ -150,16 +152,21 @@ angular.module('app.questions_controller', [])
       }
       if(target == 'next')
       {
+        $scope.userAnswer = null;
         $scope.currentQuestion++;
+        if($scope.currentQuestion >= $scope.questions.length)
+        {
+          $scope.nextbutton = 'Next';
+        }
       }
     }
     $scope.safeApply();
   }
   
   //open modal
-  $scope.open = function () {
+  $scope.open = function (template) {
     var modalInstance = $modal.open({
-      templateUrl: 'myModalContent.html',
+      templateUrl: template,
       controller: ModalInstanceCtrl,
       resolve: {
         userFeedback: function () {

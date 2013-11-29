@@ -5,7 +5,7 @@ angular.module('app.controllers', [])
   
   //Variables
   $scope.activity_title = "Selective Attention";
-  $scope.currentPage = 0;
+  $scope.currentPage = 3;
   $scope.finished = false;
   $scope.questions = false;
   $scope.pageCopy = [

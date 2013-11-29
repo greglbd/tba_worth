@@ -212,7 +212,21 @@ li {
   }
 }
 
+.btn-radio {
+  @include border-radius(5px);
+  height: 10px;
+  width: 10px;
+}
 
+.modal { 
+  @media only screen and (min-width: 769px) {
+width: 76% !important;
+//margin: auto !important;
+  margin-left: -38% !important;
+  }
+}
+
+//.container-fluid { width: 100% !important;}
 
 /* Bootstrap overrides */
 .bootstrap-overrides {
@@ -227,12 +241,15 @@ li {
     outline: none;
     @include text-shadow(rgba($body-copy, 0) 0px 0px 0);
   }
-  
+
   &.btn-primary:hover {
     background: #CCC;
     color: $body-copy;
   }
-  
+  &.modal-body {
+    max-height: none;
+  }
+    
   &.media { 
     @include border-radius(6px);
     background-color: rgba(#ffffff, 0.7);
@@ -285,6 +302,32 @@ li {
     line-height: 24px;
   }
   
+}
+.btn-radio {
+  width: 18px;
+  height: 17px;
+  outline: none;
+  border: none;
+  background-color: #fff;
+  @include border-radius(10px);
+  &:focus {
+    background-color: #769ad6;
+    outline: none;
+    border: none;
+  }
+  
+  &.correct {
+    background-image: url('../images/check.png');
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: 0 -17px;
+  }
+  &.wrong {
+    background-image: url('../images/check.png');
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: 0 0px;
+  }
 }
 
 @import "partials/animations";

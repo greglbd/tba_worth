@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 17, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,45 +24,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -73,7 +73,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: url('/clients/tba-digital/8_1/assets/images/sprites/general-s6d60dcfbe8.png') no-repeat;
 }
 
-/* line 60, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 60, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .general-tick {
   background-position: 0 0;
 }
@@ -318,8 +318,27 @@ li {
   border-left: 1px solid #fff;
 }
 
+/* line 215, ../sass/screen.scss */
+.btn-radio {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  height: 10px;
+  width: 10px;
+}
+
+@media only screen and (min-width: 769px) {
+  /* line 221, ../sass/screen.scss */
+  .modal {
+    width: 76% !important;
+    margin-left: -38% !important;
+  }
+}
+
 /* Bootstrap overrides */
-/* line 219, ../sass/screen.scss */
+/* line 233, ../sass/screen.scss */
 .bootstrap-overrides.btn-primary, .bootstrap-overrides.btn-primary:focus, .bootstrap-overrides.btn-primary[disabled=disabled], .bootstrap-overrides.btn-primary[disabled=disabled]:hover, .bootstrap-overrides.btn-primary[disabled=disabled]:focus {
   background: #fff;
   color: #4b4b4b;
@@ -337,12 +356,16 @@ li {
   outline: none;
   text-shadow: rgba(75, 75, 75, 0) 0px 0px 0;
 }
-/* line 231, ../sass/screen.scss */
+/* line 245, ../sass/screen.scss */
 .bootstrap-overrides.btn-primary:hover {
   background: #CCC;
   color: #4b4b4b;
 }
-/* line 236, ../sass/screen.scss */
+/* line 249, ../sass/screen.scss */
+.bootstrap-overrides.modal-body {
+  max-height: none;
+}
+/* line 253, ../sass/screen.scss */
 .bootstrap-overrides.media {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -352,7 +375,7 @@ li {
   background-color: rgba(255, 255, 255, 0.7);
   margin-bottom: 25px;
 }
-/* line 242, ../sass/screen.scss */
+/* line 259, ../sass/screen.scss */
 .bootstrap-overrides.media > .media-object {
   -moz-border-radius-topleft: 6px;
   -webkit-border-top-left-radius: 6px;
@@ -372,8 +395,8 @@ li {
   float: left !important;
   /* Smartphones (portrait and landscape) ----------- */
 }
-@media screen and (max-width : 570px) {
-  /* line 242, ../sass/screen.scss */
+@media screen and (max-width: 570px) {
+  /* line 259, ../sass/screen.scss */
   .bootstrap-overrides.media > .media-object {
     padding: 0 0px;
     width: 100%;
@@ -386,12 +409,12 @@ li {
     /* Styles */
   }
 }
-/* line 260, ../sass/screen.scss */
+/* line 277, ../sass/screen.scss */
 .bootstrap-overrides.media > .media-object > img {
   margin-top: -3px;
   margin-right: 5px;
 }
-/* line 266, ../sass/screen.scss */
+/* line 283, ../sass/screen.scss */
 .bootstrap-overrides.media > .media-object.media-object_questionnaire {
   min-width: 200px;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #50b847), color-stop(100%, #02a200));
@@ -401,24 +424,58 @@ li {
   background-image: linear-gradient(#50b847, #02a200);
   /* Smartphones (portrait and landscape) ----------- */
 }
-@media screen and (max-width : 570px) {
-  /* line 273, ../sass/screen.scss */
+@media screen and (max-width: 570px) {
+  /* line 290, ../sass/screen.scss */
   .bootstrap-overrides.media > .media-body {
     float: left;
     /* Styles */
   }
-  /* line 276, ../sass/screen.scss */
+  /* line 293, ../sass/screen.scss */
   .bootstrap-overrides.media > .media-body > .page-copy {
     float: left;
     width: 100%;
   }
 }
-/* line 284, ../sass/screen.scss */
+/* line 301, ../sass/screen.scss */
 .bootstrap-overrides.radio {
   line-height: 24px;
 }
 
-/* line 3, /Applications/MAMP/htdocs/worth/8_1/assets/sass/partials/_animations.scss */
+/* line 306, ../sass/screen.scss */
+.btn-radio {
+  width: 18px;
+  height: 17px;
+  outline: none;
+  border: none;
+  background-color: #fff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+/* line 313, ../sass/screen.scss */
+.btn-radio:focus {
+  background-color: #769ad6;
+  outline: none;
+  border: none;
+}
+/* line 319, ../sass/screen.scss */
+.btn-radio.correct {
+  background-image: url("../images/check.png");
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: 0 -17px;
+}
+/* line 325, ../sass/screen.scss */
+.btn-radio.wrong {
+  background-image: url("../images/check.png");
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: 0 0px;
+}
+
+/* line 3, ../sass/partials/_animations.scss */
 .fade-show {
   opacity: 1;
   -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s;
@@ -432,11 +489,11 @@ li {
   }
   */
 }
-/* line 10, /Applications/MAMP/htdocs/worth/8_1/assets/sass/partials/_animations.scss */
+/* line 10, ../sass/partials/_animations.scss */
 .fade-show.ng-hide-add, .fade-show.ng-hide {
   opacity: 0;
 }
-/* line 14, /Applications/MAMP/htdocs/worth/8_1/assets/sass/partials/_animations.scss */
+/* line 14, ../sass/partials/_animations.scss */
 .fade-show.ng-hide-remove, .fade-show ng-hide-add {
   display: block !important;
 }

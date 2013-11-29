@@ -267,6 +267,31 @@ li {
   }
   
 }
+.btn-radio {
+  width: 18px;
+  height: 17px;
+  outline: none;
+  border: none;
+  @include border-radius(10px);
+  &:focus {
+    background-color: #769ad6;
+    outline: none;
+    border: none;
+  }
+  
+  &.correct {
+    background-image: url('../images/check.png');
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: 0 -17px;
+  }
+  &.wrong {
+    background-image: url('../images/check.png');
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: 0 0px;
+  }
+}
 @import "partials/8_10";
 @import "partials/animations";
  

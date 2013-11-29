@@ -194,10 +194,13 @@
                       <img ng-show="question.media" data-b="{{question.media}}" src="{{question.media}}"/>
                     </div>
                     <div class="span12">
-                      <label ng-repeat="option in question.options" class="bootstrap-overrides radio">
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="{{option.id}}" ng-click="update(option.id)">
-                        {{option.option}}
-                      </label>
+                      <div class="btn-group">
+                        <label ng-repeat="option in question.options" class="bootstrap-overrides radio" >
+                          <!--<input type="radio" name="optionsRadios" id="optionsRadios1" value="{{option.id}}" ng-click="update(option.id)">-->
+                           <button type="button" class="btn-radio" id="{{option.id}}" ng-class="{'wrong':option.id!=question.answer && option.id==userAnswer, 'correct':option.id==question.answer&& userAnswer}" ng-model="radioModel" btn-radio="'{{option.id}}'" ng-click="update(option.id)"></button>
+                          {{option.option}}
+                        </label>
+                      </div>
                     </div>
                   </div>
                  

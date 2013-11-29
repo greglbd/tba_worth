@@ -9,6 +9,7 @@ angular.module('app.questions_controller', [])
   $scope.currentQuestion = 1;
   $scope.currentAnswer;
   $scope.userFeedback= '';
+  $scope.nextbutton = "Next Question";
   $scope.questions = [
     {
       id: '1',
@@ -118,6 +119,7 @@ angular.module('app.questions_controller', [])
   //submit the answer - this is where the answer should be submitted to the LMS if required
   $scope.submitAnswer= function() {
     $scope.userFeedback = $scope.questions[$scope.currentQuestion - 1].answers[$scope.currentAnswer];
+    $scope.userAnswer = $scope.currentAnswer;
     $scope.currentAnswer = -1;
     $scope.safeApply();
     $scope.open();
@@ -142,7 +144,15 @@ angular.module('app.questions_controller', [])
       {
         $scope.prevPage();
       }
-      $scope.currentQuestion++;
+      if(target == 'next')
+      {
+        $scope.userAnswer = null;
+        $scope.currentQuestion++;
+        if($scope.currentQuestion >= $scope.questions.length)
+        {
+          $scope.nextbutton = 'Next';
+        }
+      }
     }
     $scope.safeApply();
   }

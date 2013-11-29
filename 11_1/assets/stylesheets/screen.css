@@ -305,8 +305,20 @@ li.fullwidth {
   margin: 10px 0;
 }
 
+@media only screen and (min-width: 769px) {
+  /* line 201, ../sass/screen.scss */
+  .modal {
+    width: 76% !important;
+    margin-left: -38% !important;
+  }
+}
+
 /* Bootstrap overrides */
-/* line 204, ../sass/screen.scss */
+/* line 212, ../sass/screen.scss */
+.bootstrap-overrides.modal-body {
+  max-height: none;
+}
+/* line 215, ../sass/screen.scss */
 .bootstrap-overrides.btn-primary, .bootstrap-overrides.btn-primary:focus, .bootstrap-overrides.btn-primary[disabled=disabled], .bootstrap-overrides.btn-primary[disabled=disabled]:hover, .bootstrap-overrides.btn-primary[disabled=disabled]:focus {
   background: #fff;
   color: #4b4b4b;
@@ -324,11 +336,11 @@ li.fullwidth {
   outline: none;
   text-shadow: rgba(75, 75, 75, 0) 0px 0px 0;
 }
-/* line 215, ../sass/screen.scss */
+/* line 226, ../sass/screen.scss */
 .bootstrap-overrides.btn-primary.spc, .bootstrap-overrides.btn-primary:focus.spc, .bootstrap-overrides.btn-primary[disabled=disabled].spc, .bootstrap-overrides.btn-primary[disabled=disabled]:hover.spc, .bootstrap-overrides.btn-primary[disabled=disabled]:focus.spc {
   cursor: default;
 }
-/* line 218, ../sass/screen.scss */
+/* line 229, ../sass/screen.scss */
 .bootstrap-overrides.btn-primary.keyblock, .bootstrap-overrides.btn-primary:focus.keyblock, .bootstrap-overrides.btn-primary[disabled=disabled].keyblock, .bootstrap-overrides.btn-primary[disabled=disabled]:hover.keyblock, .bootstrap-overrides.btn-primary[disabled=disabled]:focus.keyblock {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -342,17 +354,17 @@ li.fullwidth {
   background: #B2B2B2;
   padding: 10px 20px;
 }
-/* line 228, ../sass/screen.scss */
+/* line 239, ../sass/screen.scss */
 .bootstrap-overrides.btn-primary:hover {
   background: #CCC;
   color: #4b4b4b;
 }
-/* line 232, ../sass/screen.scss */
+/* line 243, ../sass/screen.scss */
 .bootstrap-overrides.btn-primary:hover.spc {
   background: #fff;
   color: #4b4b4b;
 }
-/* line 238, ../sass/screen.scss */
+/* line 249, ../sass/screen.scss */
 .bootstrap-overrides.media {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -362,7 +374,7 @@ li.fullwidth {
   background-color: rgba(255, 255, 255, 0.7);
   margin-bottom: 25px;
 }
-/* line 244, ../sass/screen.scss */
+/* line 255, ../sass/screen.scss */
 .bootstrap-overrides.media > .media-object {
   -moz-border-radius-topleft: 6px;
   -webkit-border-top-left-radius: 6px;
@@ -383,7 +395,7 @@ li.fullwidth {
   /* Smartphones (portrait and landscape) ----------- */
 }
 @media screen and (max-width: 570px) {
-  /* line 244, ../sass/screen.scss */
+  /* line 255, ../sass/screen.scss */
   .bootstrap-overrides.media > .media-object {
     padding: 0 0px;
     width: 100%;
@@ -396,12 +408,12 @@ li.fullwidth {
     /* Styles */
   }
 }
-/* line 262, ../sass/screen.scss */
+/* line 273, ../sass/screen.scss */
 .bootstrap-overrides.media > .media-object > img {
   margin-top: -3px;
   margin-right: 5px;
 }
-/* line 268, ../sass/screen.scss */
+/* line 279, ../sass/screen.scss */
 .bootstrap-overrides.media > .media-object.media-object_questionnaire {
   min-width: 200px;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #50b847), color-stop(100%, #02a200));
@@ -412,29 +424,29 @@ li.fullwidth {
   /* Smartphones (portrait and landscape) ----------- */
 }
 @media screen and (max-width: 570px) {
-  /* line 275, ../sass/screen.scss */
+  /* line 286, ../sass/screen.scss */
   .bootstrap-overrides.media > .media-body {
     float: left;
     /* Styles */
   }
-  /* line 278, ../sass/screen.scss */
+  /* line 289, ../sass/screen.scss */
   .bootstrap-overrides.media > .media-body > .page-copy {
     float: left;
     width: 100%;
   }
 }
-/* line 286, ../sass/screen.scss */
+/* line 297, ../sass/screen.scss */
 .bootstrap-overrides.radio {
   line-height: 24px;
 }
 
-/* line 291, ../sass/screen.scss */
+/* line 302, ../sass/screen.scss */
 .black_box_wrapper {
   float: left;
   position: relative;
 }
 
-/* line 295, ../sass/screen.scss */
+/* line 306, ../sass/screen.scss */
 .black_box {
   margin-top: 25%;
   height: 50%;
@@ -444,12 +456,46 @@ li.fullwidth {
   width: 100%;
 }
 
-/* line 303, ../sass/screen.scss */
+/* line 314, ../sass/screen.scss */
 .black_box_btn {
   position: absolute;
   top: 300px;
   left: 0px;
   width: 200px !important;
+}
+
+/* line 320, ../sass/screen.scss */
+.btn-radio {
+  width: 18px;
+  height: 17px;
+  outline: none;
+  border: none;
+  background-color: #fff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+/* line 327, ../sass/screen.scss */
+.btn-radio:focus {
+  background-color: #769ad6;
+  outline: none;
+  border: none;
+}
+/* line 333, ../sass/screen.scss */
+.btn-radio.correct {
+  background-image: url("../images/check.png");
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: 0 -17px;
+}
+/* line 339, ../sass/screen.scss */
+.btn-radio.wrong {
+  background-image: url("../images/check.png");
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: 0 0px;
 }
 
 /* line 3, ../sass/partials/_11_1.scss */

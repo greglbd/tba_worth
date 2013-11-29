@@ -202,23 +202,25 @@
                   <h2 class="page-title">{{question.question}}</h2>
                   <div class="row">
                     <div ng-class="{'span12': !question.media, 'span6': question.media}">
-                      
-                      <label ng-repeat="option in question.options" class="bootstrap-overrides radio" >
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="{{option.id}}" ng-click="update(option.id)">
-                        {{option.option}}
-                      </label>
+                      <div class="btn-group">
+                        <label ng-repeat="option in question.options" class="bootstrap-overrides radio" >
+                          <!--<input type="radio" name="optionsRadios" id="optionsRadios1" value="{{option.id}}" ng-click="update(option.id)">-->
+                           <button type="button" class="btn-radio" id="{{option.id}}" ng-class="{'wrong':option.id!=question.answer && option.id==userAnswer, 'correct':option.id==question.answer&& userAnswer}" ng-model="radioModel" btn-radio="'{{option.id}}'" ng-click="update(option.id)"></button>
+                          {{option.option}}
+                        </label>
+                      </div>
                       <div class="control-group">
                         <div class="control"> 
                           <button type="button" ng-disabled="!currentAnswer || currentAnswer==-1" ng-click="submitAnswer();" class="btn-margintop bootstrap-overrides btn btn-primary">
                             Submit
                           </button>
-                          <button class="btn-margintop bootstrap-overrides btn btn-primary" ng-click="questionsControl('prev')">Explain</button>
+                          <button class="btn-margintop bootstrap-overrides btn btn-primary" ng-click="open('explanationModal.html')">Explain</button>
                         </div>
                       </div>
                       
                       <div class="control-group">
                         <button type="button" ng-disabled="!submit" ng-click="set_submit(false);questionsControl('next'); " class="btn-margintop bootstrap-overrides btn btn-primary">
-                          Next Question
+                          {{nextbutton}}
                         </button>
                       </div>
                     </div>
@@ -256,7 +258,36 @@
       
       </div> 
     </div> 
-    
+    <script type="text/ng-template" id="explanationModal.html">
+      <div class="modal-body bootstrap-overrides">
+        <div class="row-fluid">
+          <div class="span12">
+            <div class="media bootstrap-overrides">
+              <div class="pull-left media-object explanation-object">
+                <img class="" src="assets/images/icon.png"/>
+                Explain
+              </div>
+              <div class="media-body">
+                <h2 class="page-title explanation-title centeredtext media-heading">
+                  What Is Categorical Perception of Phonemes?
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row-fluid">
+          <div class="span12">
+            <p class="page-copy page-copy_margin explanation-copy">Categorical perception refers to the perception of different sensory stimuli as identical, up to a point at which further variation in the stimulus leads to a sharp change in the perception. Categorical perception is opposed to continuous perception, in which there are no sharp changes in perception as the stimulus varies. Research suggests that our perception of certain speech sounds is categorical rather than continuous, where the categories are different phonemes. For example, consider the perception of voiceless versus voiced stop consonants such as voiceless /t/ versus voiced /d/. Spectrograms of syllables like /ta/ and /da/, which differ only in these two consonants, show an obvious difference in voice onset time (VOT), the interval between the initial burst of frequencies corresponding to the consonant and the onset of the following vowel /a/. Pairs of voiceless and voiced stop consonants are always differentiated by this pattern of a relatively long VOT for the voiceless stop and a relatively short VOT for the voiced stop.</p>
+            <p class="page-copy page-copy_margin explanation-copy"> To investigate the precise relationship between VOT and the perception of stop consonants, experimenters create synthetic stop consonants that they combine into syllables with synthetic vowel sounds. They then play the syllables with different VOTs and ask listeners to decide whether each syllable sounded like it began with a voiceless or voiced stop. In an experiment using the syllables /ba/ and /pa/, when the VOT was less than 25 msec, virtually every listener labeled the syllable as /ba/, and when the VOT was more than 35 msec, almost every listener labeled the syllable as /pa/. As the VOT increased from 25 to 30 to 35 msec, listeners gave a decreasing percentage of /ba/ responses and an increasing percentage of /pa/ responses, with the responses split about fifty-fifty at 30 msec. This transition at 30 msec VOT from mostly perceiving one phoneme to mostly perceiving the other phoneme is called the phonemic boundary.
+            </p>
+          </div> 
+        </div>  
+      </div>
+      <div class="modal-footer">
+        <button class="bootstrap-overrides btn btn-primary" ng-click="ok()">Close</button>
+      </div>
+    </script>
     <script src="assets/js/angular.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
