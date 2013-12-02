@@ -4,7 +4,7 @@ angular.module('app.controllers', [])
 .controller('PageCtrl', function($scope){
   //Variables
   $scope.activity_title = "Categorical Perceptions Based on Voice Onset Time"
-  $scope.currentPage = 3;
+  $scope.currentPage = 0;
   $scope.finished = false;
   $scope.questions = false;
   $scope.pageCopy = [

@@ -134,20 +134,21 @@ angular.module('app.questions_controller', [])
   $scope.questionsControl = function(target) {
     if($scope.currentQuestion >= $scope.questions.length )
     {
-      if(target == "prev")
-      {
-        $scope.setFinish(true);
-        $scope.prevPage();
-      }else
-      {
-        $scope.nextPage();
-      }
+      $scope.nextPage();
     }
     else
     {
       if(target == "prev")
       {
-        $scope.prevPage();
+        if($scope.currentQuestion == 1)
+        {
+          $scope.prevPage();
+        
+        }else
+        {
+          $scope.currentQuestion--;
+        }
+         
       }
       if(target == 'next')
       {

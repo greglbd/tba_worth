@@ -12,7 +12,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body ng-app="app" ng-cloak>
-    <div class="container-wrapper" ng-controller="PageCtrl" ng-click="change(1, 'home')" confirm-on-exit>
+    <div class="container-wrapper" ng-controller="PageCtrl" ng-click="startPageClick()" confirm-on-exit>
       <div class="content-wrapper">
         <div class="page fade-show" ng-model="currentPage" ng-click="change(1)" ng-show="currentPage==0">
           <div class="container">
@@ -130,6 +130,16 @@
                         </button>
                       </div>
                     </div>
+                    <div class="control-group">
+                      <div class="control centeredtext"> 
+                        <button type="button" ng-click="restart=true; prevPage()" ng-model="complete" class="bootstrap-overrides btn btn-primary">
+                          Back
+                        </button>
+                        <button type="button" ng-click="nextPage('override')" ng-model="complete" class="bootstrap-overrides btn btn-primary">
+                          Next
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -173,7 +183,7 @@
             </div>
             <div class="control-group">
               <div class="control centeredtext"> 
-                <button type="button" ng-disabled="questions" ng-click="prevPage();" class="btn-margintop bootstrap-overrides btn btn-primary">
+                <button type="button" ng-click="prevPage();" class="btn-margintop bootstrap-overrides btn btn-primary">
                   Back
                 </button>
                 <button type="button" ng-click="nextPage();" class="btn-margintop bootstrap-overrides btn btn-primary">
@@ -236,6 +246,9 @@
                 </div>
               </div>
               <div class="control-group">
+                <button type="button" ng-click="questionsControl('prev')" ng-model="complete" class="btn-margintop bootstrap-overrides btn btn-primary">
+                  Back
+                </button>
                 <button type="button" ng-disabled="!submit" ng-click="set_submit(false);questionsControl('next'); " class="btn-margintop bootstrap-overrides btn btn-primary">
                           {{nextbutton}}
                 </button>
@@ -266,7 +279,7 @@
       
       </div> 
     </div> 
-    
+
     <script type="text/ng-template" id="explanationModal.html">
       <div class="modal-body bootstrap-overrides">
         <div class="row-fluid">

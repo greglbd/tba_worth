@@ -5,9 +5,10 @@ angular.module('app.controllers', [])
   
   //Variables
   $scope.activity_title = "Selective Attention";
-  $scope.currentPage = 3;
+  $scope.currentPage = 0;
   $scope.finished = false;
   $scope.questions = false;
+  $scope.restart = false;
   $scope.pageCopy = [
     {
       copy: [
@@ -51,22 +52,39 @@ angular.module('app.controllers', [])
       this.$apply(fn);
     }
   };
-  
+  $scope.startPageClick = function(){
+    if($scope.currentPage == 0 && !$scope.restart)
+    {
+      $scope.change(1, 'home')
+    }else
+    {
+      $scope.restart = false;
+    }
+  } 
   //change page
   $scope.change= function($targetPage, $window) {
-    if($window)
+    if($targetPage==0 && $scope.currentPage == 0)
+    {
+      $scope.currentPage = $targetPage;
+      $scope.restart = true;
+      return;
+    }
+    
+    //console.log($targetPage + ' : ' + $scope.currentPage)
+    if($window && !$scope.restart)
     {
       if($scope.currentPage == 0)
       {
         $scope.updateHeader($scope.currentPage);
         $scope.currentPage = $targetPage;
+        //console.log('hello everyone');
       }
       else
       {
         return false;
       }
     }
-    else if (!$window)
+    else if (!$window && !$scope.restart)
     {
       $scope.currentPage = $targetPage;
     }
@@ -77,28 +95,42 @@ angular.module('app.controllers', [])
     }
   }
   
+  
   //test finished
   $scope.setFinish = function(b){
     $scope.finished = b;
   }
   
   //next page
-  $scope.nextPage= function(){
-    if(!$scope.finished)
-      $scope.currentPage++;
-    else
-      $scope.currentPage+=2;
-    
-    if($scope.currentPage == 4)
+  $scope.nextPage= function(check){
+    if(check == 'override')
     {
-      $scope.setFinish(true);
+      if(!$scope.complete)
+      {
+        $scope.$broadcast("SHOW_WARNING");
+        return false;
+      }
     }
-    $scope.change($scope.currentPage);
+    else
+    {
+      if(!$scope.finished)
+        $scope.currentPage++;
+      else
+        $scope.currentPage+=2;
+      
+      if($scope.currentPage == 4)
+      {
+        $scope.setFinish(true);
+      }
+      $scope.change($scope.currentPage);
+    }
+    
   }
   
   //previous page
   $scope.prevPage= function(){
     $scope.currentPage--;
+    //console.log('prev: ' + $scope.currentPage);
     $scope.change($scope.currentPage);
   }
   
@@ -106,9 +138,10 @@ angular.module('app.controllers', [])
   $scope.updateHeader = function($index) {
     $scope.currentPageCopy = $scope.pageCopy[$index];
   }
+
 })
 
-.controller('TestCtrl', function($scope) {
+.controller('TestCtrl', function($scope, $modal) {
 
 //Controller for actual test
   //Variables
@@ -214,11 +247,37 @@ angular.module('app.controllers', [])
       $scope.initTest($scope.test);
   }
   
+   //open modal
+  $scope.openModalTest = function (template) {
+    var modalInstance = $modal.open({
+      templateUrl: template,
+      controller: ModalInstanceCtrl,
+      resolve: {
+        userFeedback: function () {
+          return $scope.userFeedback;
+        }
+      }
+    });
+
+    modalInstance.result.then(function () {
+      $scope.nextPage();
+    }, function () {
+      //$scope.questionsControl('prev');
+    });
+  };
+  $scope.$on("SHOW_WARNING", function(event, data){
+    //console.log($scope.test)
+    if($scope.test==2 && $scope.complete)
+      $scope.nextPage();
+    else
+      $scope.openModalTest('warningModal.html');  
+  });
 })
 
 //Modal instance controller
 var ModalInstanceCtrl = function ($scope, $modalInstance, userFeedback) {
   $scope.copy = userFeedback;
+  
   $scope.ok = function () {
     $modalInstance.close();
   };
