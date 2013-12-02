@@ -120,6 +120,7 @@ angular.module('app.questions_controller', [])
   $scope.submitAnswer= function() {
     $scope.userFeedback = $scope.questions[$scope.currentQuestion - 1].answers[$scope.currentAnswer];
     $scope.userAnswer = $scope.currentAnswer;
+    $scope.questions[$scope.currentQuestion-1].answered = true;
     $scope.currentAnswer = -1;
     $scope.set_submit(true);
     $scope.safeApply();
@@ -132,7 +133,8 @@ angular.module('app.questions_controller', [])
   }
   //Navigate through the 3 questions.
   $scope.questionsControl = function(target) {
-    if($scope.currentQuestion >= $scope.questions.length )
+    console.log($scope.currentQuestion);
+    if($scope.currentQuestion >= $scope.questions.length && target=='next')
     {
       $scope.nextPage();
     }
@@ -147,6 +149,17 @@ angular.module('app.questions_controller', [])
         }else
         {
           $scope.currentQuestion--;
+          if($scope.questions[$scope.currentQuestion-1].answered )
+          {
+            $scope.answered = true;
+          }else
+          {
+            $scope.answered = false;
+          }
+          if($scope.currentQuestion < $scope.questions.length)
+          {
+            $scope.nextbutton = 'Next Question';
+          }
         }
          
       }
@@ -154,6 +167,13 @@ angular.module('app.questions_controller', [])
       {
         $scope.userAnswer = null;
         $scope.currentQuestion++;
+        if($scope.questions[$scope.currentQuestion-1].answered )
+        {
+          $scope.answered = true;
+        }else
+        {
+          $scope.answered = false;
+        }
         if($scope.currentQuestion >= $scope.questions.length)
         {
           $scope.nextbutton = 'Next';
