@@ -319,7 +319,7 @@ li.fullwidth {
   max-height: none;
 }
 /* line 215, ../sass/screen.scss */
-.bootstrap-overrides.btn-primary, .bootstrap-overrides.btn-primary:focus, .bootstrap-overrides.btn-primary[disabled=disabled], .bootstrap-overrides.btn-primary[disabled=disabled]:hover, .bootstrap-overrides.btn-primary[disabled=disabled]:focus {
+.bootstrap-overrides.btn-primary, .bootstrap-overrides.btn-primary:focus, .bootstrap-overrides.btn-primary:active, .bootstrap-overrides.btn-primary:visited, .bootstrap-overrides.btn-primary[disabled=disabled], .bootstrap-overrides.btn-primary[disabled=disabled]:hover, .bootstrap-overrides.btn-primary[disabled=disabled]:focus {
   background: #fff;
   color: #4b4b4b;
   text-transform: uppercase;
@@ -337,11 +337,11 @@ li.fullwidth {
   text-shadow: rgba(75, 75, 75, 0) 0px 0px 0;
 }
 /* line 226, ../sass/screen.scss */
-.bootstrap-overrides.btn-primary.spc, .bootstrap-overrides.btn-primary:focus.spc, .bootstrap-overrides.btn-primary[disabled=disabled].spc, .bootstrap-overrides.btn-primary[disabled=disabled]:hover.spc, .bootstrap-overrides.btn-primary[disabled=disabled]:focus.spc {
+.bootstrap-overrides.btn-primary.spc, .bootstrap-overrides.btn-primary:focus.spc, .bootstrap-overrides.btn-primary:active.spc, .bootstrap-overrides.btn-primary:visited.spc, .bootstrap-overrides.btn-primary[disabled=disabled].spc, .bootstrap-overrides.btn-primary[disabled=disabled]:hover.spc, .bootstrap-overrides.btn-primary[disabled=disabled]:focus.spc {
   cursor: default;
 }
 /* line 229, ../sass/screen.scss */
-.bootstrap-overrides.btn-primary.keyblock, .bootstrap-overrides.btn-primary:focus.keyblock, .bootstrap-overrides.btn-primary[disabled=disabled].keyblock, .bootstrap-overrides.btn-primary[disabled=disabled]:hover.keyblock, .bootstrap-overrides.btn-primary[disabled=disabled]:focus.keyblock {
+.bootstrap-overrides.btn-primary.keyblock, .bootstrap-overrides.btn-primary:focus.keyblock, .bootstrap-overrides.btn-primary:active.keyblock, .bootstrap-overrides.btn-primary:visited.keyblock, .bootstrap-overrides.btn-primary[disabled=disabled].keyblock, .bootstrap-overrides.btn-primary[disabled=disabled]:hover.keyblock, .bootstrap-overrides.btn-primary[disabled=disabled]:focus.keyblock {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   -ms-border-radius: 0px;

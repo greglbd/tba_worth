@@ -91,7 +91,7 @@
                       <div class="span12 centeredtext page-copy_margin">
                         <!-- trial intro -->
                         <div class="row page-copy_margin" >
-                          <div class="span12 whitebox" ng-model="currentPageCopy">
+                          <div  ng-show="test1Complete" class="span12 whitebox" ng-model="currentPageCopy">
                             <div class="whitebox-cell">
                               <p class="page-copy page-copy_margin centeredtext" ng-repeat="pageCopy in currentPageCopy.copy">
                                 {{pageCopy.line}}
@@ -103,7 +103,7 @@
                     </div>
                     <div class="row">
                       <div class="span12 centeredinside">
-                        <div>
+                        <div  ng-show="test1Complete">
                           <div class="row">
                             <div class="span7">
                               <div id="container">
@@ -124,7 +124,7 @@
                         </div>
                         
                         <div ng-show="!test1Complete">
-                          NOT COMPLETE
+                          <img src="assets/images/noresults.jpg"/>
                         </div>  
                       
                         

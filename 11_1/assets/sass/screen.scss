@@ -212,7 +212,7 @@ width: 76% !important;
   &.modal-body {
     max-height: none;
   }
-  &.btn-primary, &.btn-primary:focus, &.btn-primary[disabled=disabled],&.btn-primary[disabled=disabled]:hover,&.btn-primary[disabled=disabled]:focus {
+  &.btn-primary, &.btn-primary:focus, &.btn-primary:active,&.btn-primary:visited, &.btn-primary[disabled=disabled],&.btn-primary[disabled=disabled]:hover,&.btn-primary[disabled=disabled]:focus {
     background: #fff;
     color: $body-copy;
     text-transform: uppercase;
