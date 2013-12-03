@@ -26,7 +26,6 @@
               </div>
             </div>
           </div>
-          
         </div>
         <div class="page fade-show" ng-model="currentPage"  ng-show="currentPage==1">
            <div class="container">
@@ -249,8 +248,8 @@
                 <button type="button" ng-click="questionsControl('prev')" ng-model="complete" class="btn-margintop bootstrap-overrides btn btn-primary">
                   Back
                 </button>
-                <button type="button" ng-disabled="!submit && !answered" ng-click="set_submit(false);questionsControl('next'); " class="btn-margintop bootstrap-overrides btn btn-primary">
-                          {{nextbutton}}
+                <button type="button" ng-click="checkForWarning();" class="btn-margintop bootstrap-overrides btn btn-primary">
+                  {{nextbutton}}
                 </button>
               </div>
 

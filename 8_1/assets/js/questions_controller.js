@@ -183,6 +183,18 @@ angular.module('app.questions_controller', [])
     $scope.safeApply();
   }
   
+  $scope.checkForWarning = function() {
+    if(!$scope.submit)
+    {
+      $scope.open('questionWarning.html');
+    }else
+    {
+      $scope.set_submit(false);
+      $scope.questionsControl('next'); 
+    }
+  }
+  
+  
   //open modal
   $scope.open = function (template) {
     var modalInstance = $modal.open({
