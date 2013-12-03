@@ -7,6 +7,7 @@ angular.module('app.controllers', [])
   $scope.currentPage = 0;
   $scope.finished = false;
   $scope.questions = false;
+  $scope.restart = false;
   $scope.pageCopy = [
     {
       copy: [
@@ -44,9 +45,26 @@ angular.module('app.controllers', [])
     }
   };
   
+  $scope.startPageClick = function(){
+    if($scope.currentPage == 0 && !$scope.restart)
+    {
+      $scope.change(1, 'home')
+    }else
+    {
+      $scope.restart = false;
+    }
+  } 
   //change page
   $scope.change= function($targetPage, $window) {
-    if($window)
+  
+    
+    if($targetPage==0 && $scope.currentPage == 0)
+    {
+      $scope.currentPage = $targetPage;
+      $scope.restart = true;
+      return;
+    }
+    if($window && !$scope.restart)
     {
       if($scope.currentPage == 0)
       {
@@ -58,7 +76,7 @@ angular.module('app.controllers', [])
         return false;
       }
     }
-    else if (!$window)
+    else if (!$window && !$scope.restart)
     {
       $scope.currentPage = $targetPage;
     }
@@ -67,6 +85,7 @@ angular.module('app.controllers', [])
     {
       $scope.questions = true;
     }
+    $scope.safeApply();
   }
   
   //test finished
@@ -75,17 +94,29 @@ angular.module('app.controllers', [])
   }
   
   //next page
-  $scope.nextPage= function(){
-    if(!$scope.finished)
-      $scope.currentPage++;
-    else
-      $scope.currentPage+=2;
-    
-    if($scope.currentPage == 4)
+  $scope.nextPage= function(check){
+    if(check == 'override')
     {
-      $scope.setFinish(true);
+      if(!$scope.finished)
+      {
+        $scope.$broadcast("SHOW_WARNING");
+        return false;
+      }
     }
-    $scope.change($scope.currentPage);
+    else
+    {
+    
+      if(!$scope.finished)
+        $scope.currentPage++;
+      else
+        $scope.currentPage+=2;
+      
+      if($scope.currentPage == 4)
+      {
+        $scope.setFinish(true);
+      }
+      $scope.change($scope.currentPage);
+    }
   }
   
   //previous page
@@ -139,7 +170,7 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('TestCtrl', function($scope) {
+.controller('TestCtrl', function($scope, $modal) {
   $scope.phase = 0;
   $scope.test1Complete = false;
       
@@ -357,7 +388,7 @@ angular.module('app.controllers', [])
         color: '#FF0000'
       }]
     });
-}
+  }
   
   $scope.progress = function() {
     $scope.responded = false;
@@ -368,18 +399,35 @@ angular.module('app.controllers', [])
     $scope.audio.play();
     $scope.safeApply();
   }
-})
+  
+   //open modal
+  $scope.openModalTest = function (template) {
+    var modalInstance = $modal.open({
+      templateUrl: template,
+      controller: ModalInstanceCtrl,
+      resolve: {
+        userFeedback: function () {
+          return $scope.userFeedback;
+        }
+      }
+    });
 
-.controller('TrialCtrlTwo', function($scope){
-  $scope.trialphase = 0;
-  $scope.total = 32;
-  $scope.started = false;
-  $scope.responded = false;
-  $scope.phase=3;
-  $scope.updateHeader(3);
-  $scope.safeApply();
-
-
+    modalInstance.result.then(function () {
+      $scope.phase++;
+      $scope.updateHeader(2);
+    }, function () {
+      //$scope.questionsControl('prev');
+    });
+  };
+  $scope.$on("SHOW_WARNING", function(event, data){
+    if($scope.trialphase==35)
+    {
+      $scope.phase++;
+      $scope.updateHeader(2);
+    }else{
+      $scope.openModalTest('warningModal.html');
+    }  
+  });
 })
 
 //Modal instance controller

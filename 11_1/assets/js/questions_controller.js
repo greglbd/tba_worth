@@ -116,44 +116,65 @@ angular.module('app.questions_controller', [])
     $scope.currentAnswer = id;
   }
   
+  
   //submit the answer - this is where the answer should be submitted to the LMS if required
   $scope.submitAnswer= function() {
     $scope.userFeedback = $scope.questions[$scope.currentQuestion - 1].answers[$scope.currentAnswer];
     $scope.userAnswer = $scope.currentAnswer;
+    $scope.questions[$scope.currentQuestion-1].answered = true;
     $scope.currentAnswer = -1;
     $scope.set_submit(true);
     $scope.safeApply();
-    //$scope.submit = false;
     $scope.open('myModalContent.html');
   }
-  $scope.set_submit = function(b){
+ $scope.set_submit = function(b){
     
     $scope.submit = b;
     $scope.safeApply();
   }
   //Navigate through the 3 questions.
   $scope.questionsControl = function(target) {
-    if($scope.currentQuestion >= $scope.questions.length )
+    console.log($scope.currentQuestion);
+    if($scope.currentQuestion >= $scope.questions.length && target=='next')
     {
-      if(target == "prev")
-      {
-        $scope.setFinish(true);
-        $scope.prevPage();
-      }else
-      {
-        $scope.nextPage();
-      }
+      $scope.nextPage();
     }
     else
     {
       if(target == "prev")
       {
-        $scope.prevPage();
+        if($scope.currentQuestion == 1)
+        {
+          $scope.prevPage();
+        
+        }else
+        {
+          $scope.currentQuestion--;
+          if($scope.questions[$scope.currentQuestion-1].answered )
+          {
+            $scope.answered = true;
+          }else
+          {
+            $scope.answered = false;
+          }
+          if($scope.currentQuestion < $scope.questions.length)
+          {
+            $scope.nextbutton = 'Next Question';
+          }
+        }
+         
       }
       if(target == 'next')
       {
         $scope.userAnswer = null;
         $scope.currentQuestion++;
+        if($scope.questions[$scope.currentQuestion-1].answered )
+        {
+          $scope.answered = true;
+        }else
+        {
+          $scope.answered = false;
+        }
         if($scope.currentQuestion >= $scope.questions.length)
         {
           $scope.nextbutton = 'Next';
@@ -163,6 +184,17 @@ angular.module('app.questions_controller', [])
     $scope.safeApply();
   }
   
+  
+  $scope.checkForWarning = function() {
+    if(!$scope.submit && !$scope.questions[$scope.currentQuestion-1].answered)
+    {
+      $scope.open('questionWarning.html');
+    }else
+    {
+      $scope.set_submit(false);
+      $scope.questionsControl('next'); 
+    }
+  }
   //open modal
   $scope.open = function (template) {
     var modalInstance = $modal.open({

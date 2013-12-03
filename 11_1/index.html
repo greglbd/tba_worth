@@ -12,7 +12,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body ng-app="app" ng-cloak>
-    <div class="container-wrapper" ng-controller="PageCtrl" ng-click="change(1, 'home')" confirm-on-exit tabindex="0" ui-keydown="{32:'spacePressCallback($event)'}" key-ctrl>
+    <div class="container-wrapper" ng-controller="PageCtrl" ng-click="startPageClick()" confirm-on-exit tabindex="0" ui-keydown="{32:'spacePressCallback($event)'}" key-ctrl>
       <div class="content-wrapper">
         <div class="page" ng-model="currentPage" ng-click="change(1)" ng-show="currentPage==0"  ng-animate="'fade'">
           <div class="container">
@@ -65,6 +65,21 @@
                       </audio>
                     </div>
                     <div ng-show="trialphase==0" class="btn-margintop bootstrap-overrides btn btn-primary spc">PRESS SPACE BAR TO START THE FIRST TRIAL</div>
+                    <div class="row">
+                      <div class="span12">
+                        <div class="control-group">
+                          <div class="control centeredtext"> 
+                            <button type="button" ng-click="restart=true; prevPage()" ng-model="complete" class="btn-margintop bootstrap-overrides btn btn-primary">
+                              Back
+                            </button>
+                            <button type="button" ng-click="nextPage('override')" ng-model="complete" class="btn-margintop bootstrap-overrides btn btn-primary">
+                              Next
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
                   </div>
                 </div>
                
@@ -205,7 +220,7 @@
                       <div class="btn-group">
                         <label ng-repeat="option in question.options" class="bootstrap-overrides radio" >
                           <!--<input type="radio" name="optionsRadios" id="optionsRadios1" value="{{option.id}}" ng-click="update(option.id)">-->
-                           <button type="button" class="btn-radio" id="{{option.id}}" ng-class="{'wrong':option.id!=question.answer && option.id==userAnswer, 'correct':option.id==question.answer&& userAnswer}" ng-model="radioModel" btn-radio="'{{option.id}}'" ng-click="update(option.id)"></button>
+                           <button type="button" class="btn-radio" id="{{option.id}}" ng-class="{'wrong':(question.answered && option.id==!question.answer)  || (option.id!=question.answer && option.id==userAnswer), 'correct':(question.answered && option.id==question.answer) || (option.id==question.answer&& userAnswer)}" ng-model="radioModel" btn-radio="'{{option.id}}'" ng-click="update(option.id)"></button>
                           {{option.option}}
                         </label>
                       </div>
@@ -219,9 +234,13 @@
                       </div>
                       
                       <div class="control-group">
-                        <button type="button" ng-disabled="!submit" ng-click="set_submit(false);questionsControl('next'); " class="btn-margintop bootstrap-overrides btn btn-primary">
+                        <button type="button" ng-click="questionsControl('prev')" ng-model="complete" class="btn-margintop bootstrap-overrides btn btn-primary">
+                          Back
+                        </button>
+                        <button type="button" ng-click="checkForWarning();" class="btn-margintop bootstrap-overrides btn btn-primary">
                           {{nextbutton}}
                         </button>
+
                       </div>
                     </div>
                     <div class="span6">

@@ -5,7 +5,7 @@ angular.module('app.controllers', [])
   
   //Variables
   $scope.activity_title = "Selective Attention";
-  $scope.currentPage = 3;
+  $scope.currentPage = 0;
   $scope.finished = false;
   $scope.questions = false;
   $scope.restart = false;
@@ -130,7 +130,6 @@ angular.module('app.controllers', [])
   //previous page
   $scope.prevPage= function(){
     $scope.currentPage--;
-    //console.log('prev: ' + $scope.currentPage);
     $scope.change($scope.currentPage);
   }
   

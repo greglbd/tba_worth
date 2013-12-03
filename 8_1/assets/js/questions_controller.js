@@ -184,7 +184,7 @@ angular.module('app.questions_controller', [])
   }
   
   $scope.checkForWarning = function() {
-    if(!$scope.submit)
+    if(!$scope.submit && !$scope.questions[$scope.currentQuestion-1].answered)
     {
       $scope.open('questionWarning.html');
     }else
