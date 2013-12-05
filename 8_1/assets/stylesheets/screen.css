@@ -114,21 +114,34 @@ li {
 }
 
 /* line 45, ../sass/screen.scss */
+.page-title-landing {
+  font: normal bold 17px Arial, "sans-serif";
+  font-size: 30px;
+  margin: 66px 10px 30px;
+}
+
+/* line 51, ../sass/screen.scss */
 .page-copy {
   font: normal normal 15px Arial, "sans-serif";
 }
 
-/* line 49, ../sass/screen.scss */
+/* line 55, ../sass/screen.scss */
+.landing-copy {
+  line-height: 20px;
+  font-size: 12px;
+}
+
+/* line 60, ../sass/screen.scss */
 .page-copy_margin {
   margin: 10px 10px;
 }
 
-/* line 53, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
 .container {
   margin-bottom: 20px;
 }
 
-/* line 57, ../sass/screen.scss */
+/* line 68, ../sass/screen.scss */
 .container-wrapper {
   height: 100%;
   min-height: 800px;
@@ -136,17 +149,17 @@ li {
   height: 800px;
 }
 
-/* line 63, ../sass/screen.scss */
+/* line 74, ../sass/screen.scss */
 .content-wrapper {
   overflow: hidden;
 }
 
-/* line 67, ../sass/screen.scss */
+/* line 78, ../sass/screen.scss */
 .page {
   margin: 20px;
 }
 
-/* line 71, ../sass/screen.scss */
+/* line 82, ../sass/screen.scss */
 .test-wrapper {
   height: auto;
   float: left !important;
@@ -159,13 +172,13 @@ li {
   margin-bottom: 12px;
 }
 @media screen and (max-width: 762px) {
-  /* line 71, ../sass/screen.scss */
+  /* line 82, ../sass/screen.scss */
   .test-wrapper {
     padding: 30px 0px;
   }
 }
 
-/* line 88, ../sass/screen.scss */
+/* line 99, ../sass/screen.scss */
 .test-listitem {
   float: left;
   width: 100%;
@@ -174,31 +187,31 @@ li {
   line-height: 27px;
 }
 
-/* line 96, ../sass/screen.scss */
+/* line 107, ../sass/screen.scss */
 .centeredtext {
   text-align: center;
 }
 
-/* line 100, ../sass/screen.scss */
+/* line 111, ../sass/screen.scss */
 .fullscreen {
   width: 100%;
   height: 100%;
 }
 
-/* line 105, ../sass/screen.scss */
+/* line 116, ../sass/screen.scss */
 .whitebox {
   background-color: #fff;
   display: table;
   min-height: 150px !important;
 }
 
-/* line 111, ../sass/screen.scss */
+/* line 122, ../sass/screen.scss */
 .whitebox-cell {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 116, ../sass/screen.scss */
+/* line 127, ../sass/screen.scss */
 .stimulibox {
   border: 2px solid #000;
   width: 225px;
@@ -206,7 +219,7 @@ li {
   float: left !important;
   background-color: #fff;
 }
-/* line 123, ../sass/screen.scss */
+/* line 134, ../sass/screen.scss */
 .stimulibox > h2 {
   background-color: #000;
   color: white;
@@ -214,49 +227,49 @@ li {
   margin: 0;
   line-height: 26px;
 }
-/* line 131, ../sass/screen.scss */
+/* line 142, ../sass/screen.scss */
 .stimulibox > .stimulibox-list {
   background-color: white;
   padding: 5px;
   font: normal normal 13px Arial, "sans-serif";
 }
 
-/* line 137, ../sass/screen.scss */
+/* line 148, ../sass/screen.scss */
 .stimuli-list {
   display: table;
   height: 297px;
 }
 
-/* line 142, ../sass/screen.scss */
+/* line 153, ../sass/screen.scss */
 .explanation-title {
   line-height: 46px;
   margin: 0px !important;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 158, ../sass/screen.scss */
 .explanation-image {
   padding: 16px;
   background-color: #fff;
 }
 @media screen and (max-width: 1200px) {
-  /* line 147, ../sass/screen.scss */
+  /* line 158, ../sass/screen.scss */
   .explanation-image {
     width: 90%;
   }
 }
 
-/* line 156, ../sass/screen.scss */
+/* line 167, ../sass/screen.scss */
 .questions-title {
   line-height: 46px;
   margin: 0px !important;
 }
 
-/* line 161, ../sass/screen.scss */
+/* line 172, ../sass/screen.scss */
 .btn-margintop {
   margin-top: 20px;
 }
 
-/* line 165, ../sass/screen.scss */
+/* line 176, ../sass/screen.scss */
 .complete {
   width: 100%;
   height: 102px;
@@ -264,12 +277,12 @@ li {
   background-position: center;
 }
 
-/* line 172, ../sass/screen.scss */
+/* line 183, ../sass/screen.scss */
 .complete-title {
   font: normal bold 32px Arial, "sans-serif";
 }
 
-/* line 175, ../sass/screen.scss */
+/* line 186, ../sass/screen.scss */
 .complete-copy {
   font: normal bold 17px Arial, "sans-serif";
   width: 80%;
@@ -277,22 +290,22 @@ li {
   line-height: 22px;
 }
 
-/* line 182, ../sass/screen.scss */
+/* line 193, ../sass/screen.scss */
 .explanation-object {
   padding: 0 20px;
 }
 
-/* line 185, ../sass/screen.scss */
+/* line 196, ../sass/screen.scss */
 .explanation-wrapper {
   background-color: #ffffff;
 }
 
-/* line 188, ../sass/screen.scss */
+/* line 199, ../sass/screen.scss */
 .explanation-copy {
   line-height: 19px;
 }
 
-/* line 191, ../sass/screen.scss */
+/* line 202, ../sass/screen.scss */
 .question-object {
   float: left !important;
   color: white;
@@ -300,17 +313,17 @@ li {
   line-height: 46px;
   text-align: center;
 }
-/* line 197, ../sass/screen.scss */
+/* line 208, ../sass/screen.scss */
 .question-object.question-object_icon {
   width: 65%;
   padding: 0% 5%;
 }
-/* line 200, ../sass/screen.scss */
+/* line 211, ../sass/screen.scss */
 .question-object.question-object_icon > img {
   margin-top: -3px;
   margin-right: 5px;
 }
-/* line 206, ../sass/screen.scss */
+/* line 217, ../sass/screen.scss */
 .question-object.question-object_id {
   width: 19%;
   padding-right: 5%;
@@ -318,7 +331,7 @@ li {
   border-left: 1px solid #fff;
 }
 
-/* line 215, ../sass/screen.scss */
+/* line 226, ../sass/screen.scss */
 .btn-radio {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -330,7 +343,7 @@ li {
 }
 
 @media only screen and (min-width: 769px) {
-  /* line 221, ../sass/screen.scss */
+  /* line 232, ../sass/screen.scss */
   .modal {
     width: 76% !important;
     margin-left: -38% !important;
@@ -338,7 +351,7 @@ li {
 }
 
 /* Bootstrap overrides */
-/* line 233, ../sass/screen.scss */
+/* line 244, ../sass/screen.scss */
 .bootstrap-overrides.btn-primary, .bootstrap-overrides.btn-primary:focus, .bootstrap-overrides.btn-primary[disabled=disabled], .bootstrap-overrides.btn-primary[disabled=disabled]:hover, .bootstrap-overrides.btn-primary[disabled=disabled]:focus {
   background: #fff;
   color: #4b4b4b;
@@ -356,16 +369,21 @@ li {
   outline: none;
   text-shadow: rgba(75, 75, 75, 0) 0px 0px 0;
 }
-/* line 245, ../sass/screen.scss */
+/* line 256, ../sass/screen.scss */
 .bootstrap-overrides.btn-primary:hover {
   background: #CCC;
   color: #4b4b4b;
 }
-/* line 249, ../sass/screen.scss */
+/* line 261, ../sass/screen.scss */
+.bootstrap-overrides.btn-inactive:hover {
+  background: #fff !important;
+  color: #4b4b4b !important;
+}
+/* line 266, ../sass/screen.scss */
 .bootstrap-overrides.modal-body {
   max-height: none;
 }
-/* line 253, ../sass/screen.scss */
+/* line 270, ../sass/screen.scss */
 .bootstrap-overrides.media {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -375,7 +393,7 @@ li {
   background-color: rgba(255, 255, 255, 0.7);
   margin-bottom: 25px;
 }
-/* line 259, ../sass/screen.scss */
+/* line 276, ../sass/screen.scss */
 .bootstrap-overrides.media > .media-object {
   -moz-border-radius-topleft: 6px;
   -webkit-border-top-left-radius: 6px;
@@ -396,7 +414,7 @@ li {
   /* Smartphones (portrait and landscape) ----------- */
 }
 @media screen and (max-width: 570px) {
-  /* line 259, ../sass/screen.scss */
+  /* line 276, ../sass/screen.scss */
   .bootstrap-overrides.media > .media-object {
     padding: 0 0px;
     width: 100%;
@@ -409,12 +427,12 @@ li {
     /* Styles */
   }
 }
-/* line 277, ../sass/screen.scss */
+/* line 294, ../sass/screen.scss */
 .bootstrap-overrides.media > .media-object > img {
   margin-top: -3px;
   margin-right: 5px;
 }
-/* line 283, ../sass/screen.scss */
+/* line 300, ../sass/screen.scss */
 .bootstrap-overrides.media > .media-object.media-object_questionnaire {
   min-width: 200px;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #50b847), color-stop(100%, #02a200));
@@ -425,23 +443,23 @@ li {
   /* Smartphones (portrait and landscape) ----------- */
 }
 @media screen and (max-width: 570px) {
-  /* line 290, ../sass/screen.scss */
+  /* line 307, ../sass/screen.scss */
   .bootstrap-overrides.media > .media-body {
     float: left;
     /* Styles */
   }
-  /* line 293, ../sass/screen.scss */
+  /* line 310, ../sass/screen.scss */
   .bootstrap-overrides.media > .media-body > .page-copy {
     float: left;
     width: 100%;
   }
 }
-/* line 301, ../sass/screen.scss */
+/* line 318, ../sass/screen.scss */
 .bootstrap-overrides.radio {
   line-height: 24px;
 }
 
-/* line 306, ../sass/screen.scss */
+/* line 323, ../sass/screen.scss */
 .btn-radio {
   width: 18px;
   height: 17px;
@@ -454,25 +472,60 @@ li {
   -o-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 313, ../sass/screen.scss */
+/* line 330, ../sass/screen.scss */
 .btn-radio:focus {
   background-color: #769ad6;
   outline: none;
   border: none;
 }
-/* line 319, ../sass/screen.scss */
+/* line 336, ../sass/screen.scss */
 .btn-radio.correct {
   background-image: url("../images/check.png");
   background-color: #fff;
   background-repeat: no-repeat;
   background-position: 0 -17px;
 }
-/* line 325, ../sass/screen.scss */
+/* line 342, ../sass/screen.scss */
 .btn-radio.wrong {
   background-image: url("../images/check.png");
   background-color: #fff;
   background-repeat: no-repeat;
   background-position: 0 0px;
+}
+
+/* line 350, ../sass/screen.scss */
+.landingbg {
+  background-image: url("../images/opener.jpg");
+  background-position: top left;
+  background-size: cover;
+}
+
+/* line 356, ../sass/screen.scss */
+.text-right {
+  text-align: right;
+  color: #fff;
+}
+/* line 359, ../sass/screen.scss */
+.text-right > p {
+  text-align: right;
+  font-size: 13px;
+}
+/* line 362, ../sass/screen.scss */
+.text-right > p.small {
+  font-size: 10px;
+}
+
+/* line 368, ../sass/screen.scss */
+.trans-container {
+  width: 96%;
+  padding: 2%;
+  background-color: rgba(255, 255, 255, 0.75);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  margin-top: 40%;
 }
 
 /* line 3, ../sass/partials/_animations.scss */

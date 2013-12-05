@@ -39,7 +39,7 @@ angular.module('app.questions_controller', [])
       {
         A: 'Correct!',
         B: 'Sorry. The correct answer is A. Click EXPLAIN if you want to review this topic.',
-        C: 'Sorry. Often we do notice salient stimuli, like our name, in unattended converstions. The correct answer is A. Click EXPLAIN if you want to review this topic.',
+        C: 'Sorry. Often we do notice salient stimuli, like our name, in unattended conversations. The correct answer is A. Click EXPLAIN if you want to review this topic.',
         D: 'Sorry. Typically we can recall very little about what occurred in the unattended stream.  The correct answer is A. Click EXPLAIN if you want to review this topic.'
       }
       

@@ -12,16 +12,29 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body ng-app="app" ng-cloak>
-    <div class="container-wrapper" ng-controller="PageCtrl" ng-click="startPageClick()" confirm-on-exit>
+    <div class="container-wrapper" ng-class="{'landingbg':currentPage==0}" ng-controller="PageCtrl" ng-click="startPageClick()" confirm-on-exit>
       <div class="content-wrapper">
         <div class="page fade-show" ng-model="currentPage" ng-click="change(1)" ng-show="currentPage==0">
           <div class="container">
             <div class="row">
-              <div class="span12 whitebox">
-                <div class="whitebox-cell">
-                  <h1 class="page-title page-copy_margin centeredtext">Selective Attention</h1>
-                  <p class="page-copy page-copy_margin centeredtext"> Participate in a visual version of a dichotic listening experiment to explore the factors involved in selective attention.</p>
-                  <p class="page-copy page-copy_margin centeredtext">Click anywhere to begin.</p>
+              <div class="span12">
+                <div>
+                  <h1 class="page-title-landing text-right">Selective Attention</h1>
+                  <div class="row">
+                    <div class="span4 offset8">
+                      
+                      <p class="page-copy page-copy_margin landing-copy text-right"> Participate in a visual version of a dichotic listening experiment to explore the factors involved in selective attention.</p>
+                    </div>
+                  </div>
+                  <div class="bootstrap-overrides btn btn-primary pull-right btn-inactive">Click anywhere to begin</div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="span6 offset6 ">
+                <div class="pull-right text-right trans-container">
+                  <p>At a dinner like this, you’d probably have little difficulty attending to one conversation while ignoring all the others.  The question of how we can perform this act of selective attention is called the <em>cocktail party problem</em>.</p>
+<p class="small">Photo: Noel Hendrickson/Digital Vision/Getty Images</p>
                 </div>
               </div>
             </div>

@@ -42,8 +42,19 @@ li {
   @include font-large(bold);
 }
 
+.page-title-landing {
+  @include font-large(bold);
+  font-size: 30px;
+  margin: 66px 10px 30px;
+}
+
 .page-copy {
   @include font-regular(normal);
+}
+
+.landing-copy{
+  line-height: 20px;
+  font-size: 12px;
 }
 
 .page-copy_margin {
@@ -246,6 +257,12 @@ width: 76% !important;
     background: #CCC;
     color: $body-copy;
   }
+  
+  &.btn-inactive:hover {
+    
+    background: #fff !important;
+    color: $body-copy !important;
+  }
   &.modal-body {
     max-height: none;
   }
@@ -328,6 +345,32 @@ width: 76% !important;
     background-repeat: no-repeat;
     background-position: 0 0px;
   }
+}
+
+.landingbg {
+  background-image: url('../images/opener.jpg');
+  background-position: top left;
+  background-size: cover;
+}
+
+.text-right {
+  text-align: right;
+  color: #fff;
+  & > p {
+    text-align: right;
+    font-size: 13px;
+    &.small {
+      font-size: 10px;
+    }
+  }
+}
+
+.trans-container {
+  width: 96%;
+  padding: 2%;
+  background-color: rgba(#fff, 0.75);
+  @include border-radius(5px);
+  margin-top: 40%;
 }
 
 @import "partials/animations";
