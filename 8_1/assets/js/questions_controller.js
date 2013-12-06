@@ -38,9 +38,9 @@ angular.module('app.questions_controller', [])
       answers:
       {
         A: 'Correct!',
-        B: 'Sorry. The correct answer is A. Click EXPLAIN if you want to review this topic.',
-        C: 'Sorry. Often we do notice salient stimuli, like our name, in unattended conversations. The correct answer is A. Click EXPLAIN if you want to review this topic.',
-        D: 'Sorry. Typically we can recall very little about what occurred in the unattended stream.  The correct answer is A. Click EXPLAIN if you want to review this topic.'
+        B: 'Incorrect. The correct answer is A. Click EXPLAIN if you want to review this topic.',
+        C: 'Incorrect. The correct answer is A. Click EXPLAIN if you want to review this topic.',
+        D: 'Incorrect. The correct answer is A. Click EXPLAIN if you want to review this topic.'
       }
       
     },
@@ -69,10 +69,10 @@ angular.module('app.questions_controller', [])
       answer: 'C',
       answers:
       {
-        A: 'Sorry. That result could occur even if the unattended stream was not processed at all.  The correct answer is C. Click EXPLAIN if you want to review this topic.',
-        B: 'Sorry. That result could occur even if the unattended stream was not processed at all.  The correct answer is C. Click EXPLAIN if you want to review this topic.',
+        A: 'Incorrect. The correct answer is C. Click EXPLAIN if you want to review this topic.',
+        B: 'Incorrect. The correct answer is C. Click EXPLAIN if you want to review this topic.',
         C: 'Correct!',
-        D: 'Sorry. Typically only salient stimuli are noticed in the unattended stream.  The correct answer is C. Click EXPLAIN if you want to review this topic.'
+        D: 'Incorrect. The correct answer is C. Click EXPLAIN if you want to review this topic.'
       }
     },
     {
@@ -100,9 +100,9 @@ angular.module('app.questions_controller', [])
       answer: 'D',
       answers:
       {
-        A: 'Sorry. Processing of unattended streams is inconsistent with this.  The correct answer is D. Click EXPLAIN if you want to review this topic.',
-        B: 'Sorry. Such an effect, if it did occur, would not be advantageous. The correct answer is D. Click EXPLAIN if you want to review this topic.',
-        C: 'Sorry. Processing unattended areas to some extent would have the opposite effect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
+        A: 'Incorrect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
+        B: 'Incorrect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
+        C: 'Incorrect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
         D: 'Correct!'
       },
       media: 'assets/images/figure2.png'
