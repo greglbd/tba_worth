@@ -71,7 +71,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* sprite generation */
 /* line 42, sprites/general/*.png */
 .general-sprite, .general-tick {
-  background: url('/clients/tba-digital/11_1/assets/images/sprites/general-s6d60dcfbe8.png') no-repeat;
+  background: url('../images/sprites/general-s6d60dcfbe8.png') no-repeat;
 }
 
 /* line 60, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */

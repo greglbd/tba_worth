@@ -11,11 +11,11 @@ angular.module('app.controllers', [])
   $scope.pageCopy = [
     {
       copy: [
-        { line: "In this demonstation you'll be a participant in a simulated experiment demonstrating categorical perception of the phonemes /p/ and /b/" },
-        { line: "There will be a total of 35 trials. In each trial" },
-        { line: "1. You'll hear a single spoken syllable \"puh\" or \"buh\"" },
-        { line: "2. Click puh or buh to indicate which syllable you perceived" },
-        { line: "3. Press the space bar to start the next trial" }
+        { line: "In this demonstration, you'll be a participant in a simulated experiment demonstrating categorical perception of the phonemes <strong>/p/</strong> and <strong>/b/</strong>." },
+        { line: "There will be a total of 35 trials. In each trial:" },
+        { line: "1. You'll hear a single spoken syllable \"puh\" or \"buh\"." },
+        { line: "2. Click PUH or BUH to indicate which syllable you perceived." },
+        { line: "3. Press the space bar to start the next trial." }
       ]
     },
     {
@@ -25,7 +25,7 @@ angular.module('app.controllers', [])
     },
     {
       copy: [
-        { line: "Results" },
+        { line: "<strong>Results</strong>" },
         { line: "The syllables you heard in this experiment were synthesized. All the initial consonants were identical and all the final vowels were identical, but the voice onset times varied. You heard 5 occurrences each of syllables with voice onset times of 0, 10, 20, 30, 40, 50, and 60 msec. The 7 data points in the graph below show the percentages of your “puh” and “buh” responses for each of these stimuli. The expected phonemic boundary between perception of the phoneme /b/ (in “buh”) and the phoneme /p/ (in “puh”) is the boundary at 26.8 msec, derived from the results of an actual experiment with these stimuli." },
         { line: "Categorical perception of /b/ vs. /p/ is revealed by a sharp transition from perceiving “buh” to perceiving “puh”—that is, a transition from a high percentage of “buh” responses to a high percentage of “puh” responses across a narrow range of voice onset times. If your results show such a transition, then you experienced an abrupt shift in perception between the two phonemes." }
       ]
@@ -99,7 +99,7 @@ angular.module('app.controllers', [])
     {
       if(!$scope.finished)
       {
-        $scope.$broadcast("SHOW_WARNING");
+        $scope.$broadcast("SHOW_WARNING",['next']);
         return false;
       }
     }
@@ -197,16 +197,26 @@ angular.module('app.controllers', [])
   }
   
   
-  $scope.prevPhase= function(header){
-    $scope.phase--;
-    $scope.updateHeader(header);
-    $scope.trialphase = 0;
-    for(var i=0; i< $scope.audioFiles.length;i++)
+  $scope.prevPhase= function(header, check){
+    if($scope.trialphase == 35 && check)
     {
-      $scope.audioFiles[i].record = [];
-      $scope.audioFiles[i].perc = 0;
+      $scope.$broadcast("SHOW_WARNING",['prev']);
+    }else
+    {
+      $scope.phase--;
+      $scope.updateHeader(header);
+      if($scope.trialphase >= 35 || $scope.trialphase<=0)
+      {
+        $scope.trialphase = 0;
+        $scope.setFinish(false);
+        for(var i=0; i< $scope.audioFiles.length;i++)
+        {
+          $scope.audioFiles[i].response = [];
+          $scope.audioFiles[i].perc = 0;
+        } 
+      }
+      $scope.safeApply();
     }
-    $scope.safeApply();
   }
   
   
@@ -246,7 +256,7 @@ angular.module('app.controllers', [])
           }
         }
         $scope.audioFiles[i].perc = (($scope.count/5) * 100);
-        console.log('PERC: ' + $scope.audioFiles[i].perc);
+        //console.log('PERC: ' + $scope.audioFiles[i].perc);
       }
       $scope.drawGraph();
     }
@@ -260,7 +270,7 @@ angular.module('app.controllers', [])
     "Your responses indicate that, regardless of voice onset time, you tended to perceive each of the stimuli as “buh.” Since you perceived all the stimuli as the same syllable, there is no phonemic boundary to depict, and you didn’t show any categorical perception based on voice onset time. You may want to go back and repeat the trials to see if you get a different result.",
     "Your responses indicate that, regardless of voice onset time, you tended to perceive each of the stimuli as “puh.” Since you perceived all the stimuli as the same syllable, there is no phonemic boundary to depict, and you didn’t show any categorical perception based on voice onset time. You may want to go back and repeat the trials to see if you get a different result."
     ],
-    "Your responses indicate that your perception of “buh” vs. “puh” didn’t depend on voice onset time in a systematic way, because your perception tended to switch between the two syllables at more than one voice onset time (dashed blue lines). Thus, you had no unique phonemic boundary to depict. You may want to go back and repeat the trials to see if you get a different result."
+    "Your responses indicate that your perception of “buh” vs. “puh” didn’t depend on voice onset time in a systematic way, because your perception tended to switch between the two syllables at more than one voice onset time (dashed red lines). Thus, you had no unique phonemic boundary to depict. You may want to go back and repeat the trials to see if you get a different result."
   ];
     var response = [$scope.audioFiles[0].perc,$scope.audioFiles[1].perc,$scope.audioFiles[2].perc,$scope.audioFiles[3].perc,$scope.audioFiles[4].perc,$scope.audioFiles[5].perc,$scope.audioFiles[6].perc];
     var myplotlines = [{ // summer months - treat from/to as numbers
@@ -270,20 +280,32 @@ angular.module('app.controllers', [])
           id: 'plotline-1',
           dashStyle: 'ShortDash',
           label: {
-          verticalAlign: 'middle',
-          textAlign: 'center',
-          text: 'Expected phonemic boundary, 26.8 msec' }
+            verticalAlign: 'middle',
+            textAlign: 'center',
+            text: 'Expected phonemic boundary, 26.8 msec' 
+          },
+          zIndex: 2
         }]
     for(var i=1; i<response.length; i++)
     {
       if((response[i]<50 && response[i-1] > 50) || (response[i]>50 && response[i-1]<50))
       {
+        //console.log(response[i], response[i-1]);
+        var interesection
+        if(response[i]>50)
+        {
+          interesection = ( ( response[i]-50 )/( response[i]-response[i-1] ) ) 
+        }else
+        {
+          interesection = ( ( 50 - response[i] )/( response[i-1]-response[i] ) ) 
+        }
         myplotlines.push(
          { color: '#ff0000',
           width: 2,
-          value: i - 0.5,
+          value: i - interesection,
           id: 'plotline-1',
           dashStyle: 'ShortDash',
+          zIndex: 2,
           label: {
           verticalAlign: 'middle',
           textAlign: 'center', }
@@ -323,22 +345,10 @@ angular.module('app.controllers', [])
       legend: {
         enabled: false
       },
-      xAxis: {
-        lineColor: '#000000',
-        lineWidth: 2,
-        categories: ['0', '10', '20', '30', '40', '50', '60'],
-        plotLines: myplotlines,
-        title: {
-          text: "Voice onset time (msec)",
-          style: {
-            color: 'black'
-          }
-        }
-      },
       yAxis: [{
       
         lineColor: '#000000',
-        lineWidth: 2,
+        lineWidth: 1,
         title: {
           text: '"buh" responses (%)',
           style: {
@@ -351,12 +361,13 @@ angular.module('app.controllers', [])
           {
             color: '#cccccc',
             value: 50,
-            width: 5
+            width: 5,
+            zIndex: 1
           }
         ]
       },{
         lineColor: '#000000',
-        lineWidth: 2,
+        lineWidth: 1,
         title: {
           text: '"puh" responses (%)',
           style: {
@@ -373,6 +384,18 @@ angular.module('app.controllers', [])
         formatter: function() {
           return '<b>'+ this.series.name +'</b><br/>'+
             this.x +': '+ this.y +'°C';
+        }
+      },
+      xAxis: {
+        lineColor: '#000000',
+        lineWidth: 1,
+        categories: ['0', '10', '20', '30', '40', '50', '60'],
+        plotLines: myplotlines,
+        title: {
+          text: "Voice onset time (msec)",
+          style: {
+            color: 'black'
+          }
         }
       },
       plotOptions: {
@@ -413,20 +436,32 @@ angular.module('app.controllers', [])
     });
 
     modalInstance.result.then(function () {
-      $scope.phase++;
-      $scope.updateHeader(2);
+      if(template == 'warningModal.html')
+      {
+        $scope.phase++;
+        $scope.updateHeader(2);
+      }else
+      {
+        $scope.prevPhase(1);
+      }
     }, function () {
       //$scope.questionsControl('prev');
     });
   };
   $scope.$on("SHOW_WARNING", function(event, data){
-    if($scope.trialphase==35)
+    if(data[0] == 'next')
     {
-      $scope.phase++;
-      $scope.updateHeader(2);
-    }else{
-      $scope.openModalTest('warningModal.html');
-    }  
+      if($scope.trialphase==35)
+      {
+        $scope.phase++;
+        $scope.updateHeader(2);
+      }else{
+        $scope.openModalTest('warningModal.html');
+      }  
+    }else if(data[0] == 'prev')
+    {
+      $scope.openModalTest('warningBackModal.html');
+    }
   });
 })
 

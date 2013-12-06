@@ -3,7 +3,8 @@ var app = angular.module('app',  [
   'app.questions_controller',
   'app.directives', 
   'ui.bootstrap', 
-  'ui.keypress'
+  'ui.keypress',
+  'ngSanitize'
   ]);
   
   

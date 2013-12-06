@@ -19,7 +19,7 @@
             <div class="row">
               <div class="span12 whitebox">
                 <div class="whitebox-cell">
-                  <h1 class="page-title page-copy_margin centeredtext">{{activity_title}}</h1>
+                  <h1 class="page-title page-copy_margin centeredtext" ng-bind-html="activity_title"></h1>
                   <p class="page-copy page-copy_margin centeredtext">Participate in simulated experiment demonstrating categorical perception</p>
                   <p class="page-copy page-copy_margin centeredtext">Click anywhere to begin.</p>
                 </div>
@@ -40,14 +40,12 @@
                     <div class="row page-copy_margin" >
                       <div class="span12 whitebox" ng-model="currentPageCopy">
                         <div class="whitebox-cell">
-                          <p class="page-copy page-copy_margin centeredtext" ng-repeat="pageCopy in currentPageCopy.copy">
-                            {{pageCopy.line}}
-                          </p>
+                          <p class="page-copy page-copy_margin centeredtext" ng-repeat="pageCopy in currentPageCopy.copy" ng-bind-html="pageCopy.line"></p>
                         </div>
                       </div>  
                     </div>
                     
-                    <button class="btn-margintop bootstrap-overrides btn btn-primary btn-danger keyblock" ng-show="started" ng-disabled="!responded" ng-click="progress()">Play the next stimlus</button>
+                    <button class="btn-margintop bootstrap-overrides btn btn-primary btn-danger keyblock" ng-show="started" ng-disabled="!responded" ng-click="progress()">Play the next stimulus</button>
                     <div class="row">
                       <div class="span2 offset4 centeredtext">
                         <div class="centeredinside"><button class="btn-margintop bootstrap-overrides btn btn-primary keyblock" ng-disabled="!started || responded" ng-click="record('puh')">PUH</button></div>
@@ -93,9 +91,7 @@
                         <div class="row page-copy_margin" >
                           <div  ng-show="test1Complete" class="span12 whitebox" ng-model="currentPageCopy">
                             <div class="whitebox-cell">
-                              <p class="page-copy page-copy_margin centeredtext" ng-repeat="pageCopy in currentPageCopy.copy">
-                                {{pageCopy.line}}
-                              </p>
+                              <p class="page-copy page-copy_margin centeredtext" ng-repeat="pageCopy in currentPageCopy.copy" ng-bind-html="pageCopy.line"></p>
                             </div>
                           </div>  
                         </div>
@@ -112,9 +108,7 @@
                             </div>
                             <div class="span4">
                               <div class="black_box_wrapper">
-                                <div class="black_box" ng-show="showBlackBox">
-                                  {{feedback}}
-                                </div>
+                                <div class="black_box" ng-show="showBlackBox" ng-bind-html="feedback"></div>
                                 <button type="button" ng-disabled="questions" ng-click="showBlackBox = true" class="btn-margintop bootstrap-overrides btn btn-primary black_box_btn">
                                   What's going on?
                                 </button> 
@@ -130,7 +124,7 @@
                         
                         <div class="control-group">
                           <div class="control centeredtext"> 
-                            <button type="button" ng-disabled="questions" ng-click="prevPhase(1);" class="btn-margintop bootstrap-overrides btn btn-primary">
+                            <button type="button" ng-disabled="questions" ng-click="prevPhase(1, true);" class="btn-margintop bootstrap-overrides btn btn-primary">
                               Back
                             </button>
                             <button type="button" ng-click="nextPage();" class="btn-margintop bootstrap-overrides btn btn-primary">
@@ -170,8 +164,8 @@
               <div class="span12">
                 <div class="row">
                   <div class="span11 offset1">
-                    <p class="page-copy page-copy_margin explanation-copy">Categorical perception refers to the perception of different sensory stimuli as identical, up to a point at which further variation in the stimulus leads to a sharp change in the perception. Categorical perception is opposed to continuous perception, in which there are no sharp changes in perception as the stimulus varies. Research suggests that our perception of certain speech sounds is categorical rather than continuous, where the categories are different phonemes. For example, consider the perception of voiceless versus voiced stop consonants such as voiceless /t/ versus voiced /d/. Spectrograms of syllables like /ta/ and /da/, which differ only in these two consonants, show an obvious difference in voice onset time (VOT), the interval between the initial burst of frequencies corresponding to the consonant and the onset of the following vowel /a/. Pairs of voiceless and voiced stop consonants are always differentiated by this pattern of a relatively long VOT for the voiceless stop and a relatively short VOT for the voiced stop.</p>
-                    <p class="page-copy page-copy_margin explanation-copy"> To investigate the precise relationship between VOT and the perception of stop consonants, experimenters create synthetic stop consonants that they combine into syllables with synthetic vowel sounds. They then play the syllables with different VOTs and ask listeners to decide whether each syllable sounded like it began with a voiceless or voiced stop. In an experiment using the syllables /ba/ and /pa/, when the VOT was less than 25 msec, virtually every listener labeled the syllable as /ba/, and when the VOT was more than 35 msec, almost every listener labeled the syllable as /pa/. As the VOT increased from 25 to 30 to 35 msec, listeners gave a decreasing percentage of /ba/ responses and an increasing percentage of /pa/ responses, with the responses split about fifty-fifty at 30 msec. This transition at 30 msec VOT from mostly perceiving one phoneme to mostly perceiving the other phoneme is called the phonemic boundary.
+                    <p class="page-copy page-copy_margin explanation-copy">Categorical perception refers to the perception of different sensory stimuli as identical, up to a point at which further variation in the stimulus leads to a sharp change in the perception. Categorical perception is opposed to continuous perception, in which there are no sharp changes in perception as the stimulus varies. Research suggests that our perception of certain speech sounds is categorical rather than continuous, where the categories are different phonemes. For example, consider the perception of voiceless versus voiced stop consonants such as voiceless <strong>/t/</strong> versus voiced <strong>/d/</strong>. Spectrograms of syllables like <strong>/ta/</strong> and <strong>/da/</strong>, which differ only in these two consonants, show an obvious difference in voice onset time (VOT), the interval between the initial burst of frequencies corresponding to the consonant and the onset of the following vowel <strong>/a/</strong>. Pairs of voiceless and voiced stop consonants are always differentiated by this pattern of a relatively long VOT for the voiceless stop and a relatively short VOT for the voiced stop.</p>
+                    <p class="page-copy page-copy_margin explanation-copy"> To investigate the precise relationship between VOT and the perception of stop consonants, experimenters create synthetic stop consonants that they combine into syllables with synthetic vowel sounds. They then play the syllables with different VOTs and ask listeners to decide whether each syllable sounded like it began with a voiceless or voiced stop. In an experiment using the syllables <strong>/ba/</strong> and <strong>/pa/</strong>, when the VOT was less than 25 msec, virtually every listener labeled the syllable as <strong>/ba/</strong>, and when the VOT was more than 35 msec, almost every listener labeled the syllable as <strong>/pa/</strong>. As the VOT increased from 25 to 30 to 35 msec, listeners gave a decreasing percentage of <strong>/ba/</strong> responses and an increasing percentage of <strong>/pa/</strong> responses, with the responses split about fifty-fifty at 30 msec. This transition at 30 msec VOT from mostly perceiving one phoneme to mostly perceiving the other phoneme is called the <em>phonemic boundary</em>.
                     </p>
                   </div>
                 </div>
@@ -297,8 +291,8 @@
         
         <div class="row-fluid">
           <div class="span12">
-            <p class="page-copy page-copy_margin explanation-copy">Categorical perception refers to the perception of different sensory stimuli as identical, up to a point at which further variation in the stimulus leads to a sharp change in the perception. Categorical perception is opposed to continuous perception, in which there are no sharp changes in perception as the stimulus varies. Research suggests that our perception of certain speech sounds is categorical rather than continuous, where the categories are different phonemes. For example, consider the perception of voiceless versus voiced stop consonants such as voiceless /t/ versus voiced /d/. Spectrograms of syllables like /ta/ and /da/, which differ only in these two consonants, show an obvious difference in voice onset time (VOT), the interval between the initial burst of frequencies corresponding to the consonant and the onset of the following vowel /a/. Pairs of voiceless and voiced stop consonants are always differentiated by this pattern of a relatively long VOT for the voiceless stop and a relatively short VOT for the voiced stop.</p>
-            <p class="page-copy page-copy_margin explanation-copy"> To investigate the precise relationship between VOT and the perception of stop consonants, experimenters create synthetic stop consonants that they combine into syllables with synthetic vowel sounds. They then play the syllables with different VOTs and ask listeners to decide whether each syllable sounded like it began with a voiceless or voiced stop. In an experiment using the syllables /ba/ and /pa/, when the VOT was less than 25 msec, virtually every listener labeled the syllable as /ba/, and when the VOT was more than 35 msec, almost every listener labeled the syllable as /pa/. As the VOT increased from 25 to 30 to 35 msec, listeners gave a decreasing percentage of /ba/ responses and an increasing percentage of /pa/ responses, with the responses split about fifty-fifty at 30 msec. This transition at 30 msec VOT from mostly perceiving one phoneme to mostly perceiving the other phoneme is called the phonemic boundary.
+            <p class="page-copy page-copy_margin explanation-copy">Categorical perception refers to the perception of different sensory stimuli as identical, up to a point at which further variation in the stimulus leads to a sharp change in the perception. Categorical perception is opposed to continuous perception, in which there are no sharp changes in perception as the stimulus varies. Research suggests that our perception of certain speech sounds is categorical rather than continuous, where the categories are different phonemes. For example, consider the perception of voiceless versus voiced stop consonants such as voiceless <strong>/t/</strong> versus voiced <strong>/d/</strong>. Spectrograms of syllables like <strong>/ta/</strong> and <strong>/da/</strong>, which differ only in these two consonants, show an obvious difference in voice onset time (VOT), the interval between the initial burst of frequencies corresponding to the consonant and the onset of the following vowel <strong>/a/</strong>. Pairs of voiceless and voiced stop consonants are always differentiated by this pattern of a relatively long VOT for the voiceless stop and a relatively short VOT for the voiced stop.</p>
+            <p class="page-copy page-copy_margin explanation-copy"> To investigate the precise relationship between VOT and the perception of stop consonants, experimenters create synthetic stop consonants that they combine into syllables with synthetic vowel sounds. They then play the syllables with different VOTs and ask listeners to decide whether each syllable sounded like it began with a voiceless or voiced stop. In an experiment using the syllables <strong>/ba/</strong> and <strong>/pa/</strong>, when the VOT was less than 25 msec, virtually every listener labeled the syllable as <strong>/ba/</strong>, and when the VOT was more than 35 msec, almost every listener labeled the syllable as <strong>/pa/</strong>. As the VOT increased from 25 to 30 to 35 msec, listeners gave a decreasing percentage of <strong>/ba/</strong> responses and an increasing percentage of <strong>/pa/</strong> responses, with the responses split about fifty-fifty at 30 msec. This transition at 30 msec VOT from mostly perceiving one phoneme to mostly perceiving the other phoneme is called the <em>phonemic boundary</em>.
             </p>
           </div> 
         </div>  
@@ -308,6 +302,7 @@
       </div>
     </script>
     <script src="assets/js/angular.min.js"></script>
+    <script src="assets/js/angular-sanitize.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script src="assets/js/ui-bootstrap-tpls-0.6.0.min.js"></script>

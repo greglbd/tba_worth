@@ -18,19 +18,19 @@ angular.module('app.questions_controller', [])
       options: 
       [
         { 
-          option:  "Perception shifts gradually from one to the other as the stimulus varies.",
+          option:  "A. Perception shifts gradually from one to the other as the stimulus varies.",
           id: 'A'
         },  
         { 
-          option:  "Perception shifts abruptly from one to the other as the stimulus varies.",
+          option:  "B. Perception shifts abruptly from one to the other as the stimulus varies.",
           id: 'B'
         },
         { 
-          option:  "Listeners never perceive voiced stop consonants as voiceless and never perceive voiceless stop consonants as voiced.",
+          option:  "C. Listeners never perceive voiced stop consonants as voiceless and never perceive voiceless stop consonants as voiced.",
           id: 'C'
         },
         { 
-          option:  "In syllables beginning with voiced vs. voiceless stop consonants, differences in the following vowel tell listeners which consonant was heard.",
+          option:  "D. In syllables beginning with voiced vs. voiceless stop consonants, differences in the following vowel tell listeners which consonant was heard.",
           id: 'D'
         }  
       ],
@@ -50,19 +50,19 @@ angular.module('app.questions_controller', [])
       options:
       [
         {
-          option: "50 msec.",
+          option: "A. 50 msec.",
           id: 'A'
         },
         {
-          option: "0 msec",
+          option: "B. 0 msec",
           id: 'B'
         },
         {
-          option: "25 msec",
+          option: "C. 25 msec",
           id: 'C'
         },
         {
-          option: "32 msec",
+          option: "D. 32 msec",
           id: 'D'
         },
       ],
@@ -82,19 +82,19 @@ angular.module('app.questions_controller', [])
       options:
       [
         {
-          option: "The voice onset time can be precisely controlled in synthesized syllables.",
+          option: "A. The voice onset time can be precisely controlled in synthesized syllables.",
           id: 'A'
         },
         {
-          option: "In actual spoken syllables, the voice onset time is always 0.",
+          option: "B. In actual spoken syllables, the voice onset time is always 0.",
           id: 'B'
         },
         {
-          option: "In actual spoken syllables, the voice onset time has no relation to which consonant is perceived.",
+          option: "C. In actual spoken syllables, the voice onset time has no relation to which consonant is perceived.",
           id: 'C'
         },
         {
-          option: "Precisely controlling the vowel quality is crucial in accurate perception of voice onset time.",
+          option: "D. Precisely controlling the vowel quality is crucial in accurate perception of voice onset time.",
           id: 'D'
         },
       ],
@@ -106,7 +106,39 @@ angular.module('app.questions_controller', [])
         A: 'Incorrect. The correct answer is C. Click EXPLAIN if you want to review this topic.',
         C: 'Correct!'
       }
+    },
+    {
+      id: 4,
+      question: 'The reason a synthesized voice is used in studies of categorical perception is:',
+      options:
+      [
+        {
+          option: "A.	to create unbiased stimuli.",
+          id: 'A'
+        },
+        {
+          option: "B.	so that speech sounds can be presented that  vary incrementally in voice onset time.",
+          id: 'B'
+        },
+        {
+          option: "C.	to present the observer with an unfamiliar voice, so perception will not rely on experience.",
+          id: 'C'
+        },
+        {
+          option: "D.	because categorical perception doesn’t occur for human speech.",
+          id: 'D'
+        },
+      ],
+      answer: 'C',
+      answers:
+      {
+        A: 'Incorrect. The correct answer is B. Click EXPLAIN if you want to review this topic.',
+        B: 'Correct!',
+        C: 'Incorrect. The correct answer is B. Click EXPLAIN if you want to review this topic.',
+        D: 'Incorrect. The correct answer is B. Click EXPLAIN if you want to review this topic.'
+      }
     }
+
   ];
   
   //Functions
@@ -134,7 +166,7 @@ angular.module('app.questions_controller', [])
   }
   //Navigate through the 3 questions.
   $scope.questionsControl = function(target) {
-    console.log($scope.currentQuestion);
+    //console.log($scope.currentQuestion);
     if($scope.currentQuestion >= $scope.questions.length && target=='next')
     {
       $scope.nextPage();
