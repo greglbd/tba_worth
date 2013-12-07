@@ -34,13 +34,13 @@ angular.module('app.questions_controller', [])
           id: 'D'
         }  
       ],
-      answer: 'D',
+      answer: 'B',
       answers:
       {
-        B: 'Incorrect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
-        A: 'Incorrect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
-        C: 'Incorrect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
-        D: 'Correct!'
+        D: 'Incorrect. The correct answer is B. Click EXPLAIN if you want to review this topic.',
+        A: 'Incorrect. The correct answer is B. Click EXPLAIN if you want to review this topic.',
+        C: 'Incorrect. The correct answer is B. Click EXPLAIN if you want to review this topic.',
+        B: 'Correct!'
       }
       
     },
@@ -66,13 +66,13 @@ angular.module('app.questions_controller', [])
           id: 'D'
         },
       ],
-      answer: 'C',
+      answer: 'D',
       answers:
       {
-        B: 'Incorrect. The correct answer is A. Click EXPLAIN if you want to review this topic.',
-        D: 'Incorrect. The correct answer is A. Click EXPLAIN if you want to review this topic.',
-        C: 'Incorrect. The correct answer is A. Click EXPLAIN if you want to review this topic.',
-        A: 'Correct!'
+        B: 'Incorrect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
+        A: 'Incorrect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
+        C: 'Incorrect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
+        D: 'Correct!'
       },
       media: 'assets/images/group_graph.png'
     },
@@ -98,13 +98,13 @@ angular.module('app.questions_controller', [])
           id: 'D'
         },
       ],
-      answer: 'C',
+      answer: 'A',
       answers:
       {
-        B: 'Incorrect. The correct answer is C. Click EXPLAIN if you want to review this topic.',
-        D: 'Incorrect. The correct answer is C. Click EXPLAIN if you want to review this topic.',
-        A: 'Incorrect. The correct answer is C. Click EXPLAIN if you want to review this topic.',
-        C: 'Correct!'
+        B: 'Incorrect. The correct answer is A. Click EXPLAIN if you want to review this topic.',
+        D: 'Incorrect. The correct answer is A. Click EXPLAIN if you want to review this topic.',
+        C: 'Incorrect. The correct answer is A. Click EXPLAIN if you want to review this topic.',
+        A: 'Correct!'
       }
     },
     {
@@ -117,7 +117,7 @@ angular.module('app.questions_controller', [])
           id: 'A'
         },
         {
-          option: "B.	so that speech sounds can be presented that  vary incrementally in voice onset time.",
+          option: "B.	so that speech sounds can be presented that vary incrementally in voice onset time.",
           id: 'B'
         },
         {
@@ -129,7 +129,7 @@ angular.module('app.questions_controller', [])
           id: 'D'
         },
       ],
-      answer: 'C',
+      answer: 'B',
       answers:
       {
         A: 'Incorrect. The correct answer is B. Click EXPLAIN if you want to review this topic.',
