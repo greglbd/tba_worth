@@ -74,7 +74,7 @@ angular.module('app.questions_controller', [])
         C: 'Incorrect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
         D: 'Correct!'
       },
-      media: 'assets/images/group_graph.png'
+      media: 'images/group_graph.png'
     },
     {
       id: 3,

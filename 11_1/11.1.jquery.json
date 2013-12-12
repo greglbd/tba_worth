@@ -1,0 +1,27 @@
+{
+    "name": "11.1",
+    "title": "Main worth shared functionality",
+    "description": "Main JavaScript functionality for the worth (c) website. Responsive framework based on bootstrap and Fully supports touch devices and keyboard interaction.",
+    "keywords": [
+    	"worth",
+        "menu",
+        "dropdown",
+        "responsive",
+        "navigation"
+    ],
+    "version": "11.1.0",
+    "author": {
+        "name": "Live Breathe Digital"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://raw.github.com/joeldbirch/superfish/master/MIT-LICENSE.txt"
+        }
+    ],
+    "bugs": "https://bitbucket.org/dashboard/issues",
+    "homepage": "https://bitbucket.org/dashboard/overview",
+    "dependencies": {
+        "jquery": ">=2.0.2"
+    }
+}

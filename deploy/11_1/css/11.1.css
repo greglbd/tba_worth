@@ -1,0 +1,517 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> 
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* sprite generation */
+.general-sprite, .general-tick {
+  background: url('../images/sprites/general-s6d60dcfbe8.png') no-repeat;
+}
+
+.general-tick {
+  background-position: 0 0;
+}
+
+body, p, span, div {
+  color: #4b4b4b;
+}
+
+body {
+  background-color: #ccc !important;
+  background-image: url(../images/bg.png), -webkit-gradient(radial, 50%, 0, 50%, 100, color-stop(16%, #ffffff), color-stop(100%, #cccccc));
+  background-image: url(../images/bg.png), -webkit-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+  background-image: url(../images/bg.png), -moz-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+  background-image: url(../images/bg.png), -o-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+  background-image: url(../images/bg.png), radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+}
+
+li {
+  float: left;
+}
+li.fullwidth {
+  width: 100%;
+}
+
+/* 
+  Allow angular.js to be loaded in body, hiding cloaked elements until 
+  templates compile.  The !important is important given that there may be 
+  other selectors that are more specific or come later and might alter display.  
+ */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+.page-title {
+  font: normal bold 17px Arial, "sans-serif";
+}
+
+.page-copy {
+  font: normal normal 15px Arial, "sans-serif";
+}
+
+.page-copy_margin {
+  margin: 10px 10px;
+}
+
+.container {
+  margin-bottom: 20px;
+}
+
+.container-wrapper {
+  height: 100%;
+  min-height: 800px;
+  height: auto !important;
+  height: 800px;
+}
+
+.content-wrapper {
+  overflow: hidden;
+}
+
+.page {
+  margin: 20px;
+}
+
+.test-wrapper {
+  height: auto;
+  float: left !important;
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 100px 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid #000;
+  margin-bottom: 12px;
+}
+@media screen and (max-width: 762px) {
+  .test-wrapper {
+    padding: 30px 0px;
+  }
+}
+
+.test-listitem {
+  float: left;
+  width: 100%;
+  text-align: center;
+  font: normal bold 17px Arial, "sans-serif";
+  line-height: 27px;
+}
+
+.centeredtext {
+  text-align: center;
+}
+
+.fullscreen {
+  width: 100%;
+  height: 100%;
+}
+
+.whitebox {
+  background-color: #fff;
+  display: table;
+  min-height: 150px !important;
+}
+
+.whitebox-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.explanation-title {
+  line-height: 46px;
+  margin: 0px !important;
+}
+
+.explanation-image {
+  padding: 16px;
+  background-color: #fff;
+}
+@media screen and (max-width: 1200px) {
+  .explanation-image {
+    width: 90%;
+  }
+}
+
+.questions-title {
+  line-height: 46px;
+  margin: 0px !important;
+}
+
+.btn-margintop {
+  margin-top: 20px;
+}
+
+.complete {
+  width: 100%;
+  height: 102px;
+  margin-top: 180px;
+  background-position: center;
+}
+
+.complete-title {
+  font: normal bold 32px Arial, "sans-serif";
+}
+
+.complete-copy {
+  font: normal bold 17px Arial, "sans-serif";
+  width: 80%;
+  padding: 2% 10%;
+  line-height: 22px;
+}
+
+.explanation-object {
+  padding: 0 20px;
+}
+
+.explanation-wrapper {
+  background-color: #ffffff;
+}
+
+.explanation-copy {
+  line-height: 19px;
+}
+
+.question-object {
+  float: left !important;
+  color: white;
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
+}
+.question-object.question-object_icon {
+  width: 65%;
+  padding: 0% 5%;
+}
+.question-object.question-object_icon > img {
+  margin-top: -3px;
+  margin-right: 5px;
+}
+.question-object.question-object_id {
+  width: 19%;
+  padding-right: 5%;
+  font-size: 40px;
+  border-left: 1px solid #fff;
+}
+
+.centeredinside {
+  display: inline-block;
+  text-align: center;
+}
+
+.margin-vertical {
+  margin: 10px 0;
+}
+
+@media only screen and (min-width: 769px) {
+  .modal {
+    width: 76% !important;
+    margin-left: -38% !important;
+  }
+}
+
+/* Bootstrap overrides */
+.bootstrap-overrides.modal-body {
+  max-height: none;
+}
+.bootstrap-overrides.btn-primary, .bootstrap-overrides.btn-primary:focus, .bootstrap-overrides.btn-primary:active, .bootstrap-overrides.btn-primary:visited, .bootstrap-overrides.btn-primary[disabled=disabled], .bootstrap-overrides.btn-primary[disabled=disabled]:hover, .bootstrap-overrides.btn-primary[disabled=disabled]:focus {
+  background: #fff;
+  color: #4b4b4b;
+  text-transform: uppercase;
+  font-size: 11pt;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: rgba(75, 75, 75, 0.7) 0px 2px 0px;
+  -moz-box-shadow: rgba(75, 75, 75, 0.7) 0px 2px 0px;
+  box-shadow: rgba(75, 75, 75, 0.7) 0px 2px 0px;
+  min-width: 100px;
+  outline: none;
+  text-shadow: rgba(75, 75, 75, 0) 0px 0px 0;
+}
+.bootstrap-overrides.btn-primary.spc, .bootstrap-overrides.btn-primary:focus.spc, .bootstrap-overrides.btn-primary:active.spc, .bootstrap-overrides.btn-primary:visited.spc, .bootstrap-overrides.btn-primary[disabled=disabled].spc, .bootstrap-overrides.btn-primary[disabled=disabled]:hover.spc, .bootstrap-overrides.btn-primary[disabled=disabled]:focus.spc {
+  cursor: default;
+}
+.bootstrap-overrides.btn-primary.keyblock, .bootstrap-overrides.btn-primary:focus.keyblock, .bootstrap-overrides.btn-primary:active.keyblock, .bootstrap-overrides.btn-primary:visited.keyblock, .bootstrap-overrides.btn-primary[disabled=disabled].keyblock, .bootstrap-overrides.btn-primary[disabled=disabled]:hover.keyblock, .bootstrap-overrides.btn-primary[disabled=disabled]:focus.keyblock {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: rgba(223, 223, 223, 0.7) 0px 2px 0px inset;
+  -moz-box-shadow: rgba(223, 223, 223, 0.7) 0px 2px 0px inset;
+  box-shadow: rgba(223, 223, 223, 0.7) 0px 2px 0px inset;
+  border: 2px solid #000;
+  background: #B2B2B2;
+  padding: 10px 20px;
+}
+.bootstrap-overrides.btn-primary:hover {
+  background: #CCC;
+  color: #4b4b4b;
+}
+.bootstrap-overrides.btn-primary:hover.spc {
+  background: #fff;
+  color: #4b4b4b;
+}
+.bootstrap-overrides.media {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 25px;
+}
+.bootstrap-overrides.media > .media-object {
+  -moz-border-radius-topleft: 6px;
+  -webkit-border-top-left-radius: 6px;
+  border-top-left-radius: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #c775b0), color-stop(100%, #8e5ba6));
+  background-image: -webkit-linear-gradient(#c775b0, #8e5ba6);
+  background-image: -moz-linear-gradient(#c775b0, #8e5ba6);
+  background-image: -o-linear-gradient(#c775b0, #8e5ba6);
+  background-image: linear-gradient(#c775b0, #8e5ba6);
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
+  color: white;
+  float: left !important;
+  /* Smartphones (portrait and landscape) ----------- */
+}
+@media screen and (max-width: 570px) {
+  .bootstrap-overrides.media > .media-object {
+    padding: 0 0px;
+    width: 100%;
+    -moz-border-radius-topright: 6px;
+    -webkit-border-top-right-radius: 6px;
+    border-top-right-radius: 6px;
+    -moz-border-radius-bottomleft: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    /* Styles */
+  }
+}
+.bootstrap-overrides.media > .media-object > img {
+  margin-top: -3px;
+  margin-right: 5px;
+}
+.bootstrap-overrides.media > .media-object.media-object_questionnaire {
+  min-width: 200px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #50b847), color-stop(100%, #02a200));
+  background-image: -webkit-linear-gradient(#50b847, #02a200);
+  background-image: -moz-linear-gradient(#50b847, #02a200);
+  background-image: -o-linear-gradient(#50b847, #02a200);
+  background-image: linear-gradient(#50b847, #02a200);
+  /* Smartphones (portrait and landscape) ----------- */
+}
+@media screen and (max-width: 570px) {
+  .bootstrap-overrides.media > .media-body {
+    float: left;
+    /* Styles */
+  }
+  .bootstrap-overrides.media > .media-body > .page-copy {
+    float: left;
+    width: 100%;
+  }
+}
+.bootstrap-overrides.radio {
+  line-height: 24px;
+}
+
+.black_box_wrapper {
+  float: left;
+  position: relative;
+}
+
+.black_box {
+  margin-top: 25%;
+  height: 50%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  width: 100%;
+}
+
+.black_box_btn {
+  position: absolute;
+  top: 300px;
+  left: 0px;
+  width: 200px !important;
+}
+
+.btn-radio {
+  width: 18px;
+  height: 17px;
+  outline: none;
+  border: none;
+  background-color: #fff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+.btn-radio:focus {
+  background-color: #769ad6;
+  outline: none;
+  border: none;
+}
+.btn-radio.correct {
+  background-image: url("../images/check.png");
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: 0 -17px;
+}
+.btn-radio.wrong {
+  background-image: url("../images/check.png");
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: 0 0px;
+}
+
+.blueblock-large {
+  width: 50%;
+  margin: 0 25%;
+  height: 25px;
+  background-color: #1500c9;
+  float: left;
+}
+
+.keyblock {
+  background-color: #4b4b4b;
+  color: white;
+  line-height: 30px;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.highlight {
+  background-color: white;
+}
+
+.whitebox {
+  min-height: 75px !important;
+}
+
+.testfocus {
+  font-size: 100px;
+  line-height: 100px;
+  color: #4b4b4b;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 25%;
+}
+
+.demo-container {
+  box-sizing: border-box;
+  width: 850px;
+  height: 450px;
+  padding: 20px 15px 15px 15px;
+  margin: 15px auto 30px auto;
+  border: 1px solid #ddd;
+  background: #fff;
+  background: linear-gradient(#f6f6f6 0%, #ffffff 50px);
+  background: -o-linear-gradient(#f6f6f6 0, white 50px);
+  background: -ms-linear-gradient(#f6f6f6 0, white 50px);
+  background: -moz-linear-gradient(#f6f6f6 0, white 50px);
+  background: -webkit-linear-gradient(#f6f6f6 0, white 50px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  -o-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.demo-placeholder {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  line-height: 1.2em;
+}
+
+.legend table {
+  border-spacing: 5px;
+}
+
+.fade-hide, .fade-show {
+  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+  -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+  -o-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+}
+
+.fade-hide {
+  opacity: 1;
+}
+
+.fade-hide.fade-hide-active {
+  opacity: 0;
+}
+
+.fade-show {
+  opacity: 0;
+}
+
+.fade-show.fade-show-active {
+  opacity: 1;
+}
