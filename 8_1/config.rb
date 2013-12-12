@@ -5,7 +5,7 @@
 #http_path = "/worth/8_1/"
 css_dir = "assets/stylesheets"
 sass_dir = "assets/sass"
-images_dir = "assets/images"
+images_dir = "images"
 javascripts_dir = "assets/javascripts"
 
 # You can select your preferred output style here (can be overridden via the command line):

@@ -1,0 +1,44 @@
+@import "compass/css3/border-radius";
+@import "compass/css3/background-size";
+@import "partials/variables";
+
+@mixin font-large($weight, $style: $default_font_style) {
+  font: $style $weight $font-large $font-family-regular;
+}
+
+@mixin font-xlarge($weight, $style: $default_font_style) {
+  font: $style $weight $font-xlarge $font-family-regular;
+}
+
+@mixin font-regular($weight, $style: $default_font_style) {
+  font: $style $weight $font-regular $font-family-regular;
+}
+
+@mixin font-small($weight, $style: $default_font_style) {
+  font: $style $weight $font-small $font-family-regular; 
+}
+
+@mixin heading {
+  color: $headingsColor;
+}
+
+@mixin image-border {
+  padding: $image-padding;
+  border: $image-border-width solid $background-grey;
+  background-color: $background-regular;
+  @include border-radius(3px);
+}
+
+@mixin undecorated-link() {
+  & > a, & > a:hover {
+    text-decoration: none;
+  }
+}
+
+@mixin image-background($image, $vertical: top, $horizontal: center, $repeat: no-repeat)
+{
+  
+  background-image: url($image);
+  background-repeat:  $repeat;
+  background-position: $vertical $horizontal;
+}

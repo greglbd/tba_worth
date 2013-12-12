@@ -3,7 +3,7 @@
 /* Questions - unique to each activity */
 angular.module('app.questions_controller', [])
 
-.controller('QuestionCtrl', function($scope, $modal){
+.controller('QuestionCtrl', ['$scope', '$modal', function($scope, $modal){
 //Controller for Questionnaire
   //Variables
   $scope.currentQuestion = 1;
@@ -105,7 +105,7 @@ angular.module('app.questions_controller', [])
         C: 'Incorrect. The correct answer is D. Click EXPLAIN if you want to review this topic.',
         D: 'Correct!'
       },
-      media: 'assets/images/figure2.png'
+      media: 'images/figure2.png'
     }
   ];
   
@@ -214,4 +214,4 @@ angular.module('app.questions_controller', [])
       //$scope.questionsControl('prev');
     });
   };  
-});
+}]);
