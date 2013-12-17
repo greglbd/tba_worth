@@ -22,8 +22,12 @@ body, p, span, div {
   color: $body-copy;
 }
 body {
-  background-color : #ccc !important; 
+  background-image: url(../images/bg-ie.gif);
   @include background-image(url(../images/bg.png), radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%));
+  &.landingbody {
+    background-color : #000 !important; 
+  
+  }
 }
 li {
   float: left;

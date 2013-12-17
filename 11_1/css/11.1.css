@@ -73,12 +73,15 @@ body, p, span, div {
 }
 
 body {
-  background-color: #ccc !important;
+  background-image: url(../images/bg-ie.gif);
   background-image: url(../images/bg.png), -webkit-gradient(radial, 50%, 0, 50%, 100, color-stop(16%, #ffffff), color-stop(100%, #cccccc));
   background-image: url(../images/bg.png), -webkit-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
   background-image: url(../images/bg.png), -moz-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
   background-image: url(../images/bg.png), -o-radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
   background-image: url(../images/bg.png), radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%);
+}
+body.landingbody {
+  background-color: #000 !important;
 }
 
 li {

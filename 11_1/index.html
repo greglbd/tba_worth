@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css">   
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
   </head>
-  <body ng-app="app" ng-cloak>
-    <div class="container-wrapper" ng-class="{'landingbg':currentPage==0}" ng-controller="PageCtrl" ng-click="startPageClick()" confirm-on-exit tabindex="0" ui-keydown="{32:'spacePressCallback($event)'}" key-ctrl>
+  <body ng-app="app" ng-cloak ng-controller="PageCtrl"  ng-class="{'landingbody':currentPage==0}">
+    <div class="container-wrapper" ng-class="{'landingbg':currentPage==0}" ng-click="startPageClick()" confirm-on-exit tabindex="0" ui-keydown="{32:'spacePressCallback($event)'}" key-ctrl>
       <div class="content-wrapper">
         <div class="page" ng-model="currentPage" ng-click="change(1)" ng-show="currentPage==0"  ng-animate="'fade'">
           <div class="container">
