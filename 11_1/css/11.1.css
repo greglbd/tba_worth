@@ -301,7 +301,8 @@ li.fullwidth {
   -moz-box-shadow: rgba(75, 75, 75, 0.7) 0px 2px 0px;
   box-shadow: rgba(75, 75, 75, 0.7) 0px 2px 0px;
   min-width: 100px;
-  outline: none;
+  outline: none !important;
+  border: none !important;
   text-shadow: rgba(75, 75, 75, 0) 0px 0px 0;
 }
 .bootstrap-overrides.btn-primary.spc, .bootstrap-overrides.btn-primary:focus.spc, .bootstrap-overrides.btn-primary:active.spc, .bootstrap-overrides.btn-primary:visited.spc, .bootstrap-overrides.btn-primary[disabled=disabled].spc, .bootstrap-overrides.btn-primary[disabled=disabled]:hover.spc, .bootstrap-overrides.btn-primary[disabled=disabled]:focus.spc {
