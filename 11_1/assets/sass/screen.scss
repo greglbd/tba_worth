@@ -41,13 +41,26 @@ li {
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
 }
-
 .page-title {
   @include font-large(bold);
 }
 
+.page-title-landing {
+  @include font-large(bold);
+  font-size: 30px;
+  margin: 66px 10px 30px;
+  color: #fff;
+}
+
 .page-copy {
   @include font-regular(normal);
+  
+}
+
+.landing-copy{
+  line-height: 20px;
+  color: #fff;
+  margin-bottom: 20px !important; 
 }
 
 .page-copy_margin {
@@ -110,6 +123,7 @@ li {
   background-color: #fff;
   display: table;
   min-height: 150px !important;
+  @include border-radius(5px);
 }
 
 .whitebox-cell{
@@ -343,6 +357,29 @@ width: 76% !important;
     background-position: 0 0px;
   }
 }
+
+.landingbg {
+  background-color: #000 !important;
+}
+.text-left {
+  text-align: left;
+  color: #000;
+  & > p {
+    font-size: 14px;
+    &.small {
+      font-size: 11px;
+    }
+  }
+}
+
+.trans-container {
+  width: 96%;
+  padding: 2%;
+  background-image: url(../images/trans-bg.png);
+  @include border-radius(5px);
+  margin-top: 40%;
+}
+
 @import "partials/11_1";
 @import "partials/animations";
  

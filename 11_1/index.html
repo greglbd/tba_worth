@@ -12,17 +12,24 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body ng-app="app" ng-cloak>
-    <div class="container-wrapper" ng-class="{'landingbg':currentPage==0, 'killiebg':currentPage!=0}" ng-controller="PageCtrl" ng-click="startPageClick()" confirm-on-exit tabindex="0" ui-keydown="{32:'spacePressCallback($event)'}" key-ctrl>
+    <div class="container-wrapper" ng-class="{'landingbg':currentPage==0}" ng-controller="PageCtrl" ng-click="startPageClick()" confirm-on-exit tabindex="0" ui-keydown="{32:'spacePressCallback($event)'}" key-ctrl>
       <div class="content-wrapper">
         <div class="page" ng-model="currentPage" ng-click="change(1)" ng-show="currentPage==0"  ng-animate="'fade'">
           <div class="container">
             <div class="row">
-              <div class="span12 whitebox">
+              <div class="span6">
                 <div class="whitebox-cell">
-                  <h1 class="page-title page-copy_margin centeredtext" ng-bind-html="activity_title"></h1>
-                  <p class="page-copy page-copy_margin centeredtext">Participate in simulated experiment demonstrating categorical perception</p>
-                  <p class="page-copy page-copy_margin centeredtext">Click anywhere to begin.</p>
+                  <h1 class="page-title-landing" ng-bind-html="activity_title"></h1>
+                  <p class="page-copy page-copy_margin landing-copy">Participate in simulated experiment demonstrating categorical perception</p>
+                  <div class="bootstrap-overrides btn btn-primary pull-left btn-inactive">Click anywhere to begin.</div>
+                  <div class="pull-left text-left trans-container">
+                    <p>The top waveform represents a syllable consisting of a voiceless stop consonant followed by a vowel; the bottom waveform represents the paired voiced stop consonant  followed by the same vowel. Both waveforms begin with an initial burst of frequencies corresponding to the consonant, followed by a period of near silence, followed by the frequencies corresponding to the vowel. The period of near silence is the voice onset time. </p>
+  <p class="small">Photo: Courtesy of Melvin Rouse, Jr.</p>
+                  </div>
                 </div>
+              </div>
+              <div class="span6">
+                <img src="images/opener.jpg"/>
               </div>
             </div>
           </div>
