@@ -234,7 +234,8 @@ width: 76% !important;
     @include border-radius(20px);
     @include box-shadow(rgba($body-copy, 0.7) 0px 2px 0px);
     min-width: 100px;
-    outline: none;
+    outline: none !important;
+    border: none !important;
     @include text-shadow(rgba($body-copy, 0) 0px 0px 0);
     
     &.spc {
