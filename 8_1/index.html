@@ -12,7 +12,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body ng-app="app" ng-cloak>
-    <div class="container-wrapper" ng-class="{'landingbg':currentPage==0}" ng-controller="PageCtrl" ng-click="startPageClick()" confirm-on-exit>
+    <div class="container-wrapper" ng-class="{'landingbg':currentPage==0, 'killiebg':currentPage!=0}" ng-controller="PageCtrl" ng-click="startPageClick()" confirm-on-exit>
       <div class="content-wrapper">
         <div class="page fade-show" ng-model="currentPage" ng-click="change(1)" ng-show="currentPage==0">
           <div class="container">
@@ -342,5 +342,12 @@
     <script src="assets/js/directives.js"></script>
     -->
     <script src="js/8.1.js"></script>
+    <script>
+      $(document).ready(function(){
+        if (!$.support.leadingWhitespace) {
+          $('.container-wrapper').addClass('ie8');
+        }
+      });
+    </script>
   </body>
 </html>

@@ -26,7 +26,7 @@ module.exports = (grunt) ->
 				preserveComments: true
 				stripBanners: false			
 			dist:
-				src: ['assets/js/angular.min.js','assets/js/angular-sanitize.js','assets/js/jquery-2.0.2.js','assets/js/jquery-ui-min.js','assets/js/ui-bootstrap-tpls-0.6.0.min.js','assets/js/keypress.js', 'assets/js/app.js','assets/js/controllers.js','assets/js/questions_controller.js','assets/js/directives.js','assets/js/highcharts/highcharts.js']
+				src: ['assets/js/angular.min.js','assets/js/angular-sanitize.js','assets/js/jquery-1.10.2.js','assets/js/jquery-ui-min.js','assets/js/ui-bootstrap-tpls-0.6.0.min.js','assets/js/keypress.js', 'assets/js/app.js','assets/js/controllers.js','assets/js/questions_controller.js','assets/js/directives.js','assets/js/highcharts/highcharts.js']
 				dest: 'js/<%= pkg.name %>.js'
                         	
 		uglify:

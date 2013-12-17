@@ -249,7 +249,8 @@ width: 76% !important;
     @include border-radius(20px);
     @include box-shadow(rgba($body-copy, 0.7) 0px 2px 0px);
     min-width: 100px;
-    outline: none;
+    outline: none !important;
+    border: none !important;
     @include text-shadow(rgba($body-copy, 0) 0px 0px 0);
   }
 
@@ -348,9 +349,23 @@ width: 76% !important;
 }
 
 .landingbg {
+  max-width: 100%;
   background-image: url('../images/opener.jpg');
-  background-position: top left;
+  background-position: center top;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
+}
+.ie8{
+  
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/opener.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/opener.jpg', sizingMethod='scale')";
+}
+.killiebg {
+  filter: none !important;
+  -ms-filter: none !important;
 }
 
 .text-right {
@@ -368,7 +383,7 @@ width: 76% !important;
 .trans-container {
   width: 96%;
   padding: 2%;
-  background-color: rgba(#fff, 0.75);
+  background-image: url(../images/trans-bg.png);
   @include border-radius(5px);
   margin-top: 40%;
 }
