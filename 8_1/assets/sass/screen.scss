@@ -22,8 +22,7 @@ body, p, span, div {
   color: $body-copy;
 }
 body {
-  background-color : #ccc !important; 
-  background-image: url(../images/bg.png);
+  background-image: url(../images/bg-ie.gif);
   @include background-image(url(../images/bg.png), radial-gradient(center, ellipse cover, #ffffff 16%, #cccccc 100%));
 }
 li {
@@ -87,7 +86,7 @@ li {
   display: table-cell;
   vertical-align: middle;
   padding: 100px 0;
-  background-color: rgba(#ffffff, 0.5);
+  background-image: url(../images/trans-bg.png);
   border: 2px solid #000;
   margin-bottom: 12px;
   
